@@ -1,6 +1,6 @@
 import { GQLDiagram, GQLNode } from './DiagramRepresentation.types';
 
-class DirectionalGraph {
+export class DirectionalGraph {
   private nodes: Map<GQLNode, Set<GQLNode>>;
   private numberOfConnectionsPerNode: Map<GQLNode, number>;
 
