@@ -10,7 +10,7 @@ export class DirectionalGraph {
   }
 
   addNode(node: GQLNode): void {
-    if (!this.nodes.has(node)) {
+    if (!this.nodes.has(node) && node != undefined) {
       this.nodes.set(node, new Set<GQLNode>());
     }
     if (!this.numberOfConnectionsPerNode.has(node)) {
@@ -19,30 +19,24 @@ export class DirectionalGraph {
   }
 
   addEdge(source: GQLNode, destination: GQLNode): void {
-    this.addNode(source);
-    this.addNode(destination);
+    if (source != undefined && destination != undefined) {
+      this.addNode(source);
+      this.addNode(destination);
 
-    this.nodes.get(source).add(destination);
+      this.nodes.get(source).add(destination);
 
-    this.numberOfConnectionsPerNode.set(source, this.numberOfConnectionsPerNode.get(source) + 1);
-    this.numberOfConnectionsPerNode.set(destination, this.numberOfConnectionsPerNode.get(destination) + 1);
+      this.numberOfConnectionsPerNode.set(source, this.numberOfConnectionsPerNode.get(source) + 1);
+      this.numberOfConnectionsPerNode.set(destination, this.numberOfConnectionsPerNode.get(destination) + 1);
+    }
   }
 
-  /* getNodesNumberOfConnections(): Map<GQLNode, number> {
-    this.numberOfConnectionsPerNode = new Map<GQLNode, number>();
-    for (const key of this.nodes.keys()) {
-      if (!this.numberOfConnectionsPerNode.has(key)) {
-        this.numberOfConnectionsPerNode.set(key, this.nodes.get(key).size);
-      }
-      for (const value of this.nodes.get(key)) {
-        if (!this.numberOfConnectionsPerNode.has(value)) {
-          this.numberOfConnectionsPerNode.set(value, this.nodes.get(value).size);
-        }
-        this.numberOfConnectionsPerNode.set(value, this.numberOfConnectionsPerNode.get(value) + 1);
-      }
+  getNodes(): GQLNode[] {
+    const nodes = [];
+    for (const node of this.nodes.keys()) {
+      nodes.push(node);
     }
-    return this.numberOfConnectionsPerNode;
-  } */
+    return nodes;
+  }
 
   getLeaveNodes(): GQLNode[] {
     let leaveNode: GQLNode[] = [];
@@ -115,6 +109,19 @@ export const mapIdToNodes = (diagram: GQLDiagram): Map<string, GQLNode> => {
     let idToNodes = new Map<string, GQLNode>();
     const nodes = diagram.nodes;
     for (const node of nodes) {
+      for (const child of node.childNodes) {
+        idToNodes.set(child.id, child);
+      }
+    }
+    return idToNodes;
+  }
+  return null;
+};
+
+export const mapIdToNodesAtLevel = (nodes: GQLNode[]): Map<string, GQLNode> => {
+  if (nodes != null) {
+    let idToNodes = new Map<string, GQLNode>();
+    for (const node of nodes) {
       idToNodes.set(node.id, node);
     }
     return idToNodes;
@@ -122,18 +129,50 @@ export const mapIdToNodes = (diagram: GQLDiagram): Map<string, GQLNode> => {
   return null;
 };
 
-export const diagramToGraph = (diagram: GQLDiagram): DirectionalGraph => {
+export const diagramToGraph = (diagram: GQLDiagram): [Map<number, DirectionalGraph>, GQLNode[]] => {
   if (diagram != null) {
-    let graph = new DirectionalGraph();
-    const map = mapIdToNodes(diagram);
-    const edges = diagram.edges;
-    for (const node of map.keys()) {
-      graph.addNode(map.get(node));
+    let graphWithLevel = new Map<number, DirectionalGraph>();
+    const [mapOfLevel, nodeList] = getEachLevelOfNodes(diagram);
+    for (const level of mapOfLevel.keys()) {
+      let graph = new DirectionalGraph();
+      const map = mapIdToNodesAtLevel(mapOfLevel.get(level));
+      const edges = diagram.edges;
+      for (const node of map.keys()) {
+        graph.addNode(map.get(node));
+      }
+      for (const edge of edges) {
+        graph.addEdge(map.get(edge.sourceId), map.get(edge.targetId));
+      }
+      graphWithLevel.set(level, graph);
     }
-    for (const edge of edges) {
-      graph.addEdge(map.get(edge.sourceId), map.get(edge.targetId));
+    return [graphWithLevel, nodeList];
+  }
+  return null;
+};
+
+export const getEachLevelOfNodes = (diagram: GQLDiagram): [Map<number, GQLNode[]>, GQLNode[]] => {
+  if (diagram != null) {
+    const map = new Map<number, GQLNode[]>();
+    const nodeList: GQLNode[] = structuredClone(diagram.nodes);
+    var floor = false;
+    var count = 0;
+    var nodesAtEachLevel = diagram.nodes;
+    while (!floor) {
+      map.set(count, nodesAtEachLevel);
+      count++;
+      const nodesAtNextLevel: GQLNode[] = [];
+      for (const node of nodesAtEachLevel) {
+        for (const child of node.childNodes) {
+          nodesAtNextLevel.push(child);
+          nodeList.push(child);
+        }
+      }
+      nodesAtEachLevel = nodesAtNextLevel;
+      if (nodesAtEachLevel.length == 0) {
+        floor = true;
+      }
     }
-    return graph;
+    return [map, nodeList];
   }
   return null;
 };

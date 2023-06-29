@@ -16,7 +16,7 @@ export const getDiagramNodesName = (diagram: GQLDiagram): string => {
     var childrenNames: string = '';
     const diagramNodes = diagram.nodes;
     for (const node of diagramNodes) {
-      childrenNames += 'node : ' + node.label.text + ' children : ';
+      childrenNames += 'node : ' + node.label.text + ' type : ' + node.descriptionId + ' children : ';
       if (node.childNodes.length == 0) {
         childrenNames += 'void';
       }
@@ -154,12 +154,12 @@ export class DiagramRefreshTool {
       this.diagramServer = diagramServer;
       this.originDiagramNodes = mapIdToNodes(structuredClone(diagram));
     }
-    const levelDifference = +this.level - +level;
+    const zoomLevelDifference = +this.level - +level;
     this.level = level;
-    const graph = diagramToGraph(this.diagram);
+    const [graph, nodeList] = diagramToGraph(this.diagram);
     if (graph != null) {
-      this.hideNodesWithLevel(this.diagram, graph, this.level, levelDifference);
-      console.log(getDiagramNodesState(this.diagram));
+      this.hideNodesWithLevel(this.diagram, graph, this.level, zoomLevelDifference, nodeList);
+      //console.log(getDiagramNodesState(this.diagram));
       const action: SiriusUpdateModelAction = {
         kind: 'siriusUpdateModel',
         diagram: this.diagram,
@@ -170,9 +170,90 @@ export class DiagramRefreshTool {
     }
   };
 
-  hideNodesWithLevel(diagram: GQLDiagram, graph: DirectionalGraph, level: string, levelDifference: number) {
+  hideNodesWithLevel(
+    diagram: GQLDiagram,
+    graph: Map<number, DirectionalGraph>,
+    level: string,
+    zoomLevelDifference: number,
+    nodeList: GQLNode[]
+  ) {
     var elements: GQLNode[] = [];
-    switch (level) {
+    const zoomLevelNumber: number = +level;
+    var count: number = 0;
+    const numberOfLevels = [...graph.keys()].length;
+    var scaleCount: number = [...graph.keys()].length + numberOfLevels / 6;
+    if (zoomLevelNumber < 1) {
+      ({ scaleCount, count } = scaleLevelHiding(scaleCount, numberOfLevels, count, graph, elements));
+    }
+    if (zoomLevelNumber < 0.75) {
+      ({ scaleCount, count } = scaleLevelHiding(scaleCount, numberOfLevels, count, graph, elements));
+    }
+    if (zoomLevelNumber < 0.5) {
+      ({ scaleCount, count } = scaleLevelHiding(scaleCount, numberOfLevels, count, graph, elements));
+    }
+    if (zoomLevelNumber < 0.25) {
+      ({ scaleCount, count } = scaleLevelHiding(scaleCount, numberOfLevels, count, graph, elements));
+    }
+    if (zoomLevelNumber < 0.1) {
+      ({ scaleCount, count } = scaleLevelHiding(scaleCount, numberOfLevels, count, graph, elements));
+    }
+    var numberOfRemainingElements: number = diagram.nodes.length - elements.length;
+    for (const element of elements) {
+      element.state = GQLViewModifier.Hidden;
+    }
+    for (const element of nodeList) {
+      if (!elements.includes(element)) {
+        element.state = GQLViewModifier.Normal;
+        if (numberOfRemainingElements < 4 && element.size.height < 200 && element.size.width < 200) {
+          //the label does not make the adjustement with the size of the image and the size remains the same when going to an other size
+          /* element.size.height = 200;
+          element.size.width = 200; */
+        }
+      }
+    }
+  }
+}
+
+function scaleLevelHiding(
+  scaleCount: number,
+  numberOfLevels: number,
+  count: number,
+  graph: Map<number, DirectionalGraph>,
+  elements: GQLNode[]
+) {
+  if (Math.floor(scaleCount - numberOfLevels / 6) != Math.floor(scaleCount)) {
+    count = addElementByLevel(graph, count, elements, true);
+  } else {
+    count = addElementByLevel(graph, count, elements, false);
+  }
+  scaleCount = scaleCount - numberOfLevels / 6;
+  return { scaleCount, count };
+}
+
+function addElementByLevel(
+  graph: Map<number, DirectionalGraph>,
+  count: number,
+  elements: GQLNode[],
+  changingLevelOfHiding: boolean
+) {
+  if (graph.size - count - 1 != 0) {
+    if (changingLevelOfHiding) {
+      for (const node of graph.get(graph.size - count - 1).getNodes()) {
+        elements.push(node);
+      }
+      count++;
+    } else {
+      const numberOfConnectionsPerNode = graph.get(graph.size - count - 1).getNumberOfConnectionsPerNode();
+      for (const node of numberOfConnectionsPerNode.keys()) {
+        if (numberOfConnectionsPerNode.get(node) < 3) {
+          elements.push(node);
+        }
+      }
+    }
+  }
+  return count;
+}
+/* switch (level) {
       case '1.25':
         for (const node of diagram.nodes) {
           node.label.text = '';
@@ -180,8 +261,6 @@ export class DiagramRefreshTool {
         break;
       case '1':
         if (levelDifference == 0.25) {
-          console.log('Hey');
-          console.log(this.originDiagramNodes);
           for (const node of diagram.nodes) {
             node.label.text = this.originDiagramNodes.get(node.id).label.text;
           }
@@ -211,20 +290,4 @@ export class DiagramRefreshTool {
       default:
         elements = graph.getRootNodes();
         break;
-    }
-    var numberOfRemainingElements: number = diagram.nodes.length - elements.length;
-    for (const element of elements) {
-      element.state = GQLViewModifier.Hidden;
-    }
-    for (const element of diagram.nodes) {
-      if (!elements.includes(element)) {
-        element.state = GQLViewModifier.Normal;
-        if (numberOfRemainingElements < 4 && element.size.height < 200 && element.size.width < 200) {
-          //the label does not make the adjustement with the size of the image and the size remains the same when going to an other size
-          /* element.size.height = 200;
-          element.size.width = 200; */
-        }
-      }
-    }
-  }
-}
+    } */
