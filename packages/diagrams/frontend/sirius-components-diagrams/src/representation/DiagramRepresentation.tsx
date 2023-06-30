@@ -907,6 +907,9 @@ export const DiagramRepresentation = ({
       editingContextId,
       representationId,
     };
+    console.log(input.representationId);
+    console.log(diagramRefreshTool.diagram.id);
+    console.log(diagramRefreshTool.diagram);
     arrangeAllMutation({ variables: { input } });
     //diagramRefreshTool.refreshDiagram(diagram, diagramDescription, readOnly, diagramServer);
   };

@@ -187,6 +187,7 @@ export class DiagramRefreshTool {
     }
     if (zoomLevelNumber < 0.75) {
       ({ scaleCount, count } = scaleLevelHiding(scaleCount, numberOfLevels, count, graph, elements));
+      hideEdgesLabel(diagram);
     }
     if (zoomLevelNumber < 0.5) {
       ({ scaleCount, count } = scaleLevelHiding(scaleCount, numberOfLevels, count, graph, elements));
@@ -204,12 +205,33 @@ export class DiagramRefreshTool {
     for (const element of nodeList) {
       if (!elements.includes(element)) {
         element.state = GQLViewModifier.Normal;
+        if (zoomLevelNumber >= 1) {
+          element.label.style.fontSize = 14;
+        }
+        if (zoomLevelDifference > 0 && zoomLevelNumber < 1) {
+          element.label.style.fontSize = 30;
+        }
+        //console.log(element.label.text + ' ' + element.label.style.fontSize);
         if (numberOfRemainingElements < 4 && element.size.height < 200 && element.size.width < 200) {
           //the label does not make the adjustement with the size of the image and the size remains the same when going to an other size
           /* element.size.height = 200;
           element.size.width = 200; */
         }
       }
+    }
+  }
+}
+
+function hideEdgesLabel(diagram: GQLDiagram): void {
+  for (const edge of diagram.edges) {
+    if (edge.beginLabel != null) {
+      edge.beginLabel.text = '';
+    }
+    if (edge.centerLabel != null) {
+      edge.centerLabel.text = '';
+    }
+    if (edge.endLabel != null) {
+      edge.endLabel.text = '';
     }
   }
 }
