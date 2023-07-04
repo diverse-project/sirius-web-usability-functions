@@ -916,7 +916,6 @@ export const DiagramRepresentation = ({
       const action: ZoomToAction = { kind: 'zoomTo', level };
       diagramServer.actionDispatcher.dispatch(action);
       const selectZoomLevelEvent: SelectZoomLevelEvent = { type: 'SELECT_ZOOM_LEVEL', level };
-      console.log(diagram);
       diagramRefreshTool.refreshDiagramWhithLevel(diagram, diagramDescription, readOnly, diagramServer, level);
       dispatch(selectZoomLevelEvent);
     }
