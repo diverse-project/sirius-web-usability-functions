@@ -83,7 +83,7 @@ export class DiagramRefreshTool {
     var count: number = 0; //Variable storing number of level of the diagram we worked on
     const numberOfLevels = [...graph.keys()].length; //Number of level of the diagram
     var scaleCount: number = [...graph.keys()].length + numberOfLevels / 6; //Variable used to scale the modifications applied at each level of zoom
-                                                                            //When the entire part of the number change, it means that we need to hide a level of nodes of the diagram
+    //When the entire part of the number change, it means that we need to hide a level of nodes of the diagram
     const listOfLevelsNumber: number[] = [1.0, 0.75, 0.5, 0.25, 0.1, 0.05];
     if (this.listOfLevels == null) {
       this.listOfLevels = new Map<number, GQLNode[]>(); //Initialize the list of all nodes (to store state, size, label) at each level of zoom
@@ -105,20 +105,6 @@ export class DiagramRefreshTool {
             elements,
             zoomLevelDifference
           ));
-          //For all elements added in the previous function, we hide these elements
-          for (const element of elements) {
-            element.state = GQLViewModifier.Hidden;
-          }
-          //For all elements not added in the previous function, we reveal these elements
-          for (const element of nodeList) {
-            if (!elements.includes(element)) {
-              //We reset the fontSize if we are at level 100%
-              if (zoomLevelNumber == 1.0) {
-                element.label.style.fontSize = 14;
-              }
-              element.state = GQLViewModifier.Normal;
-            }
-          }
           //Saving the list of the current value of each node by storing a copy of these and setting the map at this level of zoom
           const tmpNodeList: GQLNode[] = [];
           for (const node of nodeList) {
@@ -131,7 +117,7 @@ export class DiagramRefreshTool {
     //We set the diagram (value of each node) to the value stored in the map
     for (const level of listOfLevelsNumber) {
       if (zoomLevelNumber == level) {
-        if(level == 0.75) {
+        if (level == 0.75) {
           this.hideEdgesLabel(this.diagram);
         }
         for (let i = 0; i < nodeList.length; i++) {
@@ -188,13 +174,15 @@ export class DiagramRefreshTool {
     zoomLevelDifference: number
   ) {
     if (graph.size - count - 1 != 0) {
-      if (zoomLevelDifference > 0) { //If we are zooming out
-        if (changingLevelOfHiding) { //If we are changing of level
+      if (zoomLevelDifference > 0) {
+        //If we are zooming out
+        if (changingLevelOfHiding) {
+          //If we are changing of level
           for (let i = graph.size - count - 1; i >= 0; i--) {
             for (const node of graph.get(i).getNodes()) {
               node.label.style.fontSize = 30; //For all nodes, set the font size to 30
               if (i == graph.size - count - 1) {
-                elements.push(node); //Adding all the nodes of the current level to the list to hide
+                node.state = GQLViewModifier.Hidden; //Adding all the nodes of the current level to the list to hide
               } else if (i == graph.size - count - 2) {
                 //Setting the size and the position all following nodes tohave a better display
                 node.size.width = 200;
@@ -206,13 +194,13 @@ export class DiagramRefreshTool {
               }
             }
           }
-          count++; //Because we have hidden a level, we increment the count 
+          count++; //Because we have hidden a level, we increment the count
         } else {
           //If we don't change the level of nodes in the diagram, we perform other changes like keeping the nodes with more than 3 connections
           const numberOfConnectionsPerNode = graph.get(graph.size - count - 1).getNumberOfConnectionsPerNode();
           for (const node of numberOfConnectionsPerNode.keys()) {
             if (numberOfConnectionsPerNode.get(node) < 3) {
-              elements.push(node);
+              node.state = GQLViewModifier.Hidden;
             }
           }
         }
