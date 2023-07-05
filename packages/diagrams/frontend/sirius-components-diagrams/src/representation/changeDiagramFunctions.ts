@@ -78,7 +78,6 @@ export class DiagramRefreshTool {
     zoomLevelDifference: number,
     nodeList: GQLNode[]
   ) {
-    var elements: GQLNode[] = []; //List of elements which will be hidden
     const zoomLevelNumber: number = +level;
     var count: number = 0; //Variable storing number of level of the diagram we worked on
     const numberOfLevels = [...graph.keys()].length; //Number of level of the diagram
@@ -102,7 +101,6 @@ export class DiagramRefreshTool {
             numberOfLevels,
             count,
             graph,
-            elements,
             zoomLevelDifference
           ));
           //Saving the list of the current value of each node by storing a copy of these and setting the map at this level of zoom
@@ -152,24 +150,22 @@ export class DiagramRefreshTool {
     numberOfLevels: number,
     count: number,
     graph: Map<number, DirectionalGraph>,
-    elements: GQLNode[],
     zoomLevelDifference: number
   ) {
     //console.log(Math.floor(scaleCount - numberOfLevels / 6) + ' == ' + Math.floor(scaleCount));
     if (Math.floor(scaleCount - numberOfLevels / 6) != Math.floor(scaleCount)) {
-      count = this.addElementByLevel(graph, count, elements, true, zoomLevelDifference); //Call to the function with a level change
+      count = this.addElementByLevel(graph, count, true, zoomLevelDifference); //Call to the function with a level change
     } else {
-      count = this.addElementByLevel(graph, count, elements, false, zoomLevelDifference); //Call to the function without a level change
+      count = this.addElementByLevel(graph, count, false, zoomLevelDifference); //Call to the function without a level change
     }
     scaleCount = scaleCount - numberOfLevels / 6; //Decrementing the scaled count
     return { scaleCount, count };
   }
 
-  //Add elements to the list of elements to hide and modify properties of the nodes
+  //Hide and modify properties of the nodes
   addElementByLevel(
     graph: Map<number, DirectionalGraph>,
     count: number,
-    elements: GQLNode[],
     changingLevelOfHiding: boolean,
     zoomLevelDifference: number
   ) {
