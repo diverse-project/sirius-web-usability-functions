@@ -1706,6 +1706,29 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.sirius.components.view.SemanticZoom}
+     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected SemanticZoomItemProvider semanticZoomItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.sirius.components.view.SemanticZoom}. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createSemanticZoomAdapter() {
+        if (this.semanticZoomItemProvider == null) {
+            this.semanticZoomItemProvider = new SemanticZoomItemProvider(this);
+        }
+
+        return this.semanticZoomItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link org.eclipse.sirius.components.view.BarChartDescription}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -2098,6 +2121,8 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
             this.edgePaletteItemProvider.dispose();
         if (this.selectionDescriptionItemProvider != null)
             this.selectionDescriptionItemProvider.dispose();
+        if (this.semanticZoomItemProvider != null)
+            this.semanticZoomItemProvider.dispose();
     }
 
 }

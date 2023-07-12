@@ -234,6 +234,7 @@ public class NodeComponent implements IComponent {
                 .position(position)
                 .size(size)
                 .userResizable(nodeDescription.isUserResizable())
+                .activeSemanticZoom(nodeDescription.isActiveSemanticZoom())
                 .children(nodeChildren)
                 .customizableProperties(customizableProperties)
                 .modifiers(modifiers)

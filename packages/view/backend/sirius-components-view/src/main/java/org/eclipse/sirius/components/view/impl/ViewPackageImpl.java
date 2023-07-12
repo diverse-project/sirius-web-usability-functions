@@ -99,6 +99,7 @@ import org.eclipse.sirius.components.view.RichTextDescription;
 import org.eclipse.sirius.components.view.SelectDescription;
 import org.eclipse.sirius.components.view.SelectDescriptionStyle;
 import org.eclipse.sirius.components.view.SelectionDescription;
+import org.eclipse.sirius.components.view.SemanticZoom;
 import org.eclipse.sirius.components.view.SetValue;
 import org.eclipse.sirius.components.view.SourceEdgeEndReconnectionTool;
 import org.eclipse.sirius.components.view.Style;
@@ -744,6 +745,13 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      *
      * @generated
      */
+    private EClass semanticZoomEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EEnum layoutDirectionEEnum = null;
 
     /**
@@ -1190,7 +1198,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getNodeDescription_ChildrenLayoutStrategy() {
+    public EReference getNodeDescription_SemanticZoom() {
         return (EReference) this.nodeDescriptionEClass.getEStructuralFeatures().get(2);
     }
 
@@ -1200,7 +1208,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getNodeDescription_Style() {
+    public EReference getNodeDescription_ChildrenLayoutStrategy() {
         return (EReference) this.nodeDescriptionEClass.getEStructuralFeatures().get(3);
     }
 
@@ -1210,7 +1218,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getNodeDescription_ConditionalStyles() {
+    public EReference getNodeDescription_Style() {
         return (EReference) this.nodeDescriptionEClass.getEStructuralFeatures().get(4);
     }
 
@@ -1220,7 +1228,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getNodeDescription_ChildrenDescriptions() {
+    public EReference getNodeDescription_ConditionalStyles() {
         return (EReference) this.nodeDescriptionEClass.getEStructuralFeatures().get(5);
     }
 
@@ -1230,7 +1238,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getNodeDescription_BorderNodesDescriptions() {
+    public EReference getNodeDescription_ChildrenDescriptions() {
         return (EReference) this.nodeDescriptionEClass.getEStructuralFeatures().get(6);
     }
 
@@ -1240,7 +1248,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getNodeDescription_ReusedChildNodeDescriptions() {
+    public EReference getNodeDescription_BorderNodesDescriptions() {
         return (EReference) this.nodeDescriptionEClass.getEStructuralFeatures().get(7);
     }
 
@@ -1250,7 +1258,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getNodeDescription_ReusedBorderNodeDescriptions() {
+    public EReference getNodeDescription_ReusedChildNodeDescriptions() {
         return (EReference) this.nodeDescriptionEClass.getEStructuralFeatures().get(8);
     }
 
@@ -1260,8 +1268,18 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
+    public EReference getNodeDescription_ReusedBorderNodeDescriptions() {
+        return (EReference) this.nodeDescriptionEClass.getEStructuralFeatures().get(9);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EAttribute getNodeDescription_UserResizable() {
-        return (EAttribute) this.nodeDescriptionEClass.getEStructuralFeatures().get(9);
+        return (EAttribute) this.nodeDescriptionEClass.getEStructuralFeatures().get(10);
     }
 
     /**
@@ -3720,6 +3738,26 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
+    public EClass getSemanticZoom() {
+        return this.semanticZoomEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getSemanticZoom_ActiveSemanticZoom() {
+        return (EAttribute) this.semanticZoomEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EEnum getLayoutDirection() {
         return this.layoutDirectionEEnum;
     }
@@ -3900,6 +3938,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
         this.nodeDescriptionEClass = this.createEClass(NODE_DESCRIPTION);
         this.createEAttribute(this.nodeDescriptionEClass, NODE_DESCRIPTION__COLLAPSIBLE);
         this.createEReference(this.nodeDescriptionEClass, NODE_DESCRIPTION__PALETTE);
+        this.createEReference(this.nodeDescriptionEClass, NODE_DESCRIPTION__SEMANTIC_ZOOM);
         this.createEReference(this.nodeDescriptionEClass, NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY);
         this.createEReference(this.nodeDescriptionEClass, NODE_DESCRIPTION__STYLE);
         this.createEReference(this.nodeDescriptionEClass, NODE_DESCRIPTION__CONDITIONAL_STYLES);
@@ -4234,6 +4273,9 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
         this.createEAttribute(this.selectionDescriptionEClass, SELECTION_DESCRIPTION__SELECTION_CANDIDATES_EXPRESSION);
         this.createEAttribute(this.selectionDescriptionEClass, SELECTION_DESCRIPTION__SELECTION_MESSAGE);
 
+        this.semanticZoomEClass = this.createEClass(SEMANTIC_ZOOM);
+        this.createEAttribute(this.semanticZoomEClass, SEMANTIC_ZOOM__ACTIVE_SEMANTIC_ZOOM);
+
         // Create enums
         this.layoutDirectionEEnum = this.createEEnum(LAYOUT_DIRECTION);
         this.arrowStyleEEnum = this.createEEnum(ARROW_STYLE);
@@ -4435,6 +4477,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getNodeDescription_Palette(), this.getNodePalette(), null, "palette", null, 0, 1, NodeDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getNodeDescription_SemanticZoom(), this.getSemanticZoom(), null, "semanticZoom", null, 0, 1, NodeDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getNodeDescription_ChildrenLayoutStrategy(), this.getLayoutStrategyDescription(), null, "childrenLayoutStrategy", null, 0, 1, NodeDescription.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getNodeDescription_Style(), this.getNodeStyleDescription(), null, "style", null, 0, 1, NodeDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
@@ -4951,6 +4995,10 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
         this.initEAttribute(this.getSelectionDescription_SelectionCandidatesExpression(), this.getInterpretedExpression(), "selectionCandidatesExpression", "aql:self", 0, 1,
                 SelectionDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getSelectionDescription_SelectionMessage(), this.ecorePackage.getEString(), "selectionMessage", null, 0, 1, SelectionDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        this.initEClass(this.semanticZoomEClass, SemanticZoom.class, "SemanticZoom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getSemanticZoom_ActiveSemanticZoom(), this.ecorePackage.getEBoolean(), "activeSemanticZoom", null, 0, 1, SemanticZoom.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals

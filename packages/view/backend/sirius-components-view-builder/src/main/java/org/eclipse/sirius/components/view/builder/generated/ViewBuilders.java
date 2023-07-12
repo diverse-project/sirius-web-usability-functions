@@ -120,6 +120,16 @@ public class ViewBuilders {
     }
 
     /**
+     * Instantiate a FreeFormLayoutStrategyDescriptionBuilder .
+     *
+     * @author BuilderGenerator
+     * @generated
+     */
+    public SemanticZoomBuilder newSemanticZoom() {
+        return new SemanticZoomBuilder();
+    }
+
+    /**
      * Instantiate a ListLayoutStrategyDescriptionBuilder .
      *
      * @author BuilderGenerator

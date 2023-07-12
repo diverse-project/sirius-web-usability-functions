@@ -127,6 +127,7 @@ export class DiagramRefreshTool {
         }
       }
     }
+    console.log(this.diagram);
   }
 
   //Hide the label of all edges

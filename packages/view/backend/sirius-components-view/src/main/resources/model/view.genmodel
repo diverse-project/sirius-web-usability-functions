@@ -97,6 +97,7 @@
     <genClasses ecoreClass="view.ecore#//NodeDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//NodeDescription/collapsible"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//NodeDescription/palette"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//NodeDescription/semanticZoom"/>
       <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference view.ecore#//NodeDescription/childrenLayoutStrategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//NodeDescription/style"/>
@@ -407,6 +408,9 @@
     <genClasses ecoreClass="view.ecore#//SelectionDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//SelectionDescription/selectionCandidatesExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//SelectionDescription/selectionMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="view.ecore#//SemanticZoom">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//SemanticZoom/activeSemanticZoom"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

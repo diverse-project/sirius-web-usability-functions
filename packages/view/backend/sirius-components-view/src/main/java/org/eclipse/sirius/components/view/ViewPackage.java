@@ -548,13 +548,22 @@ public interface ViewPackage extends EPackage {
     int NODE_DESCRIPTION__PALETTE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Semantic Zoom</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_DESCRIPTION__SEMANTIC_ZOOM = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 2;
+
+    /**
      * The feature id for the '<em><b>Children Layout Strategy</b></em>' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 2;
+    int NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Style</b></em>' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -563,7 +572,7 @@ public interface ViewPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION__STYLE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 3;
+    int NODE_DESCRIPTION__STYLE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list. <!-- begin-user-doc -->
@@ -572,7 +581,7 @@ public interface ViewPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION__CONDITIONAL_STYLES = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 4;
+    int NODE_DESCRIPTION__CONDITIONAL_STYLES = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Children Descriptions</b></em>' containment reference list. <!-- begin-user-doc
@@ -581,7 +590,7 @@ public interface ViewPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION__CHILDREN_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 5;
+    int NODE_DESCRIPTION__CHILDREN_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Border Nodes Descriptions</b></em>' containment reference list. <!--
@@ -590,7 +599,7 @@ public interface ViewPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION__BORDER_NODES_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 6;
+    int NODE_DESCRIPTION__BORDER_NODES_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Reused Child Node Descriptions</b></em>' reference list. <!-- begin-user-doc -->
@@ -599,7 +608,7 @@ public interface ViewPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION__REUSED_CHILD_NODE_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 7;
+    int NODE_DESCRIPTION__REUSED_CHILD_NODE_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Reused Border Node Descriptions</b></em>' reference list. <!-- begin-user-doc -->
@@ -608,7 +617,7 @@ public interface ViewPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION__REUSED_BORDER_NODE_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 8;
+    int NODE_DESCRIPTION__REUSED_BORDER_NODE_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>User Resizable</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -616,7 +625,7 @@ public interface ViewPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION__USER_RESIZABLE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 9;
+    int NODE_DESCRIPTION__USER_RESIZABLE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 10;
 
     /**
      * The number of structural features of the '<em>Node Description</em>' class. <!-- begin-user-doc --> <!--
@@ -625,7 +634,7 @@ public interface ViewPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION_FEATURE_COUNT = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 10;
+    int NODE_DESCRIPTION_FEATURE_COUNT = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 11;
 
     /**
      * The number of operations of the '<em>Node Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -6547,6 +6556,42 @@ public interface ViewPackage extends EPackage {
     int SELECTION_DESCRIPTION_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.impl.SemanticZoomImpl <em>Semantic
+     * Zoom</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see org.eclipse.sirius.components.view.impl.SemanticZoomImpl
+     * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getSemanticZoom()
+     * @generated
+     */
+    int SEMANTIC_ZOOM = 88;
+
+    /**
+     * The feature id for the '<em><b>Active Semantic Zoom</b></em>' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int SEMANTIC_ZOOM__ACTIVE_SEMANTIC_ZOOM = 0;
+
+    /**
+     * The number of structural features of the '<em>Semantic Zoom</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int SEMANTIC_ZOOM_FEATURE_COUNT = 1;
+
+    /**
+     * The number of operations of the '<em>Semantic Zoom</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int SEMANTIC_ZOOM_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.LayoutDirection <em>Layout Direction</em>}'
      * enum. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -6554,7 +6599,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getLayoutDirection()
      * @generated
      */
-    int LAYOUT_DIRECTION = 88;
+    int LAYOUT_DIRECTION = 89;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.ArrowStyle <em>Arrow Style</em>}' enum.
@@ -6564,7 +6609,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getArrowStyle()
      * @generated
      */
-    int ARROW_STYLE = 89;
+    int ARROW_STYLE = 90;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.LineStyle <em>Line Style</em>}' enum. <!--
@@ -6574,7 +6619,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.LineStyle
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getLineStyle()
      */
-    int LINE_STYLE = 90;
+    int LINE_STYLE = 91;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.NodeContainmentKind <em>Node Containment
@@ -6584,7 +6629,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getNodeContainmentKind()
      * @generated
      */
-    int NODE_CONTAINMENT_KIND = 91;
+    int NODE_CONTAINMENT_KIND = 92;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.SynchronizationPolicy <em>Synchronization
@@ -6594,7 +6639,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getSynchronizationPolicy()
      * @generated
      */
-    int SYNCHRONIZATION_POLICY = 92;
+    int SYNCHRONIZATION_POLICY = 93;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.GroupDisplayMode <em>Group Display
@@ -6604,7 +6649,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getGroupDisplayMode()
      * @generated
      */
-    int GROUP_DISPLAY_MODE = 93;
+    int GROUP_DISPLAY_MODE = 94;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.FlexDirection <em>Flex Direction</em>}'
@@ -6614,7 +6659,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getFlexDirection()
      * @generated
      */
-    int FLEX_DIRECTION = 94;
+    int FLEX_DIRECTION = 95;
 
     /**
      * The meta object id for the '<em>Identifier</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -6623,7 +6668,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getIdentifier()
      * @generated
      */
-    int IDENTIFIER = 95;
+    int IDENTIFIER = 96;
 
     /**
      * The meta object id for the '<em>Interpreted Expression</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
@@ -6633,7 +6678,7 @@ public interface ViewPackage extends EPackage {
      * @see java.lang.String
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getInterpretedExpression()
      */
-    int INTERPRETED_EXPRESSION = 96;
+    int INTERPRETED_EXPRESSION = 97;
 
     /**
      * The meta object id for the '<em>Domain Type</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -6642,7 +6687,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getDomainType()
      * @generated
      */
-    int DOMAIN_TYPE = 97;
+    int DOMAIN_TYPE = 98;
 
     /**
      * The meta object id for the '<em>Color</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -6651,7 +6696,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getColor()
      * @generated
      */
-    int COLOR = 98;
+    int COLOR = 99;
 
     /**
      * The meta object id for the '<em>Length</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -6659,7 +6704,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getLength()
      * @generated
      */
-    int LENGTH = 99;
+    int LENGTH = 100;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.components.view.View <em>View</em>}'. <!--
@@ -7001,6 +7046,18 @@ public interface ViewPackage extends EPackage {
      * @generated
      */
     EReference getNodeDescription_Palette();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.NodeDescription#getSemanticZoom <em>Semantic Zoom</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Semantic Zoom</em>'.
+     * @see org.eclipse.sirius.components.view.NodeDescription#getSemanticZoom()
+     * @see #getNodeDescription()
+     * @generated
+     */
+    EReference getNodeDescription_SemanticZoom();
 
     /**
      * Returns the meta object for the containment reference
@@ -8141,8 +8198,8 @@ public interface ViewPackage extends EPackage {
      * Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Group Description</em>'.
-     * @generated
      * @see org.eclipse.sirius.components.view.GroupDescription
+     * @generated
      */
     EClass getGroupDescription();
 
@@ -9855,6 +9912,28 @@ public interface ViewPackage extends EPackage {
     EAttribute getSelectionDescription_SelectionMessage();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.SemanticZoom <em>Semantic
+     * Zoom</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Semantic Zoom</em>'.
+     * @see org.eclipse.sirius.components.view.SemanticZoom
+     * @generated
+     */
+    EClass getSemanticZoom();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.SemanticZoom#isActiveSemanticZoom <em>Active Semantic Zoom</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Active Semantic Zoom</em>'.
+     * @see org.eclipse.sirius.components.view.SemanticZoom#isActiveSemanticZoom()
+     * @see #getSemanticZoom()
+     * @generated
+     */
+    EAttribute getSemanticZoom_ActiveSemanticZoom();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.sirius.components.view.LayoutDirection <em>Layout
      * Direction</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -10254,6 +10333,14 @@ public interface ViewPackage extends EPackage {
          * @generated
          */
         EReference NODE_DESCRIPTION__PALETTE = eINSTANCE.getNodeDescription_Palette();
+
+        /**
+         * The meta object literal for the '<em><b>Semantic Zoom</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference NODE_DESCRIPTION__SEMANTIC_ZOOM = eINSTANCE.getNodeDescription_SemanticZoom();
 
         /**
          * The meta object literal for the '<em><b>Children Layout Strategy</b></em>' containment reference feature.
@@ -11149,9 +11236,9 @@ public interface ViewPackage extends EPackage {
          * The meta object literal for the '{@link org.eclipse.sirius.components.view.impl.GroupDescriptionImpl
          * <em>Group Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
-         * @generated
          * @see org.eclipse.sirius.components.view.impl.GroupDescriptionImpl
          * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getGroupDescription()
+         * @generated
          */
         EClass GROUP_DESCRIPTION = eINSTANCE.getGroupDescription();
 
@@ -12458,6 +12545,24 @@ public interface ViewPackage extends EPackage {
          * @generated
          */
         EAttribute SELECTION_DESCRIPTION__SELECTION_MESSAGE = eINSTANCE.getSelectionDescription_SelectionMessage();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.sirius.components.view.impl.SemanticZoomImpl <em>Semantic
+         * Zoom</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @see org.eclipse.sirius.components.view.impl.SemanticZoomImpl
+         * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getSemanticZoom()
+         * @generated
+         */
+        EClass SEMANTIC_ZOOM = eINSTANCE.getSemanticZoom();
+
+        /**
+         * The meta object literal for the '<em><b>Active Semantic Zoom</b></em>' attribute feature. <!-- begin-user-doc
+         * --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute SEMANTIC_ZOOM__ACTIVE_SEMANTIC_ZOOM = eINSTANCE.getSemanticZoom_ActiveSemanticZoom();
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.components.view.LayoutDirection <em>Layout
