@@ -46,6 +46,11 @@ type Node {
   style: INodeStyle!
   borderNodes: [Node!]!
   childNodes: [Node!]!
+  semanticZoom: SemanticZoom!
+}
+
+type SemanticZoom {
+	activeSemanticZoom: Boolean!
 }
 
 type Label {

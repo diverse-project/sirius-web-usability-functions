@@ -147,6 +147,9 @@ export const diagramEventSubscription = gql`
       height
     }
     userResizable
+    semanticZoom {
+      activeSemanticZoom
+    }
   }
 
   fragment edgeFields on Edge {

@@ -39,6 +39,7 @@ import org.eclipse.sirius.components.diagrams.ILayoutStrategy;
 import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.ListLayoutStrategy;
 import org.eclipse.sirius.components.diagrams.Node;
+import org.eclipse.sirius.components.diagrams.SemanticZoom;
 import org.eclipse.sirius.components.diagrams.Size;
 import org.eclipse.sirius.components.diagrams.ViewDeletionRequest;
 import org.eclipse.sirius.components.diagrams.description.DiagramDescription;
@@ -234,11 +235,15 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
             }
             return childrenLayoutStrategy;
         };
-        /*
-        Function<VariableManager, SemanticZoomDescription> semanticZoomProvider =  variableManager -> {
-            return ViewFactory.eINSTANCE.createSemanticZoom();
+
+        Function<VariableManager, SemanticZoom> semanticZoomProvider =  variableManager -> {
+            if (viewNodeDescription.getSemanticZoomDescription() != null) {
+                return new SemanticZoom(viewNodeDescription.getSemanticZoomDescription().isActiveSemanticZoom());
+            } else {
+                return new SemanticZoom(false);
+            }
         };
-        */
+
         Function<VariableManager, Size> sizeProvider = variableManager -> this.computeSize(viewNodeDescription, interpreter, variableManager);
 
         // @formatter:off
@@ -271,7 +276,7 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
                 .reusedBorderNodeDescriptionIds(reusedBorderNodeDescriptionIds)
                 .sizeProvider(sizeProvider)
                 .userResizable(viewNodeDescription.isUserResizable())
-                //.activeSemanticZoom(semanticZoomProvider)
+                .activeSemanticZoom(semanticZoomProvider)
                 .labelEditHandler(this.createNodeLabelEditHandler(viewNodeDescription, converterContext))
                 .deleteHandler(this.createDeleteHandler(viewNodeDescription, converterContext))
                 .shouldRenderPredicate(shouldRenderPredicate)

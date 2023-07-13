@@ -30,6 +30,7 @@ import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.IconLabelNodeStyle;
 import org.eclipse.sirius.components.diagrams.ImageNodeStyle;
 import org.eclipse.sirius.components.diagrams.NodeType;
+import org.eclipse.sirius.components.diagrams.SemanticZoom;
 import org.eclipse.sirius.components.diagrams.description.LabelDescription;
 import org.eclipse.sirius.components.diagrams.description.LabelStyleDescription;
 import org.eclipse.sirius.components.diagrams.description.NodeDescription;
@@ -130,6 +131,10 @@ public class AbstractNodeMappingConverter {
                 .toList();
         // @formatter:on
 
+        Function<VariableManager, SemanticZoom> semanticZoomProvider =  variableManager -> {
+            return new SemanticZoom(false);
+        };
+
         ToolConverter toolConverter = new ToolConverter(interpreter, this.editService, this.modelOperationHandlerSwitchProvider);
         var deleteHandler = toolConverter.createDeleteToolHandler(abstractNodeMapping.getDeletionDescription());
         var labelEditHandler = toolConverter.createNodeDirectEditToolHandler(abstractNodeMapping.getLabelDirectEdit());
@@ -156,6 +161,7 @@ public class AbstractNodeMappingConverter {
                 .styleProvider(styleProvider)
                 .childrenLayoutStrategyProvider(childrenLayoutStrategyProvider)
                 .sizeProvider(sizeProvider)
+                .activeSemanticZoom(semanticZoomProvider)
                 .borderNodeDescriptions(borderNodeDescriptions)
                 .childNodeDescriptions(childNodeDescriptions)
                 .collapsible(collapsible)

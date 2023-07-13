@@ -23,6 +23,7 @@ import org.eclipse.sirius.components.diagrams.CustomizableProperties;
 import org.eclipse.sirius.components.diagrams.ILayoutStrategy;
 import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.Position;
+import org.eclipse.sirius.components.diagrams.SemanticZoom;
 import org.eclipse.sirius.components.diagrams.Size;
 import org.eclipse.sirius.components.diagrams.ViewModifier;
 import org.eclipse.sirius.components.representations.Element;
@@ -70,7 +71,7 @@ public final class NodeElementProps implements IProps {
 
     private Set<CustomizableProperties> customizableProperties;
 
-    private boolean activeSemanticZoom;
+    private SemanticZoom semanticZoom;
 
     private List<Element> children;
 
@@ -146,8 +147,8 @@ public final class NodeElementProps implements IProps {
         return new Builder(id);
     }
 
-    public boolean isActiveSemanticZoom() {
-        return this.activeSemanticZoom;
+    public SemanticZoom getSemanticZoom() {
+        return this.semanticZoom;
     }
 
     @Override
@@ -200,7 +201,7 @@ public final class NodeElementProps implements IProps {
 
         private Set<CustomizableProperties> customizableProperties = Set.of();
 
-        private boolean activeSemanticZoom;
+        private SemanticZoom semanticZoom;
 
         private List<Element> children;
 
@@ -283,8 +284,8 @@ public final class NodeElementProps implements IProps {
             return this;
         }
 
-        public Builder activeSemanticZoom(boolean activeSemanticZoom) {
-            this.activeSemanticZoom = activeSemanticZoom;
+        public Builder semanticZoom(SemanticZoom semanticZoom) {
+            this.semanticZoom = semanticZoom;
             return this;
         }
 
@@ -310,7 +311,7 @@ public final class NodeElementProps implements IProps {
             nodeElementProps.position = Objects.requireNonNull(this.position);
             nodeElementProps.size = Objects.requireNonNull(this.size);
             nodeElementProps.userResizable = this.userResizable;
-            nodeElementProps.activeSemanticZoom = Objects.requireNonNull(this.activeSemanticZoom);
+            nodeElementProps.semanticZoom = Objects.requireNonNull(this.semanticZoom);
             nodeElementProps.children = Objects.requireNonNull(this.children);
             nodeElementProps.customizableProperties = Objects.requireNonNull(this.customizableProperties);
             return nodeElementProps;

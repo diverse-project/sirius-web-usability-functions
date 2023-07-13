@@ -31,6 +31,7 @@ import org.eclipse.sirius.components.diagrams.LineStyle;
 import org.eclipse.sirius.components.diagrams.Node;
 import org.eclipse.sirius.components.diagrams.Position;
 import org.eclipse.sirius.components.diagrams.RectangularNodeStyle;
+import org.eclipse.sirius.components.diagrams.SemanticZoom;
 import org.eclipse.sirius.components.diagrams.Size;
 import org.eclipse.sirius.components.diagrams.ViewCreationRequest;
 import org.eclipse.sirius.components.diagrams.ViewDeletionRequest;
@@ -208,7 +209,7 @@ public class DiagramOperationInterpreterViewSwitch extends ViewSwitch<Optional<V
                 .position(Position.UNDEFINED)
                 .size(Size.UNDEFINED)
                 .userResizable(true)
-                .activeSemanticZoom(false)
+                .semanticZoom(new SemanticZoom(false))
                 .borderNodes(List.of())
                 .childNodes(List.of())
                 .customizedProperties(Set.of())
