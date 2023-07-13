@@ -28,7 +28,7 @@ import org.eclipse.sirius.components.view.LayoutStrategyDescription;
 import org.eclipse.sirius.components.view.NodeDescription;
 import org.eclipse.sirius.components.view.NodePalette;
 import org.eclipse.sirius.components.view.NodeStyleDescription;
-import org.eclipse.sirius.components.view.SemanticZoom;
+import org.eclipse.sirius.components.view.SemanticZoomDescription;
 import org.eclipse.sirius.components.view.ViewPackage;
 
 /**
@@ -76,14 +76,14 @@ public class NodeDescriptionImpl extends DiagramElementDescriptionImpl implement
     protected NodePalette palette;
 
     /**
-     * The cached value of the '{@link #getSemanticZoom() <em>Semantic Zoom</em>}' containment reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getSemanticZoomDescription() <em>Semantic Zoom Description</em>}' containment
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see #getSemanticZoom()
+     * @see #getSemanticZoomDescription()
      * @generated
      * @ordered
      */
-    protected SemanticZoom semanticZoom;
+    protected SemanticZoomDescription semanticZoomDescription;
 
     /**
      * The cached value of the '{@link #getChildrenLayoutStrategy() <em>Children Layout Strategy</em>}' containment
@@ -456,8 +456,8 @@ public class NodeDescriptionImpl extends DiagramElementDescriptionImpl implement
      * @generated
      */
     @Override
-    public SemanticZoom getSemanticZoom() {
-        return this.semanticZoom;
+    public SemanticZoomDescription getSemanticZoomDescription() {
+        return this.semanticZoomDescription;
     }
 
     /**
@@ -465,11 +465,12 @@ public class NodeDescriptionImpl extends DiagramElementDescriptionImpl implement
      *
      * @generated
      */
-    public NotificationChain basicSetSemanticZoom(SemanticZoom newSemanticZoom, NotificationChain msgs) {
-        SemanticZoom oldSemanticZoom = this.semanticZoom;
-        this.semanticZoom = newSemanticZoom;
+    public NotificationChain basicSetSemanticZoomDescription(SemanticZoomDescription newSemanticZoomDescription, NotificationChain msgs) {
+        SemanticZoomDescription oldSemanticZoomDescription = this.semanticZoomDescription;
+        this.semanticZoomDescription = newSemanticZoomDescription;
         if (this.eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM, oldSemanticZoom, newSemanticZoom);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION, oldSemanticZoomDescription,
+                    newSemanticZoomDescription);
             if (msgs == null)
                 msgs = notification;
             else
@@ -484,18 +485,18 @@ public class NodeDescriptionImpl extends DiagramElementDescriptionImpl implement
      * @generated
      */
     @Override
-    public void setSemanticZoom(SemanticZoom newSemanticZoom) {
-        if (newSemanticZoom != this.semanticZoom) {
+    public void setSemanticZoomDescription(SemanticZoomDescription newSemanticZoomDescription) {
+        if (newSemanticZoomDescription != this.semanticZoomDescription) {
             NotificationChain msgs = null;
-            if (this.semanticZoom != null)
-                msgs = ((InternalEObject) this.semanticZoom).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM, null, msgs);
-            if (newSemanticZoom != null)
-                msgs = ((InternalEObject) newSemanticZoom).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM, null, msgs);
-            msgs = this.basicSetSemanticZoom(newSemanticZoom, msgs);
+            if (this.semanticZoomDescription != null)
+                msgs = ((InternalEObject) this.semanticZoomDescription).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION, null, msgs);
+            if (newSemanticZoomDescription != null)
+                msgs = ((InternalEObject) newSemanticZoomDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION, null, msgs);
+            msgs = this.basicSetSemanticZoomDescription(newSemanticZoomDescription, msgs);
             if (msgs != null)
                 msgs.dispatch();
         } else if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM, newSemanticZoom, newSemanticZoom));
+            this.eNotify(new ENotificationImpl(this, Notification.SET, ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION, newSemanticZoomDescription, newSemanticZoomDescription));
     }
 
     /**
@@ -508,8 +509,8 @@ public class NodeDescriptionImpl extends DiagramElementDescriptionImpl implement
         switch (featureID) {
             case ViewPackage.NODE_DESCRIPTION__PALETTE:
                 return this.basicSetPalette(null, msgs);
-            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM:
-                return this.basicSetSemanticZoom(null, msgs);
+            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION:
+                return this.basicSetSemanticZoomDescription(null, msgs);
             case ViewPackage.NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY:
                 return this.basicSetChildrenLayoutStrategy(null, msgs);
             case ViewPackage.NODE_DESCRIPTION__STYLE:
@@ -536,8 +537,8 @@ public class NodeDescriptionImpl extends DiagramElementDescriptionImpl implement
                 return this.isCollapsible();
             case ViewPackage.NODE_DESCRIPTION__PALETTE:
                 return this.getPalette();
-            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM:
-                return this.getSemanticZoom();
+            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION:
+                return this.getSemanticZoomDescription();
             case ViewPackage.NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY:
                 return this.getChildrenLayoutStrategy();
             case ViewPackage.NODE_DESCRIPTION__STYLE:
@@ -573,8 +574,8 @@ public class NodeDescriptionImpl extends DiagramElementDescriptionImpl implement
             case ViewPackage.NODE_DESCRIPTION__PALETTE:
                 this.setPalette((NodePalette) newValue);
                 return;
-            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM:
-                this.setSemanticZoom((SemanticZoom) newValue);
+            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION:
+                this.setSemanticZoomDescription((SemanticZoomDescription) newValue);
                 return;
             case ViewPackage.NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY:
                 this.setChildrenLayoutStrategy((LayoutStrategyDescription) newValue);
@@ -623,8 +624,8 @@ public class NodeDescriptionImpl extends DiagramElementDescriptionImpl implement
             case ViewPackage.NODE_DESCRIPTION__PALETTE:
                 this.setPalette((NodePalette) null);
                 return;
-            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM:
-                this.setSemanticZoom((SemanticZoom) null);
+            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION:
+                this.setSemanticZoomDescription((SemanticZoomDescription) null);
                 return;
             case ViewPackage.NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY:
                 this.setChildrenLayoutStrategy((LayoutStrategyDescription) null);
@@ -666,8 +667,8 @@ public class NodeDescriptionImpl extends DiagramElementDescriptionImpl implement
                 return this.collapsible != COLLAPSIBLE_EDEFAULT;
             case ViewPackage.NODE_DESCRIPTION__PALETTE:
                 return this.palette != null;
-            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM:
-                return this.semanticZoom != null;
+            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION:
+                return this.semanticZoomDescription != null;
             case ViewPackage.NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY:
                 return this.childrenLayoutStrategy != null;
             case ViewPackage.NODE_DESCRIPTION__STYLE:

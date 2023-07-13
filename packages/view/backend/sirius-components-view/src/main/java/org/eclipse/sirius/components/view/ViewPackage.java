@@ -548,13 +548,13 @@ public interface ViewPackage extends EPackage {
     int NODE_DESCRIPTION__PALETTE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Semantic Zoom</b></em>' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The feature id for the '<em><b>Semantic Zoom Description</b></em>' containment reference. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION__SEMANTIC_ZOOM = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 2;
+    int NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Children Layout Strategy</b></em>' containment reference. <!-- begin-user-doc -->
@@ -6556,14 +6556,14 @@ public interface ViewPackage extends EPackage {
     int SELECTION_DESCRIPTION_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.sirius.components.view.impl.SemanticZoomImpl <em>Semantic
-     * Zoom</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.impl.SemanticZoomDescriptionImpl
+     * <em>Semantic Zoom Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see org.eclipse.sirius.components.view.impl.SemanticZoomImpl
-     * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getSemanticZoom()
+     * @see org.eclipse.sirius.components.view.impl.SemanticZoomDescriptionImpl
+     * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getSemanticZoomDescription()
      * @generated
      */
-    int SEMANTIC_ZOOM = 88;
+    int SEMANTIC_ZOOM_DESCRIPTION = 88;
 
     /**
      * The feature id for the '<em><b>Active Semantic Zoom</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -6572,24 +6572,25 @@ public interface ViewPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SEMANTIC_ZOOM__ACTIVE_SEMANTIC_ZOOM = 0;
+    int SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM = 0;
 
     /**
-     * The number of structural features of the '<em>Semantic Zoom</em>' class. <!-- begin-user-doc --> <!--
+     * The number of structural features of the '<em>Semantic Zoom Description</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int SEMANTIC_ZOOM_FEATURE_COUNT = 1;
+    int SEMANTIC_ZOOM_DESCRIPTION_FEATURE_COUNT = 1;
 
     /**
-     * The number of operations of the '<em>Semantic Zoom</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The number of operations of the '<em>Semantic Zoom Description</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int SEMANTIC_ZOOM_OPERATION_COUNT = 0;
+    int SEMANTIC_ZOOM_DESCRIPTION_OPERATION_COUNT = 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.LayoutDirection <em>Layout Direction</em>}'
@@ -7049,15 +7050,15 @@ public interface ViewPackage extends EPackage {
 
     /**
      * Returns the meta object for the containment reference
-     * '{@link org.eclipse.sirius.components.view.NodeDescription#getSemanticZoom <em>Semantic Zoom</em>}'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * '{@link org.eclipse.sirius.components.view.NodeDescription#getSemanticZoomDescription <em>Semantic Zoom
+     * Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference '<em>Semantic Zoom</em>'.
-     * @see org.eclipse.sirius.components.view.NodeDescription#getSemanticZoom()
+     * @return the meta object for the containment reference '<em>Semantic Zoom Description</em>'.
+     * @see org.eclipse.sirius.components.view.NodeDescription#getSemanticZoomDescription()
      * @see #getNodeDescription()
      * @generated
      */
-    EReference getNodeDescription_SemanticZoom();
+    EReference getNodeDescription_SemanticZoomDescription();
 
     /**
      * Returns the meta object for the containment reference
@@ -9912,26 +9913,26 @@ public interface ViewPackage extends EPackage {
     EAttribute getSelectionDescription_SelectionMessage();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.SemanticZoom <em>Semantic
-     * Zoom</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.SemanticZoomDescription <em>Semantic
+     * Zoom Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for class '<em>Semantic Zoom</em>'.
-     * @see org.eclipse.sirius.components.view.SemanticZoom
+     * @return the meta object for class '<em>Semantic Zoom Description</em>'.
+     * @see org.eclipse.sirius.components.view.SemanticZoomDescription
      * @generated
      */
-    EClass getSemanticZoom();
+    EClass getSemanticZoomDescription();
 
     /**
      * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.components.view.SemanticZoom#isActiveSemanticZoom <em>Active Semantic Zoom</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * '{@link org.eclipse.sirius.components.view.SemanticZoomDescription#isActiveSemanticZoom <em>Active Semantic
+     * Zoom</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Active Semantic Zoom</em>'.
-     * @see org.eclipse.sirius.components.view.SemanticZoom#isActiveSemanticZoom()
-     * @see #getSemanticZoom()
+     * @see org.eclipse.sirius.components.view.SemanticZoomDescription#isActiveSemanticZoom()
+     * @see #getSemanticZoomDescription()
      * @generated
      */
-    EAttribute getSemanticZoom_ActiveSemanticZoom();
+    EAttribute getSemanticZoomDescription_ActiveSemanticZoom();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.sirius.components.view.LayoutDirection <em>Layout
@@ -10335,12 +10336,12 @@ public interface ViewPackage extends EPackage {
         EReference NODE_DESCRIPTION__PALETTE = eINSTANCE.getNodeDescription_Palette();
 
         /**
-         * The meta object literal for the '<em><b>Semantic Zoom</b></em>' containment reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Semantic Zoom Description</b></em>' containment reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EReference NODE_DESCRIPTION__SEMANTIC_ZOOM = eINSTANCE.getNodeDescription_SemanticZoom();
+        EReference NODE_DESCRIPTION__SEMANTIC_ZOOM_DESCRIPTION = eINSTANCE.getNodeDescription_SemanticZoomDescription();
 
         /**
          * The meta object literal for the '<em><b>Children Layout Strategy</b></em>' containment reference feature.
@@ -12547,14 +12548,14 @@ public interface ViewPackage extends EPackage {
         EAttribute SELECTION_DESCRIPTION__SELECTION_MESSAGE = eINSTANCE.getSelectionDescription_SelectionMessage();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.sirius.components.view.impl.SemanticZoomImpl <em>Semantic
-         * Zoom</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '{@link org.eclipse.sirius.components.view.impl.SemanticZoomDescriptionImpl
+         * <em>Semantic Zoom Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
-         * @see org.eclipse.sirius.components.view.impl.SemanticZoomImpl
-         * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getSemanticZoom()
+         * @see org.eclipse.sirius.components.view.impl.SemanticZoomDescriptionImpl
+         * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getSemanticZoomDescription()
          * @generated
          */
-        EClass SEMANTIC_ZOOM = eINSTANCE.getSemanticZoom();
+        EClass SEMANTIC_ZOOM_DESCRIPTION = eINSTANCE.getSemanticZoomDescription();
 
         /**
          * The meta object literal for the '<em><b>Active Semantic Zoom</b></em>' attribute feature. <!-- begin-user-doc
@@ -12562,7 +12563,7 @@ public interface ViewPackage extends EPackage {
          *
          * @generated
          */
-        EAttribute SEMANTIC_ZOOM__ACTIVE_SEMANTIC_ZOOM = eINSTANCE.getSemanticZoom_ActiveSemanticZoom();
+        EAttribute SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM = eINSTANCE.getSemanticZoomDescription_ActiveSemanticZoom();
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.components.view.LayoutDirection <em>Layout

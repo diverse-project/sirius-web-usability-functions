@@ -234,7 +234,11 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
             }
             return childrenLayoutStrategy;
         };
-
+        /*
+        Function<VariableManager, SemanticZoomDescription> semanticZoomProvider =  variableManager -> {
+            return ViewFactory.eINSTANCE.createSemanticZoom();
+        };
+        */
         Function<VariableManager, Size> sizeProvider = variableManager -> this.computeSize(viewNodeDescription, interpreter, variableManager);
 
         // @formatter:off
@@ -267,6 +271,7 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
                 .reusedBorderNodeDescriptionIds(reusedBorderNodeDescriptionIds)
                 .sizeProvider(sizeProvider)
                 .userResizable(viewNodeDescription.isUserResizable())
+                //.activeSemanticZoom(semanticZoomProvider)
                 .labelEditHandler(this.createNodeLabelEditHandler(viewNodeDescription, converterContext))
                 .deleteHandler(this.createDeleteHandler(viewNodeDescription, converterContext))
                 .shouldRenderPredicate(shouldRenderPredicate)

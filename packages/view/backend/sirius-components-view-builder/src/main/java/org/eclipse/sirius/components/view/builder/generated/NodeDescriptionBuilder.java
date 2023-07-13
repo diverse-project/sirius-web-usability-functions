@@ -125,16 +125,6 @@ public class NodeDescriptionBuilder {
     }
 
     /**
-     * Setter for ChildrenLayoutStrategy.
-     *
-     * @generated
-     */
-    public NodeDescriptionBuilder childrenSemanticZoom(org.eclipse.sirius.components.view.SemanticZoom value) {
-        this.getNodeDescription().setSemanticZoom(value);
-        return this;
-    }
-
-    /**
      * Setter for Style.
      *
      * @generated

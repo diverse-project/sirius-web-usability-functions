@@ -208,6 +208,7 @@ public class DiagramOperationInterpreterViewSwitch extends ViewSwitch<Optional<V
                 .position(Position.UNDEFINED)
                 .size(Size.UNDEFINED)
                 .userResizable(true)
+                .activeSemanticZoom(false)
                 .borderNodes(List.of())
                 .childNodes(List.of())
                 .customizedProperties(Set.of())
