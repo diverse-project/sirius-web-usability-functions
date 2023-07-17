@@ -656,6 +656,32 @@ public interface ViewFactory extends EFactory {
     SemanticZoomDescription createSemanticZoomDescription();
 
     /**
+     * Returns a new object of class '<em>Automatic Zooming By Depth Strategy</em>'. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @return a new object of class '<em>Automatic Zooming By Depth Strategy</em>'.
+     * @generated
+     */
+    AutomaticZoomingByDepthStrategy createAutomaticZoomingByDepthStrategy();
+
+    /**
+     * Returns a new object of class '<em>Number Of Relation Strategy</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @return a new object of class '<em>Number Of Relation Strategy</em>'.
+     * @generated
+     */
+    NumberOfRelationStrategy createNumberOfRelationStrategy();
+
+    /**
+     * Returns a new object of class '<em>Manually Defined Strategy</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Manually Defined Strategy</em>'.
+     * @generated
+     */
+    ManuallyDefinedStrategy createManuallyDefinedStrategy();
+
+    /**
      * Returns the package supported by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the package supported by this factory.

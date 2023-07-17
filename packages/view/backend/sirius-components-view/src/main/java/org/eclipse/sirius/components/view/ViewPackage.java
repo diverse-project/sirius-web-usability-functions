@@ -6566,13 +6566,31 @@ public interface ViewPackage extends EPackage {
     int SEMANTIC_ZOOM_DESCRIPTION = 88;
 
     /**
-     * The feature id for the '<em><b>Active Semantic Zoom</b></em>' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The feature id for the '<em><b>Automatic Zooming By Depth Strategy</b></em>' containment reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM = 0;
+    int SEMANTIC_ZOOM_DESCRIPTION__AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY = 0;
+
+    /**
+     * The feature id for the '<em><b>Number Of Relation Strategy</b></em>' containment reference. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int SEMANTIC_ZOOM_DESCRIPTION__NUMBER_OF_RELATION_STRATEGY = 1;
+
+    /**
+     * The feature id for the '<em><b>Manually Defined Strategy</b></em>' containment reference. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int SEMANTIC_ZOOM_DESCRIPTION__MANUALLY_DEFINED_STRATEGY = 2;
 
     /**
      * The number of structural features of the '<em>Semantic Zoom Description</em>' class. <!-- begin-user-doc --> <!--
@@ -6581,7 +6599,7 @@ public interface ViewPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SEMANTIC_ZOOM_DESCRIPTION_FEATURE_COUNT = 1;
+    int SEMANTIC_ZOOM_DESCRIPTION_FEATURE_COUNT = 3;
 
     /**
      * The number of operations of the '<em>Semantic Zoom Description</em>' class. <!-- begin-user-doc --> <!--
@@ -6593,6 +6611,195 @@ public interface ViewPackage extends EPackage {
     int SEMANTIC_ZOOM_DESCRIPTION_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.impl.AutomaticZoomingByDepthStrategyImpl
+     * <em>Automatic Zooming By Depth Strategy</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see org.eclipse.sirius.components.view.impl.AutomaticZoomingByDepthStrategyImpl
+     * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getAutomaticZoomingByDepthStrategy()
+     * @generated
+     */
+    int AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY = 89;
+
+    /**
+     * The feature id for the '<em><b>Active Strategy</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__ACTIVE_STRATEGY = 0;
+
+    /**
+     * The feature id for the '<em><b>Style Detailled</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_DETAILLED = 1;
+
+    /**
+     * The feature id for the '<em><b>Style Normal</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_NORMAL = 2;
+
+    /**
+     * The feature id for the '<em><b>Style Summarized</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_SUMMARIZED = 3;
+
+    /**
+     * The number of structural features of the '<em>Automatic Zooming By Depth Strategy</em>' class. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY_FEATURE_COUNT = 4;
+
+    /**
+     * The number of operations of the '<em>Automatic Zooming By Depth Strategy</em>' class. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.impl.NumberOfRelationStrategyImpl
+     * <em>Number Of Relation Strategy</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see org.eclipse.sirius.components.view.impl.NumberOfRelationStrategyImpl
+     * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getNumberOfRelationStrategy()
+     * @generated
+     */
+    int NUMBER_OF_RELATION_STRATEGY = 90;
+
+    /**
+     * The feature id for the '<em><b>Active Strategy</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NUMBER_OF_RELATION_STRATEGY__ACTIVE_STRATEGY = 0;
+
+    /**
+     * The feature id for the '<em><b>Style Detailled</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NUMBER_OF_RELATION_STRATEGY__STYLE_DETAILLED = 1;
+
+    /**
+     * The feature id for the '<em><b>Style Normal</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NUMBER_OF_RELATION_STRATEGY__STYLE_NORMAL = 2;
+
+    /**
+     * The feature id for the '<em><b>Style Summarized</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NUMBER_OF_RELATION_STRATEGY__STYLE_SUMMARIZED = 3;
+
+    /**
+     * The number of structural features of the '<em>Number Of Relation Strategy</em>' class. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NUMBER_OF_RELATION_STRATEGY_FEATURE_COUNT = 4;
+
+    /**
+     * The number of operations of the '<em>Number Of Relation Strategy</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NUMBER_OF_RELATION_STRATEGY_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.impl.ManuallyDefinedStrategyImpl
+     * <em>Manually Defined Strategy</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see org.eclipse.sirius.components.view.impl.ManuallyDefinedStrategyImpl
+     * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getManuallyDefinedStrategy()
+     * @generated
+     */
+    int MANUALLY_DEFINED_STRATEGY = 91;
+
+    /**
+     * The feature id for the '<em><b>Active Strategy</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int MANUALLY_DEFINED_STRATEGY__ACTIVE_STRATEGY = 0;
+
+    /**
+     * The feature id for the '<em><b>Style Detailled</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int MANUALLY_DEFINED_STRATEGY__STYLE_DETAILLED = 1;
+
+    /**
+     * The feature id for the '<em><b>Style Normal</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int MANUALLY_DEFINED_STRATEGY__STYLE_NORMAL = 2;
+
+    /**
+     * The feature id for the '<em><b>Style Summarized</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int MANUALLY_DEFINED_STRATEGY__STYLE_SUMMARIZED = 3;
+
+    /**
+     * The number of structural features of the '<em>Manually Defined Strategy</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int MANUALLY_DEFINED_STRATEGY_FEATURE_COUNT = 4;
+
+    /**
+     * The number of operations of the '<em>Manually Defined Strategy</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int MANUALLY_DEFINED_STRATEGY_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.LayoutDirection <em>Layout Direction</em>}'
      * enum. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -6600,7 +6807,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getLayoutDirection()
      * @generated
      */
-    int LAYOUT_DIRECTION = 89;
+    int LAYOUT_DIRECTION = 92;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.ArrowStyle <em>Arrow Style</em>}' enum.
@@ -6610,7 +6817,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getArrowStyle()
      * @generated
      */
-    int ARROW_STYLE = 90;
+    int ARROW_STYLE = 93;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.LineStyle <em>Line Style</em>}' enum. <!--
@@ -6620,7 +6827,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.LineStyle
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getLineStyle()
      */
-    int LINE_STYLE = 91;
+    int LINE_STYLE = 94;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.NodeContainmentKind <em>Node Containment
@@ -6630,7 +6837,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getNodeContainmentKind()
      * @generated
      */
-    int NODE_CONTAINMENT_KIND = 92;
+    int NODE_CONTAINMENT_KIND = 95;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.SynchronizationPolicy <em>Synchronization
@@ -6640,7 +6847,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getSynchronizationPolicy()
      * @generated
      */
-    int SYNCHRONIZATION_POLICY = 93;
+    int SYNCHRONIZATION_POLICY = 96;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.GroupDisplayMode <em>Group Display
@@ -6650,7 +6857,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getGroupDisplayMode()
      * @generated
      */
-    int GROUP_DISPLAY_MODE = 94;
+    int GROUP_DISPLAY_MODE = 97;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.FlexDirection <em>Flex Direction</em>}'
@@ -6660,7 +6867,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getFlexDirection()
      * @generated
      */
-    int FLEX_DIRECTION = 95;
+    int FLEX_DIRECTION = 98;
 
     /**
      * The meta object id for the '<em>Identifier</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -6669,7 +6876,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getIdentifier()
      * @generated
      */
-    int IDENTIFIER = 96;
+    int IDENTIFIER = 99;
 
     /**
      * The meta object id for the '<em>Interpreted Expression</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
@@ -6679,7 +6886,7 @@ public interface ViewPackage extends EPackage {
      * @see java.lang.String
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getInterpretedExpression()
      */
-    int INTERPRETED_EXPRESSION = 97;
+    int INTERPRETED_EXPRESSION = 100;
 
     /**
      * The meta object id for the '<em>Domain Type</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -6688,7 +6895,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getDomainType()
      * @generated
      */
-    int DOMAIN_TYPE = 98;
+    int DOMAIN_TYPE = 101;
 
     /**
      * The meta object id for the '<em>Color</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -6697,7 +6904,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getColor()
      * @generated
      */
-    int COLOR = 99;
+    int COLOR = 102;
 
     /**
      * The meta object id for the '<em>Length</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -6705,7 +6912,7 @@ public interface ViewPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getLength()
      * @generated
      */
-    int LENGTH = 100;
+    int LENGTH = 103;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.components.view.View <em>View</em>}'. <!--
@@ -9923,16 +10130,214 @@ public interface ViewPackage extends EPackage {
     EClass getSemanticZoomDescription();
 
     /**
-     * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.components.view.SemanticZoomDescription#isActiveSemanticZoom <em>Active Semantic
-     * Zoom</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.SemanticZoomDescription#getAutomaticZoomingByDepthStrategy
+     * <em>Automatic Zooming By Depth Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the attribute '<em>Active Semantic Zoom</em>'.
-     * @see org.eclipse.sirius.components.view.SemanticZoomDescription#isActiveSemanticZoom()
+     * @return the meta object for the containment reference '<em>Automatic Zooming By Depth Strategy</em>'.
+     * @see org.eclipse.sirius.components.view.SemanticZoomDescription#getAutomaticZoomingByDepthStrategy()
      * @see #getSemanticZoomDescription()
      * @generated
      */
-    EAttribute getSemanticZoomDescription_ActiveSemanticZoom();
+    EReference getSemanticZoomDescription_AutomaticZoomingByDepthStrategy();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.SemanticZoomDescription#getNumberOfRelationStrategy <em>Number Of
+     * Relation Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Number Of Relation Strategy</em>'.
+     * @see org.eclipse.sirius.components.view.SemanticZoomDescription#getNumberOfRelationStrategy()
+     * @see #getSemanticZoomDescription()
+     * @generated
+     */
+    EReference getSemanticZoomDescription_NumberOfRelationStrategy();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.SemanticZoomDescription#getManuallyDefinedStrategy <em>Manually
+     * Defined Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Manually Defined Strategy</em>'.
+     * @see org.eclipse.sirius.components.view.SemanticZoomDescription#getManuallyDefinedStrategy()
+     * @see #getSemanticZoomDescription()
+     * @generated
+     */
+    EReference getSemanticZoomDescription_ManuallyDefinedStrategy();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy
+     * <em>Automatic Zooming By Depth Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Automatic Zooming By Depth Strategy</em>'.
+     * @see org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy
+     * @generated
+     */
+    EClass getAutomaticZoomingByDepthStrategy();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy#isActiveStrategy <em>Active
+     * Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Active Strategy</em>'.
+     * @see org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy#isActiveStrategy()
+     * @see #getAutomaticZoomingByDepthStrategy()
+     * @generated
+     */
+    EAttribute getAutomaticZoomingByDepthStrategy_ActiveStrategy();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy#getStyleDetailled <em>Style
+     * Detailled</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style Detailled</em>'.
+     * @see org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy#getStyleDetailled()
+     * @see #getAutomaticZoomingByDepthStrategy()
+     * @generated
+     */
+    EReference getAutomaticZoomingByDepthStrategy_StyleDetailled();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy#getStyleNormal <em>Style
+     * Normal</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style Normal</em>'.
+     * @see org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy#getStyleNormal()
+     * @see #getAutomaticZoomingByDepthStrategy()
+     * @generated
+     */
+    EReference getAutomaticZoomingByDepthStrategy_StyleNormal();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy#getStyleSummarized <em>Style
+     * Summarized</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style Summarized</em>'.
+     * @see org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy#getStyleSummarized()
+     * @see #getAutomaticZoomingByDepthStrategy()
+     * @generated
+     */
+    EReference getAutomaticZoomingByDepthStrategy_StyleSummarized();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.NumberOfRelationStrategy <em>Number
+     * Of Relation Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Number Of Relation Strategy</em>'.
+     * @see org.eclipse.sirius.components.view.NumberOfRelationStrategy
+     * @generated
+     */
+    EClass getNumberOfRelationStrategy();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.NumberOfRelationStrategy#isActiveStrategy <em>Active Strategy</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Active Strategy</em>'.
+     * @see org.eclipse.sirius.components.view.NumberOfRelationStrategy#isActiveStrategy()
+     * @see #getNumberOfRelationStrategy()
+     * @generated
+     */
+    EAttribute getNumberOfRelationStrategy_ActiveStrategy();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.NumberOfRelationStrategy#getStyleDetailled <em>Style Detailled</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style Detailled</em>'.
+     * @see org.eclipse.sirius.components.view.NumberOfRelationStrategy#getStyleDetailled()
+     * @see #getNumberOfRelationStrategy()
+     * @generated
+     */
+    EReference getNumberOfRelationStrategy_StyleDetailled();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.NumberOfRelationStrategy#getStyleNormal <em>Style Normal</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style Normal</em>'.
+     * @see org.eclipse.sirius.components.view.NumberOfRelationStrategy#getStyleNormal()
+     * @see #getNumberOfRelationStrategy()
+     * @generated
+     */
+    EReference getNumberOfRelationStrategy_StyleNormal();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.NumberOfRelationStrategy#getStyleSummarized <em>Style
+     * Summarized</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style Summarized</em>'.
+     * @see org.eclipse.sirius.components.view.NumberOfRelationStrategy#getStyleSummarized()
+     * @see #getNumberOfRelationStrategy()
+     * @generated
+     */
+    EReference getNumberOfRelationStrategy_StyleSummarized();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy <em>Manually
+     * Defined Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Manually Defined Strategy</em>'.
+     * @see org.eclipse.sirius.components.view.ManuallyDefinedStrategy
+     * @generated
+     */
+    EClass getManuallyDefinedStrategy();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#isActiveStrategy <em>Active Strategy</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Active Strategy</em>'.
+     * @see org.eclipse.sirius.components.view.ManuallyDefinedStrategy#isActiveStrategy()
+     * @see #getManuallyDefinedStrategy()
+     * @generated
+     */
+    EAttribute getManuallyDefinedStrategy_ActiveStrategy();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleDetailled <em>Style Detailled</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style Detailled</em>'.
+     * @see org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleDetailled()
+     * @see #getManuallyDefinedStrategy()
+     * @generated
+     */
+    EReference getManuallyDefinedStrategy_StyleDetailled();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleNormal <em>Style Normal</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style Normal</em>'.
+     * @see org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleNormal()
+     * @see #getManuallyDefinedStrategy()
+     * @generated
+     */
+    EReference getManuallyDefinedStrategy_StyleNormal();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleSummarized <em>Style
+     * Summarized</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style Summarized</em>'.
+     * @see org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleSummarized()
+     * @see #getManuallyDefinedStrategy()
+     * @generated
+     */
+    EReference getManuallyDefinedStrategy_StyleSummarized();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.sirius.components.view.LayoutDirection <em>Layout
@@ -10712,7 +11117,7 @@ public interface ViewPackage extends EPackage {
          * '{@link org.eclipse.sirius.components.view.impl.FreeFormLayoutStrategyDescriptionImpl <em>Free Form Layout
          * Strategy Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
-         * @see org.eclipse.sirius.components.view.impl.+
+         * @see org.eclipse.sirius.components.view.impl.FreeFormLayoutStrategyDescriptionImpl
          * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getFreeFormLayoutStrategyDescription()
          * @generated
          */
@@ -12558,12 +12963,155 @@ public interface ViewPackage extends EPackage {
         EClass SEMANTIC_ZOOM_DESCRIPTION = eINSTANCE.getSemanticZoomDescription();
 
         /**
-         * The meta object literal for the '<em><b>Active Semantic Zoom</b></em>' attribute feature. <!-- begin-user-doc
-         * --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Automatic Zooming By Depth Strategy</b></em>' containment reference
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EAttribute SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM = eINSTANCE.getSemanticZoomDescription_ActiveSemanticZoom();
+        EReference SEMANTIC_ZOOM_DESCRIPTION__AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY = eINSTANCE.getSemanticZoomDescription_AutomaticZoomingByDepthStrategy();
+
+        /**
+         * The meta object literal for the '<em><b>Number Of Relation Strategy</b></em>' containment reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference SEMANTIC_ZOOM_DESCRIPTION__NUMBER_OF_RELATION_STRATEGY = eINSTANCE.getSemanticZoomDescription_NumberOfRelationStrategy();
+
+        /**
+         * The meta object literal for the '<em><b>Manually Defined Strategy</b></em>' containment reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference SEMANTIC_ZOOM_DESCRIPTION__MANUALLY_DEFINED_STRATEGY = eINSTANCE.getSemanticZoomDescription_ManuallyDefinedStrategy();
+
+        /**
+         * The meta object literal for the
+         * '{@link org.eclipse.sirius.components.view.impl.AutomaticZoomingByDepthStrategyImpl <em>Automatic Zooming By
+         * Depth Strategy</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @see org.eclipse.sirius.components.view.impl.AutomaticZoomingByDepthStrategyImpl
+         * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getAutomaticZoomingByDepthStrategy()
+         * @generated
+         */
+        EClass AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY = eINSTANCE.getAutomaticZoomingByDepthStrategy();
+
+        /**
+         * The meta object literal for the '<em><b>Active Strategy</b></em>' attribute feature. <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__ACTIVE_STRATEGY = eINSTANCE.getAutomaticZoomingByDepthStrategy_ActiveStrategy();
+
+        /**
+         * The meta object literal for the '<em><b>Style Detailled</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_DETAILLED = eINSTANCE.getAutomaticZoomingByDepthStrategy_StyleDetailled();
+
+        /**
+         * The meta object literal for the '<em><b>Style Normal</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_NORMAL = eINSTANCE.getAutomaticZoomingByDepthStrategy_StyleNormal();
+
+        /**
+         * The meta object literal for the '<em><b>Style Summarized</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_SUMMARIZED = eINSTANCE.getAutomaticZoomingByDepthStrategy_StyleSummarized();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.sirius.components.view.impl.NumberOfRelationStrategyImpl
+         * <em>Number Of Relation Strategy</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @see org.eclipse.sirius.components.view.impl.NumberOfRelationStrategyImpl
+         * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getNumberOfRelationStrategy()
+         * @generated
+         */
+        EClass NUMBER_OF_RELATION_STRATEGY = eINSTANCE.getNumberOfRelationStrategy();
+
+        /**
+         * The meta object literal for the '<em><b>Active Strategy</b></em>' attribute feature. <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute NUMBER_OF_RELATION_STRATEGY__ACTIVE_STRATEGY = eINSTANCE.getNumberOfRelationStrategy_ActiveStrategy();
+
+        /**
+         * The meta object literal for the '<em><b>Style Detailled</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference NUMBER_OF_RELATION_STRATEGY__STYLE_DETAILLED = eINSTANCE.getNumberOfRelationStrategy_StyleDetailled();
+
+        /**
+         * The meta object literal for the '<em><b>Style Normal</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference NUMBER_OF_RELATION_STRATEGY__STYLE_NORMAL = eINSTANCE.getNumberOfRelationStrategy_StyleNormal();
+
+        /**
+         * The meta object literal for the '<em><b>Style Summarized</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference NUMBER_OF_RELATION_STRATEGY__STYLE_SUMMARIZED = eINSTANCE.getNumberOfRelationStrategy_StyleSummarized();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.sirius.components.view.impl.ManuallyDefinedStrategyImpl
+         * <em>Manually Defined Strategy</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @see org.eclipse.sirius.components.view.impl.ManuallyDefinedStrategyImpl
+         * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getManuallyDefinedStrategy()
+         * @generated
+         */
+        EClass MANUALLY_DEFINED_STRATEGY = eINSTANCE.getManuallyDefinedStrategy();
+
+        /**
+         * The meta object literal for the '<em><b>Active Strategy</b></em>' attribute feature. <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute MANUALLY_DEFINED_STRATEGY__ACTIVE_STRATEGY = eINSTANCE.getManuallyDefinedStrategy_ActiveStrategy();
+
+        /**
+         * The meta object literal for the '<em><b>Style Detailled</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference MANUALLY_DEFINED_STRATEGY__STYLE_DETAILLED = eINSTANCE.getManuallyDefinedStrategy_StyleDetailled();
+
+        /**
+         * The meta object literal for the '<em><b>Style Normal</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference MANUALLY_DEFINED_STRATEGY__STYLE_NORMAL = eINSTANCE.getManuallyDefinedStrategy_StyleNormal();
+
+        /**
+         * The meta object literal for the '<em><b>Style Summarized</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference MANUALLY_DEFINED_STRATEGY__STYLE_SUMMARIZED = eINSTANCE.getManuallyDefinedStrategy_StyleSummarized();
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.components.view.LayoutDirection <em>Layout

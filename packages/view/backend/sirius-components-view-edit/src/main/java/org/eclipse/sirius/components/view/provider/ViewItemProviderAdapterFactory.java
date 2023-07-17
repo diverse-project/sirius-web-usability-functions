@@ -1730,6 +1730,78 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
     }
 
     /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy} instances. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected AutomaticZoomingByDepthStrategyItemProvider automaticZoomingByDepthStrategyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createAutomaticZoomingByDepthStrategyAdapter() {
+        if (this.automaticZoomingByDepthStrategyItemProvider == null) {
+            this.automaticZoomingByDepthStrategyItemProvider = new AutomaticZoomingByDepthStrategyItemProvider(this);
+        }
+
+        return this.automaticZoomingByDepthStrategyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.components.view.NumberOfRelationStrategy} instances. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    protected NumberOfRelationStrategyItemProvider numberOfRelationStrategyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.sirius.components.view.NumberOfRelationStrategy}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createNumberOfRelationStrategyAdapter() {
+        if (this.numberOfRelationStrategyItemProvider == null) {
+            this.numberOfRelationStrategyItemProvider = new NumberOfRelationStrategyItemProvider(this);
+        }
+
+        return this.numberOfRelationStrategyItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy} instances. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    protected ManuallyDefinedStrategyItemProvider manuallyDefinedStrategyItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createManuallyDefinedStrategyAdapter() {
+        if (this.manuallyDefinedStrategyItemProvider == null) {
+            this.manuallyDefinedStrategyItemProvider = new ManuallyDefinedStrategyItemProvider(this);
+        }
+
+        return this.manuallyDefinedStrategyItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link org.eclipse.sirius.components.view.BarChartDescription}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -2124,6 +2196,12 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
             this.selectionDescriptionItemProvider.dispose();
         if (this.semanticZoomDescriptionItemProvider != null)
             this.semanticZoomDescriptionItemProvider.dispose();
+        if (this.automaticZoomingByDepthStrategyItemProvider != null)
+            this.automaticZoomingByDepthStrategyItemProvider.dispose();
+        if (this.numberOfRelationStrategyItemProvider != null)
+            this.numberOfRelationStrategyItemProvider.dispose();
+        if (this.manuallyDefinedStrategyItemProvider != null)
+            this.manuallyDefinedStrategyItemProvider.dispose();
     }
 
 }

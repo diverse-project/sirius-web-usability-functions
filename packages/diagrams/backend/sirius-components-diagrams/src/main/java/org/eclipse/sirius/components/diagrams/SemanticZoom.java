@@ -19,18 +19,32 @@ package org.eclipse.sirius.components.diagrams;
  */
 public class SemanticZoom {
 
-    private boolean activeSemanticZoom;
+    private ISemanticZoomStrategy automaticZoomingByDepthStrategy;
+    private ISemanticZoomStrategy numberOfRelationStrategy;
+    private ISemanticZoomStrategy manuallyDefinedStrategy;
 
     public SemanticZoom() {
-        this.activeSemanticZoom = false;
+        this.automaticZoomingByDepthStrategy = null;
+        this.numberOfRelationStrategy = null;
+        this.manuallyDefinedStrategy = null;
     }
 
-    public SemanticZoom(boolean activeSemanticZoom) {
-        this.activeSemanticZoom = activeSemanticZoom;
+    public SemanticZoom(ISemanticZoomStrategy automaticZoomingByDepthStrategy, ISemanticZoomStrategy numberOfRelationStrategy, ISemanticZoomStrategy manuallyDefinedStrategy) {
+        this.automaticZoomingByDepthStrategy = automaticZoomingByDepthStrategy;
+        this.numberOfRelationStrategy = numberOfRelationStrategy;
+        this.manuallyDefinedStrategy = manuallyDefinedStrategy;
     }
 
-    public boolean getActiveSemanticZoom() {
-        return this.activeSemanticZoom;
+    public ISemanticZoomStrategy getAutomaticZoomingByDepthStrategy() {
+        return this.automaticZoomingByDepthStrategy;
+    }
+
+    public ISemanticZoomStrategy getNumberOfRelationStrategy() {
+        return this.numberOfRelationStrategy;
+    }
+
+    public ISemanticZoomStrategy getManuallyDefinedStrategy() {
+        return this.manuallyDefinedStrategy;
     }
 
 }

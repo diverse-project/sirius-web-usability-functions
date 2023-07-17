@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy;
 import org.eclipse.sirius.components.view.BarChartDescription;
 import org.eclipse.sirius.components.view.BarChartDescriptionStyle;
 import org.eclipse.sirius.components.view.BorderStyle;
@@ -72,12 +73,14 @@ import org.eclipse.sirius.components.view.LinkDescriptionStyle;
 import org.eclipse.sirius.components.view.ListDescription;
 import org.eclipse.sirius.components.view.ListDescriptionStyle;
 import org.eclipse.sirius.components.view.ListLayoutStrategyDescription;
+import org.eclipse.sirius.components.view.ManuallyDefinedStrategy;
 import org.eclipse.sirius.components.view.MultiSelectDescription;
 import org.eclipse.sirius.components.view.MultiSelectDescriptionStyle;
 import org.eclipse.sirius.components.view.NodeDescription;
 import org.eclipse.sirius.components.view.NodePalette;
 import org.eclipse.sirius.components.view.NodeStyleDescription;
 import org.eclipse.sirius.components.view.NodeTool;
+import org.eclipse.sirius.components.view.NumberOfRelationStrategy;
 import org.eclipse.sirius.components.view.Operation;
 import org.eclipse.sirius.components.view.PageDescription;
 import org.eclipse.sirius.components.view.PieChartDescription;
@@ -601,6 +604,21 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseSemanticZoomDescription(SemanticZoomDescription object) {
             return ViewAdapterFactory.this.createSemanticZoomDescriptionAdapter();
+        }
+
+        @Override
+        public Adapter caseAutomaticZoomingByDepthStrategy(AutomaticZoomingByDepthStrategy object) {
+            return ViewAdapterFactory.this.createAutomaticZoomingByDepthStrategyAdapter();
+        }
+
+        @Override
+        public Adapter caseNumberOfRelationStrategy(NumberOfRelationStrategy object) {
+            return ViewAdapterFactory.this.createNumberOfRelationStrategyAdapter();
+        }
+
+        @Override
+        public Adapter caseManuallyDefinedStrategy(ManuallyDefinedStrategy object) {
+            return ViewAdapterFactory.this.createManuallyDefinedStrategyAdapter();
         }
 
         @Override
@@ -1842,6 +1860,48 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createSemanticZoomDescriptionAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class
+     * '{@link org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy <em>Automatic Zooming By Depth
+     * Strategy</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy
+     * @generated
+     */
+    public Adapter createAutomaticZoomingByDepthStrategyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.components.view.NumberOfRelationStrategy
+     * <em>Number Of Relation Strategy</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
+     * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+     * end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.eclipse.sirius.components.view.NumberOfRelationStrategy
+     * @generated
+     */
+    public Adapter createNumberOfRelationStrategyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy
+     * <em>Manually Defined Strategy</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+     * end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.eclipse.sirius.components.view.ManuallyDefinedStrategy
+     * @generated
+     */
+    public Adapter createManuallyDefinedStrategyAdapter() {
         return null;
     }
 
