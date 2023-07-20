@@ -20,16 +20,19 @@ package org.eclipse.sirius.components.diagrams;
 public class SemanticZoomStrategy implements ISemanticZoomStrategy {
 
     public static final String KIND = "SemanticZoomStrategy";
-    private boolean activeStrategy;
-    private INodeStyle styleDetailled;
-    private INodeStyle styleNormal;
-    private INodeStyle styleSummarized;
+    protected boolean activeStrategy;
+    protected INodeStyle styleDetailled;
+    protected INodeStyle styleNormal;
+    protected INodeStyle styleSummarized;
 
     public SemanticZoomStrategy() {
+        INodeStyle defaultNodeStyle = IconLabelNodeStyle.newIconLabelNodeStyle()
+                .backgroundColor("black")
+                .build();
         this.activeStrategy = false;
-        this.styleDetailled = null;
-        this.styleNormal = null;
-        this.styleSummarized = null;
+        this.styleDetailled = defaultNodeStyle;
+        this.styleNormal = defaultNodeStyle;
+        this.styleSummarized = defaultNodeStyle;
     }
 
     public SemanticZoomStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized) {
@@ -50,18 +53,38 @@ public class SemanticZoomStrategy implements ISemanticZoomStrategy {
     }
 
     @Override
-    public INodeStyle getNodeStyleDetailled() {
+    public INodeStyle getStyleDetailled() {
         return this.styleDetailled;
     }
 
     @Override
-    public INodeStyle getNodeStyleNormal() {
+    public INodeStyle getStyleNormal() {
         return this.styleNormal;
     }
 
     @Override
-    public INodeStyle getNodeStyleSummarized() {
+    public INodeStyle getStyleSummarized() {
         return this.styleSummarized;
+    }
+
+    @Override
+    public void setActiveStrategy(boolean activeStrategy) {
+        this.activeStrategy = activeStrategy;
+    }
+
+    @Override
+    public void setStyleDetailled(INodeStyle styleDetailled) {
+        this.styleDetailled = styleDetailled;
+    }
+
+    @Override
+    public void setStyleNormal(INodeStyle styleNormal) {
+        this.styleNormal = styleNormal;
+    }
+
+    @Override
+    public void setStyleSummarized(INodeStyle styleSummarized) {
+        this.styleSummarized = styleSummarized;
     }
 
 }

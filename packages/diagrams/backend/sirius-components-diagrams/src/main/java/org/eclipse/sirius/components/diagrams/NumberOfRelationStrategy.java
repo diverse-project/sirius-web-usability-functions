@@ -21,6 +21,10 @@ public class NumberOfRelationStrategy extends SemanticZoomStrategy {
 
     public static final String KIND = "NumberOfRelationStrategy";
 
+    public NumberOfRelationStrategy() {
+        super(false, null, null, null);
+    }
+
     public NumberOfRelationStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized) {
         super(activeStrategy, styleDetailled, styleNormal, styleSummarized);
     }

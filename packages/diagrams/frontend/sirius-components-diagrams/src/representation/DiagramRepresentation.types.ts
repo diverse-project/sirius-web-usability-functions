@@ -159,9 +159,7 @@ export interface GQLNode {
 }
 
 export interface GQLSemanticZoom {
-  automaticZoomingByDepthStrategy: GQLISemanticZoomStrategy;
-  numberOfRelationStrategy: GQLISemanticZoomStrategy;
-  manuallyDefinedStrategy: GQLISemanticZoomStrategy;
+  semanticZoomStrategies: GQLISemanticZoomStrategy[];
 }
 
 export interface GQLISemanticZoomStrategy {
@@ -170,6 +168,12 @@ export interface GQLISemanticZoomStrategy {
   styleNormal: GQLINodeStyle;
   styleSummarized: GQLINodeStyle;
 }
+
+export interface AutomaticZoomingByDepthStrategy extends GQLISemanticZoomStrategy {}
+
+export interface NumberOfRelationStrategy extends GQLISemanticZoomStrategy {}
+
+export interface ManuallyDefinedStrategy extends GQLISemanticZoomStrategy {}
 
 export interface GQLLabel {
   id: string;

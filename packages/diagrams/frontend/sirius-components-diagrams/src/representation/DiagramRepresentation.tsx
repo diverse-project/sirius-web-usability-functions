@@ -386,6 +386,10 @@ export const DiagramRepresentation = ({
     },
   });
 
+  if (diagram != null) {
+    console.log(diagram);
+  }
+
   useEffect(() => {
     if (diagramRepresentation === 'loadingDiagramDescription' && !diagramDescriptionLoading) {
       if (diagramDescriptionError) {

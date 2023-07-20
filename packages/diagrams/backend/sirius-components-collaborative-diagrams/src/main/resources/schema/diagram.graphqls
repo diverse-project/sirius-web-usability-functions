@@ -50,16 +50,30 @@ type Node {
 }
 
 type SemanticZoom {
-	automaticZoomingByDepthStrategy: ISemanticZoomStrategy
-	numberOfRelationStrategy: ISemanticZoomStrategy
-	manuallyDefinedStrategy: ISemanticZoomStrategy
+	semanticZoomStrategies: [ISemanticZoomStrategy!]!
 }
 
-type ISemanticZoomStrategy {
+union ISemanticZoomStrategy = AutomaticZoomingByDepthStrategy | NumberOfRelationStrategy | ManuallyDefinedStrategy
+
+type AutomaticZoomingByDepthStrategy {
 	activeStrategy: Boolean!
-	styleDetailled: INodeStyle!
-	styleNormal: INodeStyle!
-	styleSummarized: INodeStyle!
+	styleDetailled: INodeStyle
+	styleNormal: INodeStyle
+	styleSummarized: INodeStyle
+}
+
+type NumberOfRelationStrategy {
+	activeStrategy: Boolean!
+	styleDetailled: INodeStyle
+	styleNormal: INodeStyle
+	styleSummarized: INodeStyle
+}
+
+type ManuallyDefinedStrategy {
+	activeStrategy: Boolean!
+	styleDetailled: INodeStyle
+	styleNormal: INodeStyle
+	styleSummarized: INodeStyle
 }
 
 type Label {

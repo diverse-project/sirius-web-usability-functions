@@ -21,6 +21,10 @@ public class AutomaticZoomingByDepthStrategy extends SemanticZoomStrategy {
 
     public static final String KIND = "AutomaticZoomingByDepthStrategy";
 
+    public AutomaticZoomingByDepthStrategy() {
+        super(false, null, null, null);
+    }
+
     public AutomaticZoomingByDepthStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized) {
         super(activeStrategy, styleDetailled, styleNormal, styleSummarized);
     }

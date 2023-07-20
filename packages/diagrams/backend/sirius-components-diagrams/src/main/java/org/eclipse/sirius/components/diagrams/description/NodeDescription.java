@@ -351,7 +351,7 @@ public final class NodeDescription implements IDiagramElementDescription {
             return this;
         }
 
-        public Builder activeSemanticZoom(Function<VariableManager, SemanticZoom> semanticZoom) {
+        public Builder semanticZoom(Function<VariableManager, SemanticZoom> semanticZoom) {
             this.semanticZoom = semanticZoom;
             return this;
         }

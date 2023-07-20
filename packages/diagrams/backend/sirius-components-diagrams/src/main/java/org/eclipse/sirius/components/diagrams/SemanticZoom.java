@@ -12,6 +12,9 @@
  *******************************************************************************/
 package org.eclipse.sirius.components.diagrams;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The semantic zoom.
  *
@@ -19,32 +22,19 @@ package org.eclipse.sirius.components.diagrams;
  */
 public class SemanticZoom {
 
-    private ISemanticZoomStrategy automaticZoomingByDepthStrategy;
-    private ISemanticZoomStrategy numberOfRelationStrategy;
-    private ISemanticZoomStrategy manuallyDefinedStrategy;
+    private List<ISemanticZoomStrategy> semanticZoomStrategies;
 
     public SemanticZoom() {
-        this.automaticZoomingByDepthStrategy = null;
-        this.numberOfRelationStrategy = null;
-        this.manuallyDefinedStrategy = null;
+        this.semanticZoomStrategies = new ArrayList<>();
     }
 
-    public SemanticZoom(ISemanticZoomStrategy automaticZoomingByDepthStrategy, ISemanticZoomStrategy numberOfRelationStrategy, ISemanticZoomStrategy manuallyDefinedStrategy) {
-        this.automaticZoomingByDepthStrategy = automaticZoomingByDepthStrategy;
-        this.numberOfRelationStrategy = numberOfRelationStrategy;
-        this.manuallyDefinedStrategy = manuallyDefinedStrategy;
+    public SemanticZoom(List<ISemanticZoomStrategy> semanticZoomStrategies) {
+        this.semanticZoomStrategies = semanticZoomStrategies;
     }
 
-    public ISemanticZoomStrategy getAutomaticZoomingByDepthStrategy() {
-        return this.automaticZoomingByDepthStrategy;
+    public List<ISemanticZoomStrategy> getSemanticZoomStrategies() {
+        return this.semanticZoomStrategies;
     }
 
-    public ISemanticZoomStrategy getNumberOfRelationStrategy() {
-        return this.numberOfRelationStrategy;
-    }
-
-    public ISemanticZoomStrategy getManuallyDefinedStrategy() {
-        return this.manuallyDefinedStrategy;
-    }
 
 }

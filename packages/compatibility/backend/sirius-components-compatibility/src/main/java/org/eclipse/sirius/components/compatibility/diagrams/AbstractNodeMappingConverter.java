@@ -161,7 +161,7 @@ public class AbstractNodeMappingConverter {
                 .styleProvider(styleProvider)
                 .childrenLayoutStrategyProvider(childrenLayoutStrategyProvider)
                 .sizeProvider(sizeProvider)
-                .activeSemanticZoom(semanticZoomProvider)
+                .semanticZoom(semanticZoomProvider)
                 .borderNodeDescriptions(borderNodeDescriptions)
                 .childNodeDescriptions(childNodeDescriptions)
                 .collapsible(collapsible)

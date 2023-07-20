@@ -676,6 +676,13 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      *
      * @generated
      */
+    private EClass semanticZoomStrategyEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EEnum layoutDirectionEEnum = null;
 
     /**
@@ -3672,28 +3679,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getSemanticZoomDescription_AutomaticZoomingByDepthStrategy() {
+    public EReference getSemanticZoomDescription_SemanticZoomStrategies() {
         return (EReference) this.semanticZoomDescriptionEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getSemanticZoomDescription_NumberOfRelationStrategy() {
-        return (EReference) this.semanticZoomDescriptionEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getSemanticZoomDescription_ManuallyDefinedStrategy() {
-        return (EReference) this.semanticZoomDescriptionEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -3712,88 +3699,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EAttribute getAutomaticZoomingByDepthStrategy_ActiveStrategy() {
-        return (EAttribute) this.automaticZoomingByDepthStrategyEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getAutomaticZoomingByDepthStrategy_StyleDetailled() {
-        return (EReference) this.automaticZoomingByDepthStrategyEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getAutomaticZoomingByDepthStrategy_StyleNormal() {
-        return (EReference) this.automaticZoomingByDepthStrategyEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getAutomaticZoomingByDepthStrategy_StyleSummarized() {
-        return (EReference) this.automaticZoomingByDepthStrategyEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public EClass getNumberOfRelationStrategy() {
         return this.numberOfRelationStrategyEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getNumberOfRelationStrategy_ActiveStrategy() {
-        return (EAttribute) this.numberOfRelationStrategyEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getNumberOfRelationStrategy_StyleDetailled() {
-        return (EReference) this.numberOfRelationStrategyEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getNumberOfRelationStrategy_StyleNormal() {
-        return (EReference) this.numberOfRelationStrategyEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getNumberOfRelationStrategy_StyleSummarized() {
-        return (EReference) this.numberOfRelationStrategyEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -3812,8 +3719,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EAttribute getManuallyDefinedStrategy_ActiveStrategy() {
-        return (EAttribute) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(0);
+    public EClass getSemanticZoomStrategy() {
+        return this.semanticZoomStrategyEClass;
     }
 
     /**
@@ -3822,8 +3729,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getManuallyDefinedStrategy_StyleDetailled() {
-        return (EReference) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(1);
+    public EAttribute getSemanticZoomStrategy_ActiveStrategy() {
+        return (EAttribute) this.semanticZoomStrategyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -3832,8 +3739,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getManuallyDefinedStrategy_StyleNormal() {
-        return (EReference) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(2);
+    public EReference getSemanticZoomStrategy_StyleDetailled() {
+        return (EReference) this.semanticZoomStrategyEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -3842,8 +3749,18 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EReference getManuallyDefinedStrategy_StyleSummarized() {
-        return (EReference) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(3);
+    public EReference getSemanticZoomStrategy_StyleNormal() {
+        return (EReference) this.semanticZoomStrategyEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getSemanticZoomStrategy_StyleSummarized() {
+        return (EReference) this.semanticZoomStrategyEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -4368,27 +4285,19 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
         this.createEAttribute(this.selectionDescriptionEClass, SELECTION_DESCRIPTION__SELECTION_MESSAGE);
 
         this.semanticZoomDescriptionEClass = this.createEClass(SEMANTIC_ZOOM_DESCRIPTION);
-        this.createEReference(this.semanticZoomDescriptionEClass, SEMANTIC_ZOOM_DESCRIPTION__AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY);
-        this.createEReference(this.semanticZoomDescriptionEClass, SEMANTIC_ZOOM_DESCRIPTION__NUMBER_OF_RELATION_STRATEGY);
-        this.createEReference(this.semanticZoomDescriptionEClass, SEMANTIC_ZOOM_DESCRIPTION__MANUALLY_DEFINED_STRATEGY);
+        this.createEReference(this.semanticZoomDescriptionEClass, SEMANTIC_ZOOM_DESCRIPTION__SEMANTIC_ZOOM_STRATEGIES);
 
         this.automaticZoomingByDepthStrategyEClass = this.createEClass(AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY);
-        this.createEAttribute(this.automaticZoomingByDepthStrategyEClass, AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__ACTIVE_STRATEGY);
-        this.createEReference(this.automaticZoomingByDepthStrategyEClass, AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_DETAILLED);
-        this.createEReference(this.automaticZoomingByDepthStrategyEClass, AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_NORMAL);
-        this.createEReference(this.automaticZoomingByDepthStrategyEClass, AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_SUMMARIZED);
 
         this.numberOfRelationStrategyEClass = this.createEClass(NUMBER_OF_RELATION_STRATEGY);
-        this.createEAttribute(this.numberOfRelationStrategyEClass, NUMBER_OF_RELATION_STRATEGY__ACTIVE_STRATEGY);
-        this.createEReference(this.numberOfRelationStrategyEClass, NUMBER_OF_RELATION_STRATEGY__STYLE_DETAILLED);
-        this.createEReference(this.numberOfRelationStrategyEClass, NUMBER_OF_RELATION_STRATEGY__STYLE_NORMAL);
-        this.createEReference(this.numberOfRelationStrategyEClass, NUMBER_OF_RELATION_STRATEGY__STYLE_SUMMARIZED);
 
         this.manuallyDefinedStrategyEClass = this.createEClass(MANUALLY_DEFINED_STRATEGY);
-        this.createEAttribute(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__ACTIVE_STRATEGY);
-        this.createEReference(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__STYLE_DETAILLED);
-        this.createEReference(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__STYLE_NORMAL);
-        this.createEReference(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__STYLE_SUMMARIZED);
+
+        this.semanticZoomStrategyEClass = this.createEClass(SEMANTIC_ZOOM_STRATEGY);
+        this.createEAttribute(this.semanticZoomStrategyEClass, SEMANTIC_ZOOM_STRATEGY__ACTIVE_STRATEGY);
+        this.createEReference(this.semanticZoomStrategyEClass, SEMANTIC_ZOOM_STRATEGY__STYLE_DETAILLED);
+        this.createEReference(this.semanticZoomStrategyEClass, SEMANTIC_ZOOM_STRATEGY__STYLE_NORMAL);
+        this.createEReference(this.semanticZoomStrategyEClass, SEMANTIC_ZOOM_STRATEGY__STYLE_SUMMARIZED);
 
         // Create enums
         this.layoutDirectionEEnum = this.createEEnum(LAYOUT_DIRECTION);
@@ -4530,6 +4439,9 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
         this.listDescriptionStyleEClass.getESuperTypes().add(this.getLabelStyle());
         this.conditionalListDescriptionStyleEClass.getESuperTypes().add(this.getConditional());
         this.conditionalListDescriptionStyleEClass.getESuperTypes().add(this.getListDescriptionStyle());
+        this.automaticZoomingByDepthStrategyEClass.getESuperTypes().add(this.getSemanticZoomStrategy());
+        this.numberOfRelationStrategyEClass.getESuperTypes().add(this.getSemanticZoomStrategy());
+        this.manuallyDefinedStrategyEClass.getESuperTypes().add(this.getSemanticZoomStrategy());
 
         // Initialize classes, features, and operations; add parameters
         this.initEClass(this.viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -5112,41 +5024,23 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.semanticZoomDescriptionEClass, SemanticZoomDescription.class, "SemanticZoomDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getSemanticZoomDescription_AutomaticZoomingByDepthStrategy(), this.getAutomaticZoomingByDepthStrategy(), null, "automaticZoomingByDepthStrategy", null, 0, 1,
-                SemanticZoomDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getSemanticZoomDescription_NumberOfRelationStrategy(), this.getNumberOfRelationStrategy(), null, "numberOfRelationStrategy", null, 0, 1, SemanticZoomDescription.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getSemanticZoomDescription_ManuallyDefinedStrategy(), this.getManuallyDefinedStrategy(), null, "manuallyDefinedStrategy", null, 0, 1, SemanticZoomDescription.class,
+        this.initEReference(this.getSemanticZoomDescription_SemanticZoomStrategies(), this.getSemanticZoomStrategy(), null, "semanticZoomStrategies", null, 1, -1, SemanticZoomDescription.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.automaticZoomingByDepthStrategyEClass, AutomaticZoomingByDepthStrategy.class, "AutomaticZoomingByDepthStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getAutomaticZoomingByDepthStrategy_ActiveStrategy(), this.ecorePackage.getEBoolean(), "activeStrategy", null, 0, 1, AutomaticZoomingByDepthStrategy.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getAutomaticZoomingByDepthStrategy_StyleDetailled(), this.getNodeStyleDescription(), null, "styleDetailled", null, 0, 1, AutomaticZoomingByDepthStrategy.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getAutomaticZoomingByDepthStrategy_StyleNormal(), this.getNodeStyleDescription(), null, "styleNormal", null, 0, 1, AutomaticZoomingByDepthStrategy.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getAutomaticZoomingByDepthStrategy_StyleSummarized(), this.getNodeStyleDescription(), null, "styleSummarized", null, 0, 1, AutomaticZoomingByDepthStrategy.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.numberOfRelationStrategyEClass, NumberOfRelationStrategy.class, "NumberOfRelationStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getNumberOfRelationStrategy_ActiveStrategy(), this.ecorePackage.getEBoolean(), "activeStrategy", null, 0, 1, NumberOfRelationStrategy.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getNumberOfRelationStrategy_StyleDetailled(), this.getNodeStyleDescription(), null, "styleDetailled", null, 0, 1, NumberOfRelationStrategy.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getNumberOfRelationStrategy_StyleNormal(), this.getNodeStyleDescription(), null, "styleNormal", null, 0, 1, NumberOfRelationStrategy.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getNumberOfRelationStrategy_StyleSummarized(), this.getNodeStyleDescription(), null, "styleSummarized", null, 0, 1, NumberOfRelationStrategy.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.manuallyDefinedStrategyEClass, ManuallyDefinedStrategy.class, "ManuallyDefinedStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getManuallyDefinedStrategy_ActiveStrategy(), this.ecorePackage.getEBoolean(), "activeStrategy", null, 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT, !IS_VOLATILE,
+
+        this.initEClass(this.semanticZoomStrategyEClass, SemanticZoomStrategy.class, "SemanticZoomStrategy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getSemanticZoomStrategy_ActiveStrategy(), this.ecorePackage.getEBoolean(), "activeStrategy", null, 0, 1, SemanticZoomStrategy.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getManuallyDefinedStrategy_StyleDetailled(), this.getNodeStyleDescription(), null, "styleDetailled", null, 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getManuallyDefinedStrategy_StyleNormal(), this.getNodeStyleDescription(), null, "styleNormal", null, 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT, !IS_VOLATILE,
+        this.initEReference(this.getSemanticZoomStrategy_StyleDetailled(), this.getNodeStyleDescription(), null, "styleDetailled", null, 0, 1, SemanticZoomStrategy.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getManuallyDefinedStrategy_StyleSummarized(), this.getNodeStyleDescription(), null, "styleSummarized", null, 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT,
+        this.initEReference(this.getSemanticZoomStrategy_StyleNormal(), this.getNodeStyleDescription(), null, "styleNormal", null, 0, 1, SemanticZoomStrategy.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getSemanticZoomStrategy_StyleSummarized(), this.getNodeStyleDescription(), null, "styleSummarized", null, 0, 1, SemanticZoomStrategy.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals

@@ -23,11 +23,20 @@ public interface ISemanticZoomStrategy {
 
     boolean getActiveStrategy();
 
-    INodeStyle getNodeStyleDetailled();
+    INodeStyle getStyleDetailled();
 
-    INodeStyle getNodeStyleNormal();
+    INodeStyle getStyleNormal();
 
-    INodeStyle getNodeStyleSummarized();
+    INodeStyle getStyleSummarized();
+
+    void setActiveStrategy(boolean activeStrategy);
+
+    void setStyleDetailled(INodeStyle styleDetailled);
+
+    void setStyleNormal(INodeStyle styleNormal);
+
+    void setStyleSummarized(INodeStyle styleSummarized);
+
 
 
 }

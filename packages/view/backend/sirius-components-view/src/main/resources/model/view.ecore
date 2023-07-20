@@ -541,26 +541,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SemanticZoomDescription">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="automaticZoomingByDepthStrategy" eType="#//AutomaticZoomingByDepthStrategy" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="numberOfRelationStrategy" eType="#//NumberOfRelationStrategy" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="manuallyDefinedStrategy" eType="#//ManuallyDefinedStrategy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="semanticZoomStrategies"
+        lowerBound="1" upperBound="-1" eType="#//SemanticZoomStrategy" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AutomaticZoomingByDepthStrategy">
-	<eStructuralFeatures xsi:type="ecore:EAttribute" name="activeStrategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-	<eStructuralFeatures xsi:type="ecore:EReference" name="styleDetailled" eType="#//NodeStyleDescription" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styleNormal" eType="#//NodeStyleDescription" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styleSummarized" eType="#//NodeStyleDescription" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberOfRelationStrategy">
-	<eStructuralFeatures xsi:type="ecore:EAttribute" name="activeStrategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-	<eStructuralFeatures xsi:type="ecore:EReference" name="styleDetailled" eType="#//NodeStyleDescription" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styleNormal" eType="#//NodeStyleDescription" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styleSummarized" eType="#//NodeStyleDescription" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ManuallyDefinedStrategy">
-	<eStructuralFeatures xsi:type="ecore:EAttribute" name="activeStrategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-<eStructuralFeatures xsi:type="ecore:EReference" name="styleDetailled" eType="#//NodeStyleDescription" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styleNormal" eType="#//NodeStyleDescription" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styleSummarized" eType="#//NodeStyleDescription" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AutomaticZoomingByDepthStrategy" eSuperTypes="#//SemanticZoomStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberOfRelationStrategy" eSuperTypes="#//SemanticZoomStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ManuallyDefinedStrategy" eSuperTypes="#//SemanticZoomStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SemanticZoomStrategy" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activeStrategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleDetailled" eType="#//NodeStyleDescription"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleNormal" eType="#//NodeStyleDescription"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleSummarized" eType="#//NodeStyleDescription"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

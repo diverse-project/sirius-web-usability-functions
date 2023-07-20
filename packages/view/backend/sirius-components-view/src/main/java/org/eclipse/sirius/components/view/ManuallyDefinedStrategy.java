@@ -12,119 +12,15 @@
  */
 package org.eclipse.sirius.components.view;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Manually Defined Strategy</b></em>'. <!--
  * end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- * <li>{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#isActiveStrategy <em>Active Strategy</em>}</li>
- * <li>{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleDetailled <em>Style
- * Detailled</em>}</li>
- * <li>{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleNormal <em>Style Normal</em>}</li>
- * <li>{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleSummarized <em>Style
- * Summarized</em>}</li>
- * </ul>
  *
  * @see org.eclipse.sirius.components.view.ViewPackage#getManuallyDefinedStrategy()
  * @model
  * @generated
  */
-public interface ManuallyDefinedStrategy extends EObject {
-    /**
-     * Returns the value of the '<em><b>Active Strategy</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @return the value of the '<em>Active Strategy</em>' attribute.
-     * @see #setActiveStrategy(boolean)
-     * @see org.eclipse.sirius.components.view.ViewPackage#getManuallyDefinedStrategy_ActiveStrategy()
-     * @model
-     * @generated
-     */
-    boolean isActiveStrategy();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#isActiveStrategy
-     * <em>Active Strategy</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param value
-     *            the new value of the '<em>Active Strategy</em>' attribute.
-     * @see #isActiveStrategy()
-     * @generated
-     */
-    void setActiveStrategy(boolean value);
-
-    /**
-     * Returns the value of the '<em><b>Style Detailled</b></em>' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @return the value of the '<em>Style Detailled</em>' containment reference.
-     * @see #setStyleDetailled(NodeStyleDescription)
-     * @see org.eclipse.sirius.components.view.ViewPackage#getManuallyDefinedStrategy_StyleDetailled()
-     * @model containment="true"
-     * @generated
-     */
-    NodeStyleDescription getStyleDetailled();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleDetailled
-     * <em>Style Detailled</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param value
-     *            the new value of the '<em>Style Detailled</em>' containment reference.
-     * @see #getStyleDetailled()
-     * @generated
-     */
-    void setStyleDetailled(NodeStyleDescription value);
-
-    /**
-     * Returns the value of the '<em><b>Style Normal</b></em>' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @return the value of the '<em>Style Normal</em>' containment reference.
-     * @see #setStyleNormal(NodeStyleDescription)
-     * @see org.eclipse.sirius.components.view.ViewPackage#getManuallyDefinedStrategy_StyleNormal()
-     * @model containment="true"
-     * @generated
-     */
-    NodeStyleDescription getStyleNormal();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleNormal <em>Style
-     * Normal</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param value
-     *            the new value of the '<em>Style Normal</em>' containment reference.
-     * @see #getStyleNormal()
-     * @generated
-     */
-    void setStyleNormal(NodeStyleDescription value);
-
-    /**
-     * Returns the value of the '<em><b>Style Summarized</b></em>' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @return the value of the '<em>Style Summarized</em>' containment reference.
-     * @see #setStyleSummarized(NodeStyleDescription)
-     * @see org.eclipse.sirius.components.view.ViewPackage#getManuallyDefinedStrategy_StyleSummarized()
-     * @model containment="true"
-     * @generated
-     */
-    NodeStyleDescription getStyleSummarized();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getStyleSummarized
-     * <em>Style Summarized</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param value
-     *            the new value of the '<em>Style Summarized</em>' containment reference.
-     * @see #getStyleSummarized()
-     * @generated
-     */
-    void setStyleSummarized(NodeStyleDescription value);
+public interface ManuallyDefinedStrategy extends SemanticZoomStrategy {
 
 } // ManuallyDefinedStrategy
