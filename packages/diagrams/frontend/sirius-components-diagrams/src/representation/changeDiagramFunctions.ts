@@ -100,7 +100,7 @@ export class DiagramRefreshTool {
       for (const level of listOfLevelsNumber) {
         if (level != 1.0) {
           //Get the new values of count and scale count after applying the function to one level of the diagram
-          ({ scaleCount, count } = this.scaleLevelHiding(scaleCount, numberOfLevels, count, graph));
+          ({ scaleCount, count } = this.scaleLevelHiding(scaleCount, numberOfLevels, count, graph, level));
           //Saving the list of the current value of each node by storing a copy of these and setting the map at this level of zoom
           const tmpNodeList: GQLNode[] = [];
           for (const node of nodeList) {
@@ -110,10 +110,7 @@ export class DiagramRefreshTool {
         }
       }
     }
-    //We set the diagram (value of each node) to the value stored in the map
-    /* if (zoomLevelNumber == 0.75) {
-      this.hideEdgesLabel(this.diagram);
-    } */
+    //Reset the diagram
     for (let i = 0; i < nodeList.length; i++) {
       if (this.listOfLevels.get(zoomLevelNumber) != undefined) {
         const nodeTmp = this.listOfLevels.get(zoomLevelNumber).find((n) => n.id == nodeList[i].id);
@@ -142,53 +139,60 @@ export class DiagramRefreshTool {
   }
 
   //Depending on the scaling difference, choose the action to execute
-  scaleLevelHiding(scaleCount: number, numberOfLevels: number, count: number, graph: Map<number, DirectionalGraph>) {
-    //console.log(Math.floor(scaleCount - numberOfLevels / 5) + ' ' + Math.floor(scaleCount));
+  scaleLevelHiding(
+    scaleCount: number,
+    numberOfLevels: number,
+    count: number,
+    graph: Map<number, DirectionalGraph>,
+    level: number
+  ) {
     if (Math.floor(scaleCount - numberOfLevels / 5) != Math.floor(scaleCount)) {
-      count = this.changeNodeProperties(graph, count, true); //Call to the function with a level change
+      count = this.changeNodeProperties(graph, count, level, true); //Call to the function with a level change
     } else {
-      count = this.changeNodeProperties(graph, count, false); //Call to the function without a level change
+      count = this.changeNodeProperties(graph, count, level, false); //Call to the function without a level change
     }
     scaleCount = scaleCount - numberOfLevels / 5; //Decrementing the scaled count
     return { scaleCount, count };
   }
 
   //Hide and modify properties of the nodes
-  changeNodeProperties(graph: Map<number, DirectionalGraph>, count: number, changingLevelOfHiding: boolean) {
+  changeNodeProperties(
+    graph: Map<number, DirectionalGraph>,
+    count: number,
+    level: number,
+    changingLevelOfHiding: boolean
+  ) {
     if (graph.size - count - 1 >= 0) {
-      //If we are zooming out
+      //If we are changing of level
       if (changingLevelOfHiding) {
-        //If we are changing of level
-        for (const node of graph.get(graph.size - count - 1).getNodes()) {
-          const semanticStrategies: ExtendedStrategy[] | undefined = node.semanticZoom.semanticZoomStrategies;
-          for (const strategy of semanticStrategies) {
-            if (
-              strategy !== undefined &&
-              strategy.__typename === 'AutomaticZoomingByDepthStrategy' &&
-              strategy.activeStrategy
-            ) {
+        count++; //Because we have hidden a level, we increment the count
+      }
+      const graphAtLevel = graph.get(graph.size - count);
+      const numberOfConnectionsPerNode = graphAtLevel.getNumberOfConnectionsPerNode();
+      for (const node of graphAtLevel.getNodes()) {
+        const semanticStrategies: ExtendedStrategy[] | undefined = node.semanticZoom.semanticZoomStrategies;
+        for (const strategy of semanticStrategies) {
+          if (
+            strategy !== undefined &&
+            strategy.__typename === 'AutomaticZoomingByDepthStrategy' &&
+            strategy.activeStrategy &&
+            changingLevelOfHiding
+          ) {
+            node.style = strategy.styleSummarized;
+          }
+          if (strategy !== undefined && strategy.__typename === 'ManuallyDefinedStrategy' && strategy.activeStrategy) {
+            if (level == 0.75) {
+              //TODO : Change with the values defined in the Strategy
+              node.style = strategy.styleDetailled;
+            } else if (level == 0.25) {
+              node.style = strategy.styleNormal;
+            } else if (level == 0.05) {
               node.style = strategy.styleSummarized;
             }
           }
-        }
-        count++; //Because we have hidden a level, we increment the count
-      } else {
-        //If we don't change the level of nodes in the diagram, we perform other changes like keeping the nodes with more than 3 connections
-        const numberOfConnectionsPerNode = graph.get(graph.size - count - 1).getNumberOfConnectionsPerNode();
-        for (const node of numberOfConnectionsPerNode.keys()) {
-          console.log(node.label.text);
-          const semanticStrategies: ExtendedStrategy[] | undefined = node.semanticZoom.semanticZoomStrategies;
-          for (const strategy of semanticStrategies) {
-            if (
-              strategy !== undefined &&
-              strategy.__typename === 'NumberOfRelationStrategy' &&
-              strategy.activeStrategy
-            ) {
-              console.log('APPLY NUMBER OF NODES');
-              if (numberOfConnectionsPerNode.get(node) < 3) {
-                node.state = GQLViewModifier.Hidden;
-                console.log('HIDE');
-              }
+          if (strategy !== undefined && strategy.__typename === 'NumberOfRelationStrategy' && strategy.activeStrategy) {
+            if (numberOfConnectionsPerNode.get(node) < 3) {
+              node.state = GQLViewModifier.Hidden; //TODO : Change by setting the style
             }
           }
         }
