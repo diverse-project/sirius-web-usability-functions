@@ -40,6 +40,7 @@ import org.eclipse.sirius.components.diagrams.FreeFormLayoutStrategy;
 import org.eclipse.sirius.components.diagrams.ILayoutStrategy;
 import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.ISemanticZoomStrategy;
+import org.eclipse.sirius.components.diagrams.IconLabelNodeStyle;
 import org.eclipse.sirius.components.diagrams.ListLayoutStrategy;
 import org.eclipse.sirius.components.diagrams.Node;
 import org.eclipse.sirius.components.diagrams.SemanticZoom;
@@ -310,9 +311,21 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
         for (SemanticZoomStrategy strategy : strategiesView) {
             if (strategy != null) {
                 boolean activeStrategy = strategy.isActiveStrategy();
-                INodeStyle styleDetailled = this.stylesFactory.createNodeStyle(strategy.getStyleDetailled(), optionalEditingContextId);
-                INodeStyle styleNormal = this.stylesFactory.createNodeStyle(strategy.getStyleNormal(), optionalEditingContextId);
-                INodeStyle styleSummarized = this.stylesFactory.createNodeStyle(strategy.getStyleSummarized(), optionalEditingContextId);
+                INodeStyle defaultNodeStyle = IconLabelNodeStyle.newIconLabelNodeStyle()
+                        .backgroundColor("black")
+                        .build();
+                INodeStyle styleDetailled = defaultNodeStyle;
+                INodeStyle styleNormal = defaultNodeStyle;
+                INodeStyle styleSummarized = defaultNodeStyle;
+                if (strategy.getStyleDetailled() != null) {
+                    styleDetailled = this.stylesFactory.createNodeStyle(strategy.getStyleDetailled(), optionalEditingContextId);
+                }
+                if (strategy.getStyleNormal() != null) {
+                    styleNormal = this.stylesFactory.createNodeStyle(strategy.getStyleNormal(), optionalEditingContextId);
+                }
+                if (strategy.getStyleSummarized() != null) {
+                    styleSummarized = this.stylesFactory.createNodeStyle(strategy.getStyleSummarized(), optionalEditingContextId);
+                }
                 if (strategy instanceof AutomaticZoomingByDepthStrategy) {
                     strategies.add(new org.eclipse.sirius.components.diagrams.AutomaticZoomingByDepthStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized));
                 } else if (strategy instanceof NumberOfRelationStrategy) {
