@@ -171,7 +171,9 @@ export interface GQLISemanticZoomStrategy {
 
 export interface AutomaticZoomingByDepthStrategy extends GQLISemanticZoomStrategy {}
 
-export interface NumberOfRelationStrategy extends GQLISemanticZoomStrategy {}
+export interface NumberOfRelationStrategy extends GQLISemanticZoomStrategy {
+  numberOfRelation: number;
+}
 
 export interface ManuallyDefinedStrategy extends GQLISemanticZoomStrategy {}
 

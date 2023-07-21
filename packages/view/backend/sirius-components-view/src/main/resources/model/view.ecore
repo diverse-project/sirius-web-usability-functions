@@ -545,7 +545,10 @@
         lowerBound="1" upperBound="-1" eType="#//SemanticZoomStrategy" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AutomaticZoomingByDepthStrategy" eSuperTypes="#//SemanticZoomStrategy"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberOfRelationStrategy" eSuperTypes="#//SemanticZoomStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberOfRelationStrategy" eSuperTypes="#//SemanticZoomStrategy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfRelation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="3"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ManuallyDefinedStrategy" eSuperTypes="#//SemanticZoomStrategy"/>
   <eClassifiers xsi:type="ecore:EClass" name="SemanticZoomStrategy" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="activeStrategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

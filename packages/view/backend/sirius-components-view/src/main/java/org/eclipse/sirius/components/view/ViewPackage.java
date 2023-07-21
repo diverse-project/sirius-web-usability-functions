@@ -6764,13 +6764,22 @@ public interface ViewPackage extends EPackage {
     int NUMBER_OF_RELATION_STRATEGY__STYLE_SUMMARIZED = SEMANTIC_ZOOM_STRATEGY__STYLE_SUMMARIZED;
 
     /**
+     * The feature id for the '<em><b>Number Of Relation</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NUMBER_OF_RELATION_STRATEGY__NUMBER_OF_RELATION = SEMANTIC_ZOOM_STRATEGY_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Number Of Relation Strategy</em>' class. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int NUMBER_OF_RELATION_STRATEGY_FEATURE_COUNT = SEMANTIC_ZOOM_STRATEGY_FEATURE_COUNT + 0;
+    int NUMBER_OF_RELATION_STRATEGY_FEATURE_COUNT = SEMANTIC_ZOOM_STRATEGY_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Number Of Relation Strategy</em>' class. <!-- begin-user-doc --> <!--
@@ -10207,6 +10216,18 @@ public interface ViewPackage extends EPackage {
     EClass getNumberOfRelationStrategy();
 
     /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.NumberOfRelationStrategy#getNumberOfRelation <em>Number Of
+     * Relation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Number Of Relation</em>'.
+     * @see org.eclipse.sirius.components.view.NumberOfRelationStrategy#getNumberOfRelation()
+     * @see #getNumberOfRelationStrategy()
+     * @generated
+     */
+    EAttribute getNumberOfRelationStrategy_NumberOfRelation();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy <em>Manually
      * Defined Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -12925,6 +12946,14 @@ public interface ViewPackage extends EPackage {
          * @generated
          */
         EClass NUMBER_OF_RELATION_STRATEGY = eINSTANCE.getNumberOfRelationStrategy();
+
+        /**
+         * The meta object literal for the '<em><b>Number Of Relation</b></em>' attribute feature. <!-- begin-user-doc
+         * --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute NUMBER_OF_RELATION_STRATEGY__NUMBER_OF_RELATION = eINSTANCE.getNumberOfRelationStrategy_NumberOfRelation();
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.components.view.impl.ManuallyDefinedStrategyImpl

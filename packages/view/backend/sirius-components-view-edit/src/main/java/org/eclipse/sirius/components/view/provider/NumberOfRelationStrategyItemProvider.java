@@ -17,7 +17,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.sirius.components.view.NumberOfRelationStrategy;
 import org.eclipse.sirius.components.view.ViewPackage;
 
@@ -47,8 +50,21 @@ public class NumberOfRelationStrategyItemProvider extends SemanticZoomStrategyIt
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
+            this.addNumberOfRelationPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Number Of Relation feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addNumberOfRelationPropertyDescriptor(Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_NumberOfRelationStrategy_numberOfRelation_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_NumberOfRelationStrategy_numberOfRelation_feature", "_UI_NumberOfRelationStrategy_type"),
+                ViewPackage.Literals.NUMBER_OF_RELATION_STRATEGY__NUMBER_OF_RELATION, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -92,6 +108,12 @@ public class NumberOfRelationStrategyItemProvider extends SemanticZoomStrategyIt
     @Override
     public void notifyChanged(Notification notification) {
         this.updateChildren(notification);
+
+        switch (notification.getFeatureID(NumberOfRelationStrategy.class)) {
+            case ViewPackage.NUMBER_OF_RELATION_STRATEGY__NUMBER_OF_RELATION:
+                this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
+        }
         super.notifyChanged(notification);
     }
 

@@ -329,7 +329,7 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
                 if (strategy instanceof AutomaticZoomingByDepthStrategy) {
                     strategies.add(new org.eclipse.sirius.components.diagrams.AutomaticZoomingByDepthStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized));
                 } else if (strategy instanceof NumberOfRelationStrategy) {
-                    strategies.add(new org.eclipse.sirius.components.diagrams.NumberOfRelationStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized));
+                    strategies.add(new org.eclipse.sirius.components.diagrams.NumberOfRelationStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized, ((NumberOfRelationStrategy) strategy).getNumberOfRelation()));
                 } else {
                     strategies.add(new org.eclipse.sirius.components.diagrams.ManuallyDefinedStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized));
                 }
