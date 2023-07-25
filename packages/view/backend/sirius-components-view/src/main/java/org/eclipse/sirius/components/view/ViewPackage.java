@@ -6836,13 +6836,37 @@ public interface ViewPackage extends EPackage {
     int MANUALLY_DEFINED_STRATEGY__STYLE_SUMMARIZED = SEMANTIC_ZOOM_STRATEGY__STYLE_SUMMARIZED;
 
     /**
+     * The feature id for the '<em><b>Zoom Detailled</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int MANUALLY_DEFINED_STRATEGY__ZOOM_DETAILLED = SEMANTIC_ZOOM_STRATEGY_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Zoom Normal</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int MANUALLY_DEFINED_STRATEGY__ZOOM_NORMAL = SEMANTIC_ZOOM_STRATEGY_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Zoom Summarized</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int MANUALLY_DEFINED_STRATEGY__ZOOM_SUMMARIZED = SEMANTIC_ZOOM_STRATEGY_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Manually Defined Strategy</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int MANUALLY_DEFINED_STRATEGY_FEATURE_COUNT = SEMANTIC_ZOOM_STRATEGY_FEATURE_COUNT + 0;
+    int MANUALLY_DEFINED_STRATEGY_FEATURE_COUNT = SEMANTIC_ZOOM_STRATEGY_FEATURE_COUNT + 3;
 
     /**
      * The number of operations of the '<em>Manually Defined Strategy</em>' class. <!-- begin-user-doc --> <!--
@@ -10238,6 +10262,42 @@ public interface ViewPackage extends EPackage {
     EClass getManuallyDefinedStrategy();
 
     /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getZoomDetailled <em>Zoom Detailled</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Zoom Detailled</em>'.
+     * @see org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getZoomDetailled()
+     * @see #getManuallyDefinedStrategy()
+     * @generated
+     */
+    EAttribute getManuallyDefinedStrategy_ZoomDetailled();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getZoomNormal <em>Zoom Normal</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Zoom Normal</em>'.
+     * @see org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getZoomNormal()
+     * @see #getManuallyDefinedStrategy()
+     * @generated
+     */
+    EAttribute getManuallyDefinedStrategy_ZoomNormal();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getZoomSummarized <em>Zoom Summarized</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Zoom Summarized</em>'.
+     * @see org.eclipse.sirius.components.view.ManuallyDefinedStrategy#getZoomSummarized()
+     * @see #getManuallyDefinedStrategy()
+     * @generated
+     */
+    EAttribute getManuallyDefinedStrategy_ZoomSummarized();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.sirius.components.view.SemanticZoomStrategy <em>Semantic
      * Zoom Strategy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -12964,6 +13024,30 @@ public interface ViewPackage extends EPackage {
          * @generated
          */
         EClass MANUALLY_DEFINED_STRATEGY = eINSTANCE.getManuallyDefinedStrategy();
+
+        /**
+         * The meta object literal for the '<em><b>Zoom Detailled</b></em>' attribute feature. <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute MANUALLY_DEFINED_STRATEGY__ZOOM_DETAILLED = eINSTANCE.getManuallyDefinedStrategy_ZoomDetailled();
+
+        /**
+         * The meta object literal for the '<em><b>Zoom Normal</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute MANUALLY_DEFINED_STRATEGY__ZOOM_NORMAL = eINSTANCE.getManuallyDefinedStrategy_ZoomNormal();
+
+        /**
+         * The meta object literal for the '<em><b>Zoom Summarized</b></em>' attribute feature. <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute MANUALLY_DEFINED_STRATEGY__ZOOM_SUMMARIZED = eINSTANCE.getManuallyDefinedStrategy_ZoomSummarized();
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.components.view.impl.SemanticZoomStrategyImpl

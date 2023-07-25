@@ -157,6 +157,9 @@ export const diagramEventSubscription = gql`
     }
     ... on ManuallyDefinedStrategy {
       activeStrategy
+      zoomDetailled
+      zoomNormal
+      zoomSummarized
       styleDetailled {
         ...styleFields
       }

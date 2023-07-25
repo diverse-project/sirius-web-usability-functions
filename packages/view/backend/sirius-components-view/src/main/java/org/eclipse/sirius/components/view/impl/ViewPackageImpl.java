@@ -3729,6 +3729,36 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
+    public EAttribute getManuallyDefinedStrategy_ZoomDetailled() {
+        return (EAttribute) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getManuallyDefinedStrategy_ZoomNormal() {
+        return (EAttribute) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getManuallyDefinedStrategy_ZoomSummarized() {
+        return (EAttribute) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getSemanticZoomStrategy() {
         return this.semanticZoomStrategyEClass;
     }
@@ -4303,6 +4333,9 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
         this.createEAttribute(this.numberOfRelationStrategyEClass, NUMBER_OF_RELATION_STRATEGY__NUMBER_OF_RELATION);
 
         this.manuallyDefinedStrategyEClass = this.createEClass(MANUALLY_DEFINED_STRATEGY);
+        this.createEAttribute(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__ZOOM_DETAILLED);
+        this.createEAttribute(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__ZOOM_NORMAL);
+        this.createEAttribute(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__ZOOM_SUMMARIZED);
 
         this.semanticZoomStrategyEClass = this.createEClass(SEMANTIC_ZOOM_STRATEGY);
         this.createEAttribute(this.semanticZoomStrategyEClass, SEMANTIC_ZOOM_STRATEGY__ACTIVE_STRATEGY);
@@ -5045,6 +5078,12 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.manuallyDefinedStrategyEClass, ManuallyDefinedStrategy.class, "ManuallyDefinedStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getManuallyDefinedStrategy_ZoomDetailled(), this.ecorePackage.getEDouble(), "zoomDetailled", "1.0", 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getManuallyDefinedStrategy_ZoomNormal(), this.ecorePackage.getEDouble(), "zoomNormal", "0.25", 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getManuallyDefinedStrategy_ZoomSummarized(), this.ecorePackage.getEDouble(), "zoomSummarized", "0.05", 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.semanticZoomStrategyEClass, SemanticZoomStrategy.class, "SemanticZoomStrategy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getSemanticZoomStrategy_ActiveStrategy(), this.ecorePackage.getEBoolean(), "activeStrategy", null, 0, 1, SemanticZoomStrategy.class, !IS_TRANSIENT, !IS_VOLATILE,
