@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import org.eclipse.sirius.components.diagrams.EmptyNodeStyle;
 import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.IconLabelNodeStyle;
 import org.eclipse.sirius.components.diagrams.ImageNodeStyle;
@@ -59,9 +60,10 @@ public class NodeExportService {
                 nodeExport.append(this.exportIconLabel(node, (IconLabelNodeStyle) style, id2NodeHierarchy, nodeOpacity));
             } else if (style instanceof RectangularNodeStyle) {
                 nodeExport.append(this.exportRectangle(node, (RectangularNodeStyle) style, id2NodeHierarchy, nodeOpacity));
+            } else if (style instanceof EmptyNodeStyle) {
+                nodeExport.append(this.exportEmpty(node, (EmptyNodeStyle) style, id2NodeHierarchy, nodeOpacity));
             }
         }
-
         return nodeExport;
     }
 
@@ -131,6 +133,23 @@ public class NodeExportService {
         // @formatter:off
         var rectangleStyle = RectangleStyle.newRectangleStyle()
                 .color(style.getBackgroundColor())
+                .opacity(nodeOpacity)
+                .build();
+        // @formatter:on
+
+        rectangleExport.append(this.elementExport.exportGNodeElement(node));
+        rectangleExport.append(this.elementExport.exportRectangleElement(node.getSize(), Position.at(0, 0), rectangleStyle));
+        rectangleExport.append(this.elementExport.exportLabel(node.getLabel(), nodeOpacity, node));
+        rectangleExport.append(this.exportChildren(node, id2NodeHierarchy));
+
+        return rectangleExport.append("</g>");
+    }
+
+    private StringBuilder exportEmpty(Node node, EmptyNodeStyle style, Map<String, NodeAndContainerId> id2NodeHierarchy, float nodeOpacity) {
+        StringBuilder rectangleExport = new StringBuilder();
+
+        // @formatter:off
+        var rectangleStyle = RectangleStyle.newRectangleStyle()
                 .opacity(nodeOpacity)
                 .build();
         // @formatter:on

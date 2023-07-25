@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.IOException;
 
+import org.eclipse.sirius.components.diagrams.EmptyNodeStyle;
 import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.ISemanticZoomStrategy;
 import org.eclipse.sirius.components.diagrams.IconLabelNodeStyle;
@@ -67,6 +68,9 @@ public class INodeStyleDeserializer extends StdDeserializer<INodeStyle> {
                     case NodeType.NODE_ICON_LABEL:
                         nodeStyle = mapper.readValue(root.toString(), IconLabelNodeStyle.class);
                         break;
+                    case NodeType.NODE_EMPTY:
+                        nodeStyle = mapper.readValue(root.toString(), EmptyNodeStyle.class);
+                        break;
                     default:
                         nodeStyle = mapper.readValue(root.toString(), RectangularNodeStyle.class);
                         break;
@@ -80,7 +84,7 @@ public class INodeStyleDeserializer extends StdDeserializer<INodeStyle> {
                 } else if (root.get("backgroundColor") != null) {
                     nodeStyle = mapper.readValue(root.toString(), IconLabelNodeStyle.class);
                 } else {
-                    nodeStyle = mapper.readValue(root.toString(), RectangularNodeStyle.class);
+                    nodeStyle = mapper.readValue(root.toString(), EmptyNodeStyle.class);
                 }
             }
         }

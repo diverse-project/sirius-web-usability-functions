@@ -19,6 +19,7 @@ import java.util.Optional;
 import org.eclipse.sirius.components.core.api.IObjectService;
 import org.eclipse.sirius.components.diagrams.ArrowStyle;
 import org.eclipse.sirius.components.diagrams.EdgeStyle;
+import org.eclipse.sirius.components.diagrams.EmptyNodeStyle;
 import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.IconLabelNodeStyle;
 import org.eclipse.sirius.components.diagrams.LineStyle;
@@ -26,6 +27,7 @@ import org.eclipse.sirius.components.diagrams.NodeType;
 import org.eclipse.sirius.components.diagrams.RectangularNodeStyle;
 import org.eclipse.sirius.components.diagrams.description.LabelStyleDescription;
 import org.eclipse.sirius.components.representations.VariableManager;
+import org.eclipse.sirius.components.view.EmptyNodeStyleDescription;
 import org.eclipse.sirius.components.view.FixedColor;
 import org.eclipse.sirius.components.view.IconLabelNodeStyleDescription;
 import org.eclipse.sirius.components.view.NodeStyleDescription;
@@ -121,6 +123,8 @@ public final class StylesFactory {
             type = Optional.of(NodeType.NODE_RECTANGLE);
         } else if (nodeStyleDescription instanceof IconLabelNodeStyleDescription) {
             type = Optional.of(NodeType.NODE_ICON_LABEL);
+        } else if (nodeStyleDescription instanceof EmptyNodeStyleDescription) {
+            type = Optional.of(NodeType.NODE_EMPTY);
         } else {
             for (INodeStyleProvider iNodeStyleProvider : this.iNodeStyleProviders) {
                 Optional<String> nodeType = iNodeStyleProvider.getNodeType(nodeStyleDescription);
@@ -157,6 +161,9 @@ public final class StylesFactory {
                     .borderStyle(LineStyle.valueOf(nodeStyle.getBorderLineStyle().getLiteral()))
                     .borderRadius(nodeStyle.getBorderRadius())
                     .build();
+                break;
+            case NodeType.NODE_EMPTY:
+                result = EmptyNodeStyle.newEmptyNodeStyle().empty(false).build();
                 break;
                 // @formatter:on
             default:

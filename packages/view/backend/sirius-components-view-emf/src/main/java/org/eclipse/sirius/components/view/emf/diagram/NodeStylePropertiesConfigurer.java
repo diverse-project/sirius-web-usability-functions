@@ -54,6 +54,7 @@ import org.eclipse.sirius.components.representations.Success;
 import org.eclipse.sirius.components.representations.VariableManager;
 import org.eclipse.sirius.components.view.BorderStyle;
 import org.eclipse.sirius.components.view.ColorPalette;
+import org.eclipse.sirius.components.view.EmptyNodeStyleDescription;
 import org.eclipse.sirius.components.view.FixedColor;
 import org.eclipse.sirius.components.view.IconLabelNodeStyleDescription;
 import org.eclipse.sirius.components.view.ImageNodeStyleDescription;
@@ -104,6 +105,7 @@ public class NodeStylePropertiesConfigurer implements IPropertiesDescriptionRegi
         registry.add(this.getRectangularNodeStyleProperties());
         registry.add(this.getIconLabelNodeStyleProperties());
         registry.add(this.getImageNodeStyleProperties());
+        registry.add(this.getEmptyNodeStyleProperties());
     }
 
     private FormDescription getImageNodeStyleProperties() {
@@ -152,6 +154,37 @@ public class NodeStylePropertiesConfigurer implements IPropertiesDescriptionRegi
 
         return FormDescription.newFormDescription(formDescriptionId)
                 .label("IconLabel Node Style")
+                .labelProvider(variableManager -> variableManager.get(VariableManager.SELF, NodeStyleDescription.class)
+                                                                 .map(NodeStyleDescription::getColor)
+                                                                 .filter(FixedColor.class::isInstance)
+                                                                 .map(FixedColor.class::cast)
+                                                                 .map(FixedColor::getValue)
+                                                                 .orElse(UNNAMED))
+                .canCreatePredicate(variableManager -> true)
+                .idProvider(new GetOrCreateRandomIdProvider())
+                .targetObjectIdProvider(this.getTargetObjectIdProvider())
+                .pageDescriptions(List.of(this.createSimplePageDescription(groupDescription, canCreatePagePredicate)))
+                .build();
+        // @formatter:on
+    }
+
+    private FormDescription getEmptyNodeStyleProperties() {
+        String formDescriptionId = UUID.nameUUIDFromBytes("emptynodestyle".getBytes()).toString();
+
+        // @formatter:off
+        List<AbstractControlDescription> controls = this.getGeneralControlDescription();
+
+        GroupDescription groupDescription = this.createSimpleGroupDescription(controls);
+
+        Predicate<VariableManager> canCreatePagePredicate = variableManager ->  variableManager.get(VariableManager.SELF, Object.class)
+                .filter(self -> self instanceof List<?>)
+                .map(self -> (List<?>) self)
+                .flatMap(self -> self.stream().findFirst())
+                .filter(self -> self instanceof EmptyNodeStyleDescription)
+                .isPresent();
+
+        return FormDescription.newFormDescription(formDescriptionId)
+                .label("Empty Node Style")
                 .labelProvider(variableManager -> variableManager.get(VariableManager.SELF, NodeStyleDescription.class)
                                                                  .map(NodeStyleDescription::getColor)
                                                                  .filter(FixedColor.class::isInstance)

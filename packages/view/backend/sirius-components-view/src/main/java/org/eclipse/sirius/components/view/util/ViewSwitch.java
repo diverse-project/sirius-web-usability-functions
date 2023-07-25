@@ -54,6 +54,7 @@ import org.eclipse.sirius.components.view.EdgePalette;
 import org.eclipse.sirius.components.view.EdgeReconnectionTool;
 import org.eclipse.sirius.components.view.EdgeStyle;
 import org.eclipse.sirius.components.view.EdgeTool;
+import org.eclipse.sirius.components.view.EmptyNodeStyleDescription;
 import org.eclipse.sirius.components.view.FixedColor;
 import org.eclipse.sirius.components.view.FlexboxContainerDescription;
 import org.eclipse.sirius.components.view.FormDescription;
@@ -307,6 +308,21 @@ public class ViewSwitch<T> extends Switch<T> {
                     result = this.caseLabelStyle(iconLabelNodeStyleDescription);
                 if (result == null)
                     result = this.caseBorderStyle(iconLabelNodeStyleDescription);
+                if (result == null)
+                    result = this.defaultCase(theEObject);
+                return result;
+            }
+            case ViewPackage.EMPTY_NODE_STYLE_DESCRIPTION: {
+                EmptyNodeStyleDescription emptyNodeStyleDescription = (EmptyNodeStyleDescription) theEObject;
+                T result = this.caseEmptyNodeStyleDescription(emptyNodeStyleDescription);
+                if (result == null)
+                    result = this.caseNodeStyleDescription(emptyNodeStyleDescription);
+                if (result == null)
+                    result = this.caseStyle(emptyNodeStyleDescription);
+                if (result == null)
+                    result = this.caseLabelStyle(emptyNodeStyleDescription);
+                if (result == null)
+                    result = this.caseBorderStyle(emptyNodeStyleDescription);
                 if (result == null)
                     result = this.defaultCase(theEObject);
                 return result;
@@ -1315,6 +1331,21 @@ public class ViewSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseIconLabelNodeStyleDescription(IconLabelNodeStyleDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Empty Node Style Description</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Empty Node Style Description</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEmptyNodeStyleDescription(EmptyNodeStyleDescription object) {
         return null;
     }
 

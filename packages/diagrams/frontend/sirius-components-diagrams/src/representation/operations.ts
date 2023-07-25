@@ -199,6 +199,9 @@ export const diagramEventSubscription = gql`
     ... on IconLabelNodeStyle {
       backgroundColor
     }
+    ... on EmptyNodeStyle {
+      empty
+    }
   }
 
   fragment edgeFields on Edge {

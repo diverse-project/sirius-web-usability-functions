@@ -184,21 +184,43 @@ export class DiagramRefreshTool {
             strategy.activeStrategy &&
             changingLevelOfHiding
           ) {
-            node.style = strategy.styleSummarized;
+            if (strategy.styleSummarized.__typename === 'EmptyNodeStyle') {
+              node.state = GQLViewModifier.Hidden;
+            } else {
+              node.style = strategy.styleSummarized;
+            }
           }
           if (strategy !== undefined && strategy.__typename === 'ManuallyDefinedStrategy' && strategy.activeStrategy) {
             const strategyCast = strategy as ManuallyDefinedStrategy;
             if (level == strategyCast.zoomDetailled) {
-              node.style = strategy.styleDetailled;
+              if (strategy.styleDetailled.__typename === 'EmptyNodeStyle') {
+                node.state = GQLViewModifier.Hidden;
+              } else {
+                node.style = strategy.styleDetailled;
+              }
             } else if (level == strategyCast.zoomNormal) {
-              node.style = strategy.styleNormal;
+              if (strategy.styleNormal.__typename === 'EmptyNodeStyle') {
+                node.state = GQLViewModifier.Hidden;
+              } else {
+                node.style = strategy.styleNormal;
+              }
             } else if (level == strategyCast.zoomSummarized) {
-              node.style = strategy.styleSummarized;
+              if (strategy.styleSummarized.__typename === 'EmptyNodeStyle') {
+                node.state = GQLViewModifier.Hidden;
+              } else {
+                node.style = strategy.styleSummarized;
+              }
             }
           }
           if (strategy !== undefined && strategy.__typename === 'NumberOfRelationStrategy' && strategy.activeStrategy) {
             if (numberOfConnectionsPerNode.get(node) < (strategy as NumberOfRelationStrategy).numberOfRelation) {
-              node.state = GQLViewModifier.Hidden; //TODO : Change by setting the style
+              if (strategy.styleSummarized.__typename === 'EmptyNodeStyle') {
+                console.log('coucou');
+                node.state = GQLViewModifier.Hidden;
+              } else {
+                console.log('hibou');
+                node.style = strategy.styleSummarized;
+              }
             }
           }
         }

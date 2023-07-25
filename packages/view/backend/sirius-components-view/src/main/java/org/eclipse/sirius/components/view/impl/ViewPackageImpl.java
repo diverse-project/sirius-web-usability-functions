@@ -144,6 +144,13 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      *
      * @generated
      */
+    private EClass emptyNodeStyleDescriptionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     private EClass layoutStrategyDescriptionEClass = null;
 
     /**
@@ -1551,6 +1558,16 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
     @Override
     public EClass getIconLabelNodeStyleDescription() {
         return this.iconLabelNodeStyleDescriptionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getEmptyNodeStyleDescription() {
+        return this.emptyNodeStyleDescriptionEClass;
     }
 
     /**
@@ -4041,6 +4058,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 
         this.iconLabelNodeStyleDescriptionEClass = this.createEClass(ICON_LABEL_NODE_STYLE_DESCRIPTION);
 
+        this.emptyNodeStyleDescriptionEClass = this.createEClass(EMPTY_NODE_STYLE_DESCRIPTION);
+
         this.layoutStrategyDescriptionEClass = this.createEClass(LAYOUT_STRATEGY_DESCRIPTION);
 
         this.freeFormLayoutStrategyDescriptionEClass = this.createEClass(FREE_FORM_LAYOUT_STRATEGY_DESCRIPTION);
@@ -4398,6 +4417,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
         this.rectangularNodeStyleDescriptionEClass.getESuperTypes().add(this.getNodeStyleDescription());
         this.imageNodeStyleDescriptionEClass.getESuperTypes().add(this.getNodeStyleDescription());
         this.iconLabelNodeStyleDescriptionEClass.getESuperTypes().add(this.getNodeStyleDescription());
+        this.emptyNodeStyleDescriptionEClass.getESuperTypes().add(this.getNodeStyleDescription());
         this.freeFormLayoutStrategyDescriptionEClass.getESuperTypes().add(this.getLayoutStrategyDescription());
         this.listLayoutStrategyDescriptionEClass.getESuperTypes().add(this.getLayoutStrategyDescription());
         this.edgeStyleEClass.getESuperTypes().add(this.getStyle());
@@ -4633,6 +4653,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.iconLabelNodeStyleDescriptionEClass, IconLabelNodeStyleDescription.class, "IconLabelNodeStyleDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        this.initEClass(this.emptyNodeStyleDescriptionEClass, EmptyNodeStyleDescription.class, "EmptyNodeStyleDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         this.initEClass(this.layoutStrategyDescriptionEClass, LayoutStrategyDescription.class, "LayoutStrategyDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
