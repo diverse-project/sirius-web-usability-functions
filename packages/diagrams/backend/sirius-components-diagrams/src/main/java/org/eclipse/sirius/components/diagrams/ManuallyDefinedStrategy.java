@@ -31,7 +31,7 @@ public class ManuallyDefinedStrategy extends SemanticZoomStrategy {
         this.zoomSummarized = 0.05;
     }
 
-    public ManuallyDefinedStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized, double zoomDetailled, double zoomNormal, double zoomSummarized) {
+    public ManuallyDefinedStrategy(boolean activeStrategy, AllStyles styleDetailled, AllStyles styleNormal, AllStyles styleSummarized, double zoomDetailled, double zoomNormal, double zoomSummarized) {
         super(activeStrategy, styleDetailled, styleNormal, styleSummarized);
         this.zoomDetailled = zoomDetailled;
         this.zoomNormal = zoomNormal;

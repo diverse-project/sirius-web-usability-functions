@@ -121,7 +121,6 @@ import {
 import { getDiagramDescriptionQuery } from './GetDiagramDescriptionQuery';
 import { GQLGetDiagramDescriptionData, GQLGetDiagramDescriptionVariables } from './GetDiagramDescriptionQuery.types';
 import { DiagramRefreshTool } from './changeDiagramFunctions';
-import { diagramToGraph } from './graph';
 import {
   arrangeAllOp,
   deleteFromDiagramMutation,
@@ -854,12 +853,6 @@ export const DiagramRepresentation = ({
             type: 'HANDLE_DIAGRAM_REFRESHED',
             diagram: diagramEvent.diagram,
           };
-          //console.log(getEachLevelOfNodes(diagram));
-          const graph = diagramToGraph(diagram);
-          if (graph != null) {
-            //console.log(graph);
-            //console.log(graph.toString());
-          }
           dispatch(diagramRefreshedEvent);
         } else if (isSubscribersUpdatedEventPayload(diagramEvent)) {
           const subscribersUpdatedEvent: SubscribersUpdatedEvent = {

@@ -21,21 +21,23 @@ public class SemanticZoomStrategy implements ISemanticZoomStrategy {
 
     public static final String KIND = "SemanticZoomStrategy";
     protected boolean activeStrategy;
+    protected AllStyles styleDetailled;
+    protected AllStyles styleNormal;
+    protected AllStyles styleSummarized;
+    /*
     protected INodeStyle styleDetailled;
     protected INodeStyle styleNormal;
     protected INodeStyle styleSummarized;
+    */
 
     public SemanticZoomStrategy() {
-        INodeStyle defaultNodeStyle = IconLabelNodeStyle.newIconLabelNodeStyle()
-                .backgroundColor("black")
-                .build();
         this.activeStrategy = false;
-        this.styleDetailled = defaultNodeStyle;
-        this.styleNormal = defaultNodeStyle;
-        this.styleSummarized = defaultNodeStyle;
+        this.styleDetailled = new AllStyles();
+        this.styleNormal = new AllStyles();
+        this.styleSummarized = new AllStyles();
     }
 
-    public SemanticZoomStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized) {
+    public SemanticZoomStrategy(boolean activeStrategy, AllStyles styleDetailled, AllStyles styleNormal, AllStyles styleSummarized) {
         this.activeStrategy = activeStrategy;
         this.styleDetailled = styleDetailled;
         this.styleNormal = styleNormal;
@@ -47,24 +49,8 @@ public class SemanticZoomStrategy implements ISemanticZoomStrategy {
         return KIND;
     }
 
-    @Override
-    public boolean getActiveStrategy() {
+    public boolean isActiveStrategy() {
         return this.activeStrategy;
-    }
-
-    @Override
-    public INodeStyle getStyleDetailled() {
-        return this.styleDetailled;
-    }
-
-    @Override
-    public INodeStyle getStyleNormal() {
-        return this.styleNormal;
-    }
-
-    @Override
-    public INodeStyle getStyleSummarized() {
-        return this.styleSummarized;
     }
 
     @Override
@@ -73,17 +59,32 @@ public class SemanticZoomStrategy implements ISemanticZoomStrategy {
     }
 
     @Override
-    public void setStyleDetailled(INodeStyle styleDetailled) {
+    public AllStyles getStyleDetailled() {
+        return this.styleDetailled;
+    }
+
+    @Override
+    public void setStyleDetailled(AllStyles styleDetailled) {
         this.styleDetailled = styleDetailled;
     }
 
     @Override
-    public void setStyleNormal(INodeStyle styleNormal) {
+    public AllStyles getStyleNormal() {
+        return this.styleNormal;
+    }
+
+    @Override
+    public void setStyleNormal(AllStyles styleNormal) {
         this.styleNormal = styleNormal;
     }
 
     @Override
-    public void setStyleSummarized(INodeStyle styleSummarized) {
+    public AllStyles getStyleSummarized() {
+        return this.styleSummarized;
+    }
+
+    @Override
+    public void setStyleSummarized(AllStyles styleSummarized) {
         this.styleSummarized = styleSummarized;
     }
 

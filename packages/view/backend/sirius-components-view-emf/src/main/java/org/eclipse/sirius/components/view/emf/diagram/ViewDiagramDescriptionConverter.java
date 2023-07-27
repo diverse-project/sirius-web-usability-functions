@@ -34,13 +34,13 @@ import org.eclipse.sirius.components.core.api.IEditService;
 import org.eclipse.sirius.components.core.api.IEditingContext;
 import org.eclipse.sirius.components.core.api.IFeedbackMessageService;
 import org.eclipse.sirius.components.core.api.IObjectService;
+import org.eclipse.sirius.components.diagrams.AllStyles;
 import org.eclipse.sirius.components.diagrams.Edge;
 import org.eclipse.sirius.components.diagrams.EdgeStyle;
 import org.eclipse.sirius.components.diagrams.FreeFormLayoutStrategy;
 import org.eclipse.sirius.components.diagrams.ILayoutStrategy;
 import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.ISemanticZoomStrategy;
-import org.eclipse.sirius.components.diagrams.IconLabelNodeStyle;
 import org.eclipse.sirius.components.diagrams.ListLayoutStrategy;
 import org.eclipse.sirius.components.diagrams.Node;
 import org.eclipse.sirius.components.diagrams.SemanticZoom;
@@ -312,14 +312,11 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
         for (SemanticZoomStrategy strategy : strategiesView) {
             if (strategy != null) {
                 boolean activeStrategy = strategy.isActiveStrategy();
-                INodeStyle defaultNodeStyle = IconLabelNodeStyle.newIconLabelNodeStyle()
-                        .backgroundColor("black")
-                        .build();
-                INodeStyle styleDetailled = defaultNodeStyle;
-                INodeStyle styleNormal = defaultNodeStyle;
-                INodeStyle styleSummarized = defaultNodeStyle;
+                AllStyles styleDetailled = new AllStyles();
+                AllStyles styleNormal = new AllStyles();
+                AllStyles styleSummarized = new AllStyles();
                 if (strategy.getStyleDetailled() != null) {
-                    styleDetailled = this.stylesFactory.createNodeStyle(strategy.getStyleDetailled(), optionalEditingContextId);
+                    styleDetailled = new AllStyles(this.stylesFactory.createNodeStyle(strategy.getStyleDetailled(), optionalEditingContextId), this.stylesFactory.createLabelStyleDescription(strategy.getStyleDetailled()));
                 }
                 if (strategy.getStyleNormal() != null) {
                     styleNormal = this.stylesFactory.createNodeStyle(strategy.getStyleNormal(), optionalEditingContextId);

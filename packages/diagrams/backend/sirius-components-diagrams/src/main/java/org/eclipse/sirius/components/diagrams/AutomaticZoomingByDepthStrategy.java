@@ -25,7 +25,7 @@ public class AutomaticZoomingByDepthStrategy extends SemanticZoomStrategy {
         super(false, null, null, null);
     }
 
-    public AutomaticZoomingByDepthStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized) {
+    public AutomaticZoomingByDepthStrategy(boolean activeStrategy, AllStyles styleDetailled, AllStyles styleNormal, AllStyles styleSummarized) {
         super(activeStrategy, styleDetailled, styleNormal, styleSummarized);
     }
 

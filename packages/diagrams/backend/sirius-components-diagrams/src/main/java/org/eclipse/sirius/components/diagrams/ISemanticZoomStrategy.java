@@ -21,21 +21,21 @@ public interface ISemanticZoomStrategy {
 
     String getKind();
 
-    boolean getActiveStrategy();
+    boolean isActiveStrategy();
 
-    INodeStyle getStyleDetailled();
+    AllStyles getStyleDetailled();
 
-    INodeStyle getStyleNormal();
+    AllStyles getStyleNormal();
 
-    INodeStyle getStyleSummarized();
+    AllStyles getStyleSummarized();
 
     void setActiveStrategy(boolean activeStrategy);
 
-    void setStyleDetailled(INodeStyle styleDetailled);
+    void setStyleDetailled(AllStyles styleDetailled);
 
-    void setStyleNormal(INodeStyle styleNormal);
+    void setStyleNormal(AllStyles styleNormal);
 
-    void setStyleSummarized(INodeStyle styleSummarized);
+    void setStyleSummarized(AllStyles styleSummarized);
 
 
 

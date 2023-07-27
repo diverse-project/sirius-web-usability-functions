@@ -27,7 +27,7 @@ public class NumberOfRelationStrategy extends SemanticZoomStrategy {
         this.numberOfRelation = 3;
     }
 
-    public NumberOfRelationStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized, int numberOfRelation) {
+    public NumberOfRelationStrategy(boolean activeStrategy, AllStyles styleDetailled, AllStyles styleNormal, AllStyles styleSummarized, int numberOfRelation) {
         super(activeStrategy, styleDetailled, styleNormal, styleSummarized);
         this.numberOfRelation = numberOfRelation;
     }

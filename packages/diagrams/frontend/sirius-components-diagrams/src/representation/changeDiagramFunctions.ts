@@ -215,10 +215,8 @@ export class DiagramRefreshTool {
           if (strategy !== undefined && strategy.__typename === 'NumberOfRelationStrategy' && strategy.activeStrategy) {
             if (numberOfConnectionsPerNode.get(node) < (strategy as NumberOfRelationStrategy).numberOfRelation) {
               if (strategy.styleSummarized.__typename === 'EmptyNodeStyle') {
-                console.log('coucou');
                 node.state = GQLViewModifier.Hidden;
               } else {
-                console.log('hibou');
                 node.style = strategy.styleSummarized;
               }
             }
