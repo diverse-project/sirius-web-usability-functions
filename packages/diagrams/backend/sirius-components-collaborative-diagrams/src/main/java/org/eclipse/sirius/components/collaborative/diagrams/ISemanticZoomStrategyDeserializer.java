@@ -22,10 +22,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.IOException;
 
+import org.eclipse.sirius.components.diagrams.AllStyles;
 import org.eclipse.sirius.components.diagrams.AutomaticZoomingByDepthStrategy;
-import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.ISemanticZoomStrategy;
-import org.eclipse.sirius.components.diagrams.IconLabelNodeStyle;
 import org.eclipse.sirius.components.diagrams.ManuallyDefinedStrategy;
 import org.eclipse.sirius.components.diagrams.NumberOfRelationStrategy;
 
@@ -48,9 +47,6 @@ public class ISemanticZoomStrategyDeserializer extends StdDeserializer<ISemantic
 
     @Override
     public ISemanticZoomStrategy deserialize(JsonParser jsonParser, DeserializationContext context) throws IOException, JsonProcessingException {
-        INodeStyle defaultNodeStyle = IconLabelNodeStyle.newIconLabelNodeStyle()
-                .backgroundColor("black")
-                .build();
         ISemanticZoomStrategy semanticZoomStrategy = null;
         ObjectCodec objectCodec = jsonParser.getCodec();
         if (objectCodec instanceof ObjectMapper mapper) {
@@ -63,7 +59,7 @@ public class ISemanticZoomStrategyDeserializer extends StdDeserializer<ISemantic
                 case ManuallyDefinedStrategy.KIND ->
                     mapper.readValue(root.toString(), ManuallyDefinedStrategy.class);
                 default ->
-                    new AutomaticZoomingByDepthStrategy(false, defaultNodeStyle, defaultNodeStyle, defaultNodeStyle);
+                    new AutomaticZoomingByDepthStrategy(false, new AllStyles(), new AllStyles(), new AllStyles());
             };
         }
         return semanticZoomStrategy;
