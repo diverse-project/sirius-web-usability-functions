@@ -22,6 +22,7 @@ import org.eclipse.sirius.components.diagrams.EdgeStyle;
 import org.eclipse.sirius.components.diagrams.EmptyNodeStyle;
 import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.IconLabelNodeStyle;
+import org.eclipse.sirius.components.diagrams.LabelStyle;
 import org.eclipse.sirius.components.diagrams.LineStyle;
 import org.eclipse.sirius.components.diagrams.NodeType;
 import org.eclipse.sirius.components.diagrams.RectangularNodeStyle;
@@ -73,6 +74,24 @@ public final class StylesFactory {
                                         }
                                         return iconURL;
                                     })
+                                    .build();
+        // @formatter:on
+    }
+
+    public LabelStyle createLabelStyle(NodeStyleDescription nodeStyle) {
+        // @formatter:off
+        return LabelStyle.newLabelStyle()
+                                    .color(Optional.ofNullable(nodeStyle.getLabelColor())
+                                                                              .filter(FixedColor.class::isInstance)
+                                                                              .map(FixedColor.class::cast)
+                                                                              .map(FixedColor::getValue)
+                                                                              .orElse(DEFAULT_COLOR))
+                                    .fontSize(nodeStyle.getFontSize())
+                                    .bold(nodeStyle.isBold())
+                                    .italic(nodeStyle.isItalic())
+                                    .underline(nodeStyle.isUnderline())
+                                    .strikeThrough(nodeStyle.isStrikeThrough())
+                                    .iconURL("")
                                     .build();
         // @formatter:on
     }

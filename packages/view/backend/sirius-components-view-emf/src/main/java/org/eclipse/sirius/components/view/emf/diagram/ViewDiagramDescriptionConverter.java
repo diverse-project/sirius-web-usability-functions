@@ -316,13 +316,13 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
                 AllStyles styleNormal = new AllStyles();
                 AllStyles styleSummarized = new AllStyles();
                 if (strategy.getStyleDetailled() != null) {
-                    styleDetailled = new AllStyles(this.stylesFactory.createNodeStyle(strategy.getStyleDetailled(), optionalEditingContextId), this.stylesFactory.createLabelStyleDescription(strategy.getStyleDetailled()));
+                    styleDetailled = new AllStyles(this.stylesFactory.createNodeStyle(strategy.getStyleDetailled(), optionalEditingContextId), this.stylesFactory.createLabelStyle(strategy.getStyleDetailled()));
                 }
                 if (strategy.getStyleNormal() != null) {
-                    styleNormal = this.stylesFactory.createNodeStyle(strategy.getStyleNormal(), optionalEditingContextId);
+                    styleNormal = new AllStyles(this.stylesFactory.createNodeStyle(strategy.getStyleNormal(), optionalEditingContextId), this.stylesFactory.createLabelStyle(strategy.getStyleNormal()));
                 }
                 if (strategy.getStyleSummarized() != null) {
-                    styleSummarized = this.stylesFactory.createNodeStyle(strategy.getStyleSummarized(), optionalEditingContextId);
+                    styleSummarized = new AllStyles(this.stylesFactory.createNodeStyle(strategy.getStyleSummarized(), optionalEditingContextId), this.stylesFactory.createLabelStyle(strategy.getStyleSummarized()));
                 }
                 if (strategy instanceof AutomaticZoomingByDepthStrategy) {
                     strategies.add(new org.eclipse.sirius.components.diagrams.AutomaticZoomingByDepthStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized));
