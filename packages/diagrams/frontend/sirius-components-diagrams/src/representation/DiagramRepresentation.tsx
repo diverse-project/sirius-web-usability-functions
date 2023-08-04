@@ -121,6 +121,7 @@ import {
 import { getDiagramDescriptionQuery } from './GetDiagramDescriptionQuery';
 import { GQLGetDiagramDescriptionData, GQLGetDiagramDescriptionVariables } from './GetDiagramDescriptionQuery.types';
 import { DiagramRefreshTool } from './changeDiagramFunctions';
+import { diagramToGraph } from './graph';
 import {
   arrangeAllOp,
   deleteFromDiagramMutation,
@@ -372,9 +373,7 @@ export const DiagramRepresentation = ({
   } = context;
 
   //Just to initialize with null values but good type
-  const [diagramRefreshTool] = useState(
-    new DiagramRefreshTool(diagram, diagramDescription, readOnly, diagramServer)
-  );
+  const [diagramRefreshTool] = useState(new DiagramRefreshTool(diagram, diagramDescription, readOnly, diagramServer));
 
   const {
     loading: diagramDescriptionLoading,
@@ -851,6 +850,12 @@ export const DiagramRepresentation = ({
             type: 'HANDLE_DIAGRAM_REFRESHED',
             diagram: diagramEvent.diagram,
           };
+          //console.log(getEachLevelOfNodes(diagram));
+          const graph = diagramToGraph(diagram);
+          if (graph != null) {
+            //console.log(graph);
+            //console.log(graph.toString());
+          }
           dispatch(diagramRefreshedEvent);
         } else if (isSubscribersUpdatedEventPayload(diagramEvent)) {
           const subscribersUpdatedEvent: SubscribersUpdatedEvent = {
@@ -911,9 +916,7 @@ export const DiagramRepresentation = ({
       const action: ZoomToAction = { kind: 'zoomTo', level };
       diagramServer.actionDispatcher.dispatch(action);
       const selectZoomLevelEvent: SelectZoomLevelEvent = { type: 'SELECT_ZOOM_LEVEL', level };
-      console.log('level before : ' + diagramRefreshTool.level);
       diagramRefreshTool.refreshDiagramWhithLevel(diagram, diagramDescription, readOnly, diagramServer, level);
-      console.log('level after : ' + diagramRefreshTool.level);
       dispatch(selectZoomLevelEvent);
     }
   };
