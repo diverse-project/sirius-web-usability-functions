@@ -132,7 +132,7 @@ public class AbstractNodeMappingConverter {
         // @formatter:on
 
         Function<VariableManager, SemanticZoom> semanticZoomProvider =  variableManager -> {
-            return new SemanticZoom(false);
+            return new SemanticZoom();
         };
 
         ToolConverter toolConverter = new ToolConverter(interpreter, this.editService, this.modelOperationHandlerSwitchProvider);

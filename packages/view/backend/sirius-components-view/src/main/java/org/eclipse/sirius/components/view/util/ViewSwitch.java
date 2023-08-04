@@ -15,6 +15,7 @@ package org.eclipse.sirius.components.view.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy;
 import org.eclipse.sirius.components.view.BarChartDescription;
 import org.eclipse.sirius.components.view.BarChartDescriptionStyle;
 import org.eclipse.sirius.components.view.BorderStyle;
@@ -71,12 +72,14 @@ import org.eclipse.sirius.components.view.LinkDescriptionStyle;
 import org.eclipse.sirius.components.view.ListDescription;
 import org.eclipse.sirius.components.view.ListDescriptionStyle;
 import org.eclipse.sirius.components.view.ListLayoutStrategyDescription;
+import org.eclipse.sirius.components.view.ManuallyDefinedStrategy;
 import org.eclipse.sirius.components.view.MultiSelectDescription;
 import org.eclipse.sirius.components.view.MultiSelectDescriptionStyle;
 import org.eclipse.sirius.components.view.NodeDescription;
 import org.eclipse.sirius.components.view.NodePalette;
 import org.eclipse.sirius.components.view.NodeStyleDescription;
 import org.eclipse.sirius.components.view.NodeTool;
+import org.eclipse.sirius.components.view.NumberOfRelationStrategy;
 import org.eclipse.sirius.components.view.Operation;
 import org.eclipse.sirius.components.view.PageDescription;
 import org.eclipse.sirius.components.view.PieChartDescription;
@@ -1038,6 +1041,27 @@ public class ViewSwitch<T> extends Switch<T> {
             case ViewPackage.SEMANTIC_ZOOM_DESCRIPTION: {
                 SemanticZoomDescription semanticZoomDescription = (SemanticZoomDescription) theEObject;
                 T result = this.caseSemanticZoomDescription(semanticZoomDescription);
+                if (result == null)
+                    result = this.defaultCase(theEObject);
+                return result;
+            }
+            case ViewPackage.AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY: {
+                AutomaticZoomingByDepthStrategy automaticZoomingByDepthStrategy = (AutomaticZoomingByDepthStrategy) theEObject;
+                T result = this.caseAutomaticZoomingByDepthStrategy(automaticZoomingByDepthStrategy);
+                if (result == null)
+                    result = this.defaultCase(theEObject);
+                return result;
+            }
+            case ViewPackage.NUMBER_OF_RELATION_STRATEGY: {
+                NumberOfRelationStrategy numberOfRelationStrategy = (NumberOfRelationStrategy) theEObject;
+                T result = this.caseNumberOfRelationStrategy(numberOfRelationStrategy);
+                if (result == null)
+                    result = this.defaultCase(theEObject);
+                return result;
+            }
+            case ViewPackage.MANUALLY_DEFINED_STRATEGY: {
+                ManuallyDefinedStrategy manuallyDefinedStrategy = (ManuallyDefinedStrategy) theEObject;
+                T result = this.caseManuallyDefinedStrategy(manuallyDefinedStrategy);
                 if (result == null)
                     result = this.defaultCase(theEObject);
                 return result;
@@ -2364,6 +2388,51 @@ public class ViewSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseSemanticZoomDescription(SemanticZoomDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Automatic Zooming By Depth Strategy</em>'.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Automatic Zooming By Depth Strategy</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAutomaticZoomingByDepthStrategy(AutomaticZoomingByDepthStrategy object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Number Of Relation Strategy</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Number Of Relation Strategy</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseNumberOfRelationStrategy(NumberOfRelationStrategy object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Manually Defined Strategy</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Manually Defined Strategy</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseManuallyDefinedStrategy(ManuallyDefinedStrategy object) {
         return null;
     }
 

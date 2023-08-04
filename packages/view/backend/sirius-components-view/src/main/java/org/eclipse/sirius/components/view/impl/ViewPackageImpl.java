@@ -19,104 +19,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.sirius.components.view.ArrowStyle;
-import org.eclipse.sirius.components.view.BarChartDescription;
-import org.eclipse.sirius.components.view.BarChartDescriptionStyle;
-import org.eclipse.sirius.components.view.BorderStyle;
-import org.eclipse.sirius.components.view.ButtonDescription;
-import org.eclipse.sirius.components.view.ButtonDescriptionStyle;
-import org.eclipse.sirius.components.view.ChangeContext;
-import org.eclipse.sirius.components.view.CheckboxDescription;
-import org.eclipse.sirius.components.view.CheckboxDescriptionStyle;
-import org.eclipse.sirius.components.view.ColorPalette;
-import org.eclipse.sirius.components.view.Conditional;
-import org.eclipse.sirius.components.view.ConditionalBarChartDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalButtonDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalCheckboxDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalEdgeStyle;
-import org.eclipse.sirius.components.view.ConditionalLabelDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalLinkDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalListDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalMultiSelectDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalNodeStyle;
-import org.eclipse.sirius.components.view.ConditionalPieChartDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalRadioDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalSelectDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalTextareaDescriptionStyle;
-import org.eclipse.sirius.components.view.ConditionalTextfieldDescriptionStyle;
-import org.eclipse.sirius.components.view.CreateInstance;
-import org.eclipse.sirius.components.view.CreateView;
-import org.eclipse.sirius.components.view.DeleteElement;
-import org.eclipse.sirius.components.view.DeleteTool;
-import org.eclipse.sirius.components.view.DeleteView;
-import org.eclipse.sirius.components.view.DiagramDescription;
-import org.eclipse.sirius.components.view.DiagramElementDescription;
-import org.eclipse.sirius.components.view.DiagramPalette;
-import org.eclipse.sirius.components.view.DropTool;
-import org.eclipse.sirius.components.view.EdgeDescription;
-import org.eclipse.sirius.components.view.EdgePalette;
-import org.eclipse.sirius.components.view.EdgeReconnectionTool;
-import org.eclipse.sirius.components.view.EdgeStyle;
-import org.eclipse.sirius.components.view.EdgeTool;
-import org.eclipse.sirius.components.view.FixedColor;
-import org.eclipse.sirius.components.view.FlexDirection;
-import org.eclipse.sirius.components.view.FlexboxContainerDescription;
-import org.eclipse.sirius.components.view.FormDescription;
-import org.eclipse.sirius.components.view.FreeFormLayoutStrategyDescription;
-import org.eclipse.sirius.components.view.GroupDescription;
-import org.eclipse.sirius.components.view.GroupDisplayMode;
-import org.eclipse.sirius.components.view.IconLabelNodeStyleDescription;
-import org.eclipse.sirius.components.view.ImageDescription;
-import org.eclipse.sirius.components.view.ImageNodeStyleDescription;
-import org.eclipse.sirius.components.view.LabelDescription;
-import org.eclipse.sirius.components.view.LabelDescriptionStyle;
-import org.eclipse.sirius.components.view.LabelEditTool;
-import org.eclipse.sirius.components.view.LabelStyle;
-import org.eclipse.sirius.components.view.LayoutDirection;
-import org.eclipse.sirius.components.view.LayoutStrategyDescription;
-import org.eclipse.sirius.components.view.LineStyle;
-import org.eclipse.sirius.components.view.LinkDescription;
-import org.eclipse.sirius.components.view.LinkDescriptionStyle;
-import org.eclipse.sirius.components.view.ListDescription;
-import org.eclipse.sirius.components.view.ListDescriptionStyle;
-import org.eclipse.sirius.components.view.ListLayoutStrategyDescription;
-import org.eclipse.sirius.components.view.MultiSelectDescription;
-import org.eclipse.sirius.components.view.MultiSelectDescriptionStyle;
-import org.eclipse.sirius.components.view.NodeContainmentKind;
-import org.eclipse.sirius.components.view.NodeDescription;
-import org.eclipse.sirius.components.view.NodePalette;
-import org.eclipse.sirius.components.view.NodeStyleDescription;
-import org.eclipse.sirius.components.view.NodeTool;
-import org.eclipse.sirius.components.view.Operation;
-import org.eclipse.sirius.components.view.PageDescription;
-import org.eclipse.sirius.components.view.PieChartDescription;
-import org.eclipse.sirius.components.view.PieChartDescriptionStyle;
-import org.eclipse.sirius.components.view.RadioDescription;
-import org.eclipse.sirius.components.view.RadioDescriptionStyle;
-import org.eclipse.sirius.components.view.RectangularNodeStyleDescription;
-import org.eclipse.sirius.components.view.RepresentationDescription;
-import org.eclipse.sirius.components.view.RichTextDescription;
-import org.eclipse.sirius.components.view.SelectDescription;
-import org.eclipse.sirius.components.view.SelectDescriptionStyle;
-import org.eclipse.sirius.components.view.SelectionDescription;
-import org.eclipse.sirius.components.view.SemanticZoomDescription;
-import org.eclipse.sirius.components.view.SetValue;
-import org.eclipse.sirius.components.view.SourceEdgeEndReconnectionTool;
-import org.eclipse.sirius.components.view.Style;
-import org.eclipse.sirius.components.view.SynchronizationPolicy;
-import org.eclipse.sirius.components.view.TargetEdgeEndReconnectionTool;
-import org.eclipse.sirius.components.view.TextAreaDescription;
-import org.eclipse.sirius.components.view.TextareaDescriptionStyle;
-import org.eclipse.sirius.components.view.TextfieldDescription;
-import org.eclipse.sirius.components.view.TextfieldDescriptionStyle;
-import org.eclipse.sirius.components.view.Tool;
-import org.eclipse.sirius.components.view.UnsetValue;
-import org.eclipse.sirius.components.view.UserColor;
-import org.eclipse.sirius.components.view.View;
-import org.eclipse.sirius.components.view.ViewFactory;
-import org.eclipse.sirius.components.view.ViewPackage;
-import org.eclipse.sirius.components.view.WidgetDescription;
-import org.eclipse.sirius.components.view.WidgetDescriptionStyle;
+import org.eclipse.sirius.components.view.*;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
@@ -746,6 +649,27 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     private EClass semanticZoomDescriptionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass automaticZoomingByDepthStrategyEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass numberOfRelationStrategyEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass manuallyDefinedStrategyEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -3748,8 +3672,178 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
-    public EAttribute getSemanticZoomDescription_ActiveSemanticZoom() {
-        return (EAttribute) this.semanticZoomDescriptionEClass.getEStructuralFeatures().get(0);
+    public EReference getSemanticZoomDescription_AutomaticZoomingByDepthStrategy() {
+        return (EReference) this.semanticZoomDescriptionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getSemanticZoomDescription_NumberOfRelationStrategy() {
+        return (EReference) this.semanticZoomDescriptionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getSemanticZoomDescription_ManuallyDefinedStrategy() {
+        return (EReference) this.semanticZoomDescriptionEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getAutomaticZoomingByDepthStrategy() {
+        return this.automaticZoomingByDepthStrategyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getAutomaticZoomingByDepthStrategy_ActiveStrategy() {
+        return (EAttribute) this.automaticZoomingByDepthStrategyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getAutomaticZoomingByDepthStrategy_StyleDetailled() {
+        return (EReference) this.automaticZoomingByDepthStrategyEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getAutomaticZoomingByDepthStrategy_StyleNormal() {
+        return (EReference) this.automaticZoomingByDepthStrategyEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getAutomaticZoomingByDepthStrategy_StyleSummarized() {
+        return (EReference) this.automaticZoomingByDepthStrategyEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getNumberOfRelationStrategy() {
+        return this.numberOfRelationStrategyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getNumberOfRelationStrategy_ActiveStrategy() {
+        return (EAttribute) this.numberOfRelationStrategyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getNumberOfRelationStrategy_StyleDetailled() {
+        return (EReference) this.numberOfRelationStrategyEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getNumberOfRelationStrategy_StyleNormal() {
+        return (EReference) this.numberOfRelationStrategyEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getNumberOfRelationStrategy_StyleSummarized() {
+        return (EReference) this.numberOfRelationStrategyEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getManuallyDefinedStrategy() {
+        return this.manuallyDefinedStrategyEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getManuallyDefinedStrategy_ActiveStrategy() {
+        return (EAttribute) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getManuallyDefinedStrategy_StyleDetailled() {
+        return (EReference) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getManuallyDefinedStrategy_StyleNormal() {
+        return (EReference) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getManuallyDefinedStrategy_StyleSummarized() {
+        return (EReference) this.manuallyDefinedStrategyEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -4274,7 +4368,27 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
         this.createEAttribute(this.selectionDescriptionEClass, SELECTION_DESCRIPTION__SELECTION_MESSAGE);
 
         this.semanticZoomDescriptionEClass = this.createEClass(SEMANTIC_ZOOM_DESCRIPTION);
-        this.createEAttribute(this.semanticZoomDescriptionEClass, SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM);
+        this.createEReference(this.semanticZoomDescriptionEClass, SEMANTIC_ZOOM_DESCRIPTION__AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY);
+        this.createEReference(this.semanticZoomDescriptionEClass, SEMANTIC_ZOOM_DESCRIPTION__NUMBER_OF_RELATION_STRATEGY);
+        this.createEReference(this.semanticZoomDescriptionEClass, SEMANTIC_ZOOM_DESCRIPTION__MANUALLY_DEFINED_STRATEGY);
+
+        this.automaticZoomingByDepthStrategyEClass = this.createEClass(AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY);
+        this.createEAttribute(this.automaticZoomingByDepthStrategyEClass, AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__ACTIVE_STRATEGY);
+        this.createEReference(this.automaticZoomingByDepthStrategyEClass, AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_DETAILLED);
+        this.createEReference(this.automaticZoomingByDepthStrategyEClass, AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_NORMAL);
+        this.createEReference(this.automaticZoomingByDepthStrategyEClass, AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY__STYLE_SUMMARIZED);
+
+        this.numberOfRelationStrategyEClass = this.createEClass(NUMBER_OF_RELATION_STRATEGY);
+        this.createEAttribute(this.numberOfRelationStrategyEClass, NUMBER_OF_RELATION_STRATEGY__ACTIVE_STRATEGY);
+        this.createEReference(this.numberOfRelationStrategyEClass, NUMBER_OF_RELATION_STRATEGY__STYLE_DETAILLED);
+        this.createEReference(this.numberOfRelationStrategyEClass, NUMBER_OF_RELATION_STRATEGY__STYLE_NORMAL);
+        this.createEReference(this.numberOfRelationStrategyEClass, NUMBER_OF_RELATION_STRATEGY__STYLE_SUMMARIZED);
+
+        this.manuallyDefinedStrategyEClass = this.createEClass(MANUALLY_DEFINED_STRATEGY);
+        this.createEAttribute(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__ACTIVE_STRATEGY);
+        this.createEReference(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__STYLE_DETAILLED);
+        this.createEReference(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__STYLE_NORMAL);
+        this.createEReference(this.manuallyDefinedStrategyEClass, MANUALLY_DEFINED_STRATEGY__STYLE_SUMMARIZED);
 
         // Create enums
         this.layoutDirectionEEnum = this.createEEnum(LAYOUT_DIRECTION);
@@ -4998,8 +5112,42 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.semanticZoomDescriptionEClass, SemanticZoomDescription.class, "SemanticZoomDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getSemanticZoomDescription_ActiveSemanticZoom(), this.ecorePackage.getEBoolean(), "activeSemanticZoom", null, 0, 1, SemanticZoomDescription.class, !IS_TRANSIENT,
+        this.initEReference(this.getSemanticZoomDescription_AutomaticZoomingByDepthStrategy(), this.getAutomaticZoomingByDepthStrategy(), null, "automaticZoomingByDepthStrategy", null, 0, 1,
+                SemanticZoomDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getSemanticZoomDescription_NumberOfRelationStrategy(), this.getNumberOfRelationStrategy(), null, "numberOfRelationStrategy", null, 0, 1, SemanticZoomDescription.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getSemanticZoomDescription_ManuallyDefinedStrategy(), this.getManuallyDefinedStrategy(), null, "manuallyDefinedStrategy", null, 0, 1, SemanticZoomDescription.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        this.initEClass(this.automaticZoomingByDepthStrategyEClass, AutomaticZoomingByDepthStrategy.class, "AutomaticZoomingByDepthStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getAutomaticZoomingByDepthStrategy_ActiveStrategy(), this.ecorePackage.getEBoolean(), "activeStrategy", null, 0, 1, AutomaticZoomingByDepthStrategy.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getAutomaticZoomingByDepthStrategy_StyleDetailled(), this.getNodeStyleDescription(), null, "styleDetailled", null, 0, 1, AutomaticZoomingByDepthStrategy.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getAutomaticZoomingByDepthStrategy_StyleNormal(), this.getNodeStyleDescription(), null, "styleNormal", null, 0, 1, AutomaticZoomingByDepthStrategy.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getAutomaticZoomingByDepthStrategy_StyleSummarized(), this.getNodeStyleDescription(), null, "styleSummarized", null, 0, 1, AutomaticZoomingByDepthStrategy.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        this.initEClass(this.numberOfRelationStrategyEClass, NumberOfRelationStrategy.class, "NumberOfRelationStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getNumberOfRelationStrategy_ActiveStrategy(), this.ecorePackage.getEBoolean(), "activeStrategy", null, 0, 1, NumberOfRelationStrategy.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getNumberOfRelationStrategy_StyleDetailled(), this.getNodeStyleDescription(), null, "styleDetailled", null, 0, 1, NumberOfRelationStrategy.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getNumberOfRelationStrategy_StyleNormal(), this.getNodeStyleDescription(), null, "styleNormal", null, 0, 1, NumberOfRelationStrategy.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getNumberOfRelationStrategy_StyleSummarized(), this.getNodeStyleDescription(), null, "styleSummarized", null, 0, 1, NumberOfRelationStrategy.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        this.initEClass(this.manuallyDefinedStrategyEClass, ManuallyDefinedStrategy.class, "ManuallyDefinedStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getManuallyDefinedStrategy_ActiveStrategy(), this.ecorePackage.getEBoolean(), "activeStrategy", null, 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getManuallyDefinedStrategy_StyleDetailled(), this.getNodeStyleDescription(), null, "styleDetailled", null, 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getManuallyDefinedStrategy_StyleNormal(), this.getNodeStyleDescription(), null, "styleNormal", null, 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getManuallyDefinedStrategy_StyleSummarized(), this.getNodeStyleDescription(), null, "styleSummarized", null, 0, 1, ManuallyDefinedStrategy.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         this.initEEnum(this.layoutDirectionEEnum, LayoutDirection.class, "LayoutDirection");

@@ -177,7 +177,7 @@ export class DiagramRefreshTool {
           //If we are changing of level
           for (let i = graph.size - count - 1; i >= 0; i--) {
             for (const node of graph.get(i).getNodes()) {
-              if (node.semanticZoom.activeSemanticZoom) {
+              if (node.semanticZoom.automaticZoomingByDepthStrategy.activeStrategy) {
                 node.label.style.fontSize = 30; //For all nodes, set the font size to 30
                 if (i == graph.size - count - 1) {
                   node.state = GQLViewModifier.Hidden; //Adding all the nodes of the current level to the list to hide
@@ -198,7 +198,7 @@ export class DiagramRefreshTool {
           //If we don't change the level of nodes in the diagram, we perform other changes like keeping the nodes with more than 3 connections
           const numberOfConnectionsPerNode = graph.get(graph.size - count - 1).getNumberOfConnectionsPerNode();
           for (const node of numberOfConnectionsPerNode.keys()) {
-            if (node.semanticZoom.activeSemanticZoom) {
+            if (node.semanticZoom.automaticZoomingByDepthStrategy.activeStrategy) {
               if (numberOfConnectionsPerNode.get(node) < 3) {
                 node.state = GQLViewModifier.Hidden;
               }

@@ -111,32 +111,7 @@ export const diagramEventSubscription = gql`
       ...labelFields
     }
     style {
-      ... on RectangularNodeStyle {
-        color
-        borderColor
-        borderStyle
-        borderSize
-        borderRadius
-        withHeader
-      }
-      ... on ImageNodeStyle {
-        imageURL
-        borderColor
-        borderStyle
-        borderSize
-        borderRadius
-      }
-      ... on ParametricSVGNodeStyle {
-        svgURL
-        backgroundColor
-        borderColor
-        borderRadius
-        borderSize
-        borderStyle
-      }
-      ... on IconLabelNodeStyle {
-        backgroundColor
-      }
+      ...styleFields
     }
     position {
       x
@@ -148,7 +123,71 @@ export const diagramEventSubscription = gql`
     }
     userResizable
     semanticZoom {
-      activeSemanticZoom
+      automaticZoomingByDepthStrategy {
+        activeStrategy
+        styleDetailled {
+          ...styleFields
+        }
+        styleNormal {
+          ...styleFields
+        }
+        styleSummarized {
+          ...styleFields
+        }
+      }
+      numberOfRelationStrategy {
+        activeStrategy
+        styleDetailled {
+          ...styleFields
+        }
+        styleNormal {
+          ...styleFields
+        }
+        styleSummarized {
+          ...styleFields
+        }
+      }
+      manuallyDefinedStrategy {
+        activeStrategy
+        styleDetailled {
+          ...styleFields
+        }
+        styleNormal {
+          ...styleFields
+        }
+        styleSummarized {
+          ...styleFields
+        }
+      }
+    }
+  }
+
+  fragment styleFields on NodeStyle {
+    ... on RectangularNodeStyle {
+      color
+      borderColor
+      borderStyle
+      borderSize
+      borderRadius
+      withHeader
+    }
+    ... on ImageNodeStyle {
+      imageURL
+      borderColor
+      borderStyle
+      borderSize
+      borderRadius
+    }
+    ... on ParametricSVGNodeStyle {
+      svgURL
+      backgroundColor
+      borderColor
+      borderRadius
+      borderSize
+      borderStyle
+    }
+    ... on IconLabelNodeStyle {
+      backgroundColor
     }
   }
 

@@ -50,7 +50,16 @@ type Node {
 }
 
 type SemanticZoom {
-	activeSemanticZoom: Boolean!
+	automaticZoomingByDepthStrategy: ISemanticZoomStrategy
+	numberOfRelationStrategy: ISemanticZoomStrategy
+	manuallyDefinedStrategy: ISemanticZoomStrategy
+}
+
+type ISemanticZoomStrategy {
+	activeStrategy: Boolean!
+	styleDetailled: INodeStyle!
+	styleNormal: INodeStyle!
+	styleSummarized: INodeStyle!
 }
 
 type Label {

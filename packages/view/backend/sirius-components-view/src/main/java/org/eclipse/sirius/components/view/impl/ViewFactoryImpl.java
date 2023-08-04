@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.sirius.components.view.ArrowStyle;
+import org.eclipse.sirius.components.view.AutomaticZoomingByDepthStrategy;
 import org.eclipse.sirius.components.view.BarChartDescription;
 import org.eclipse.sirius.components.view.BarChartDescriptionStyle;
 import org.eclipse.sirius.components.view.ButtonDescription;
@@ -73,12 +74,14 @@ import org.eclipse.sirius.components.view.LinkDescriptionStyle;
 import org.eclipse.sirius.components.view.ListDescription;
 import org.eclipse.sirius.components.view.ListDescriptionStyle;
 import org.eclipse.sirius.components.view.ListLayoutStrategyDescription;
+import org.eclipse.sirius.components.view.ManuallyDefinedStrategy;
 import org.eclipse.sirius.components.view.MultiSelectDescription;
 import org.eclipse.sirius.components.view.MultiSelectDescriptionStyle;
 import org.eclipse.sirius.components.view.NodeContainmentKind;
 import org.eclipse.sirius.components.view.NodeDescription;
 import org.eclipse.sirius.components.view.NodePalette;
 import org.eclipse.sirius.components.view.NodeTool;
+import org.eclipse.sirius.components.view.NumberOfRelationStrategy;
 import org.eclipse.sirius.components.view.PageDescription;
 import org.eclipse.sirius.components.view.PieChartDescription;
 import org.eclipse.sirius.components.view.PieChartDescriptionStyle;
@@ -293,6 +296,12 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
                 return this.createSelectionDescription();
             case ViewPackage.SEMANTIC_ZOOM_DESCRIPTION:
                 return this.createSemanticZoomDescription();
+            case ViewPackage.AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY:
+                return this.createAutomaticZoomingByDepthStrategy();
+            case ViewPackage.NUMBER_OF_RELATION_STRATEGY:
+                return this.createNumberOfRelationStrategy();
+            case ViewPackage.MANUALLY_DEFINED_STRATEGY:
+                return this.createManuallyDefinedStrategy();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -1195,6 +1204,39 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
     public SemanticZoomDescription createSemanticZoomDescription() {
         SemanticZoomDescriptionImpl semanticZoomDescription = new SemanticZoomDescriptionImpl();
         return semanticZoomDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public AutomaticZoomingByDepthStrategy createAutomaticZoomingByDepthStrategy() {
+        AutomaticZoomingByDepthStrategyImpl automaticZoomingByDepthStrategy = new AutomaticZoomingByDepthStrategyImpl();
+        return automaticZoomingByDepthStrategy;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public NumberOfRelationStrategy createNumberOfRelationStrategy() {
+        NumberOfRelationStrategyImpl numberOfRelationStrategy = new NumberOfRelationStrategyImpl();
+        return numberOfRelationStrategy;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ManuallyDefinedStrategy createManuallyDefinedStrategy() {
+        ManuallyDefinedStrategyImpl manuallyDefinedStrategy = new ManuallyDefinedStrategyImpl();
+        return manuallyDefinedStrategy;
     }
 
     /**

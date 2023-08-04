@@ -410,7 +410,27 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//SelectionDescription/selectionMessage"/>
     </genClasses>
     <genClasses ecoreClass="view.ecore#//SemanticZoomDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//SemanticZoomDescription/activeSemanticZoom"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//SemanticZoomDescription/automaticZoomingByDepthStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//SemanticZoomDescription/numberOfRelationStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//SemanticZoomDescription/manuallyDefinedStrategy"/>
+    </genClasses>
+    <genClasses ecoreClass="view.ecore#//AutomaticZoomingByDepthStrategy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//AutomaticZoomingByDepthStrategy/activeStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//AutomaticZoomingByDepthStrategy/styleDetailled"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//AutomaticZoomingByDepthStrategy/styleNormal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//AutomaticZoomingByDepthStrategy/styleSummarized"/>
+    </genClasses>
+    <genClasses ecoreClass="view.ecore#//NumberOfRelationStrategy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//NumberOfRelationStrategy/activeStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//NumberOfRelationStrategy/styleDetailled"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//NumberOfRelationStrategy/styleNormal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//NumberOfRelationStrategy/styleSummarized"/>
+    </genClasses>
+    <genClasses ecoreClass="view.ecore#//ManuallyDefinedStrategy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//ManuallyDefinedStrategy/activeStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//ManuallyDefinedStrategy/styleDetailled"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//ManuallyDefinedStrategy/styleNormal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//ManuallyDefinedStrategy/styleSummarized"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
