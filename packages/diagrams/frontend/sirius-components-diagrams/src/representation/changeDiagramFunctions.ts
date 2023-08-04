@@ -1,6 +1,12 @@
 import { DiagramServer } from '../sprotty/DiagramServer';
 import { SiriusUpdateModelAction } from '../sprotty/DiagramServer.types';
-import { DiagramDescription, GQLDiagram, GQLISemanticZoomStrategy, GQLNode } from './DiagramRepresentation.types';
+import {
+  DiagramDescription,
+  GQLDiagram,
+  GQLISemanticZoomStrategy,
+  GQLNode,
+  GQLViewModifier,
+} from './DiagramRepresentation.types';
 import { DirectionalGraph, diagramToGraph, mapIdToNodes } from './graph';
 
 type ExtendedStrategy = GQLISemanticZoomStrategy & {
@@ -137,7 +143,7 @@ export class DiagramRefreshTool {
 
   //Depending on the scaling difference, choose the action to execute
   scaleLevelHiding(scaleCount: number, numberOfLevels: number, count: number, graph: Map<number, DirectionalGraph>) {
-    console.log(Math.floor(scaleCount - numberOfLevels / 5) + ' ' + Math.floor(scaleCount));
+    //console.log(Math.floor(scaleCount - numberOfLevels / 5) + ' ' + Math.floor(scaleCount));
     if (Math.floor(scaleCount - numberOfLevels / 5) != Math.floor(scaleCount)) {
       count = this.changeNodeProperties(graph, count, true); //Call to the function with a level change
     } else {
@@ -149,34 +155,43 @@ export class DiagramRefreshTool {
 
   //Hide and modify properties of the nodes
   changeNodeProperties(graph: Map<number, DirectionalGraph>, count: number, changingLevelOfHiding: boolean) {
-    console.log(count);
     if (graph.size - count - 1 >= 0) {
       //If we are zooming out
       if (changingLevelOfHiding) {
-        console.log('titi');
         //If we are changing of level
         for (const node of graph.get(graph.size - count - 1).getNodes()) {
-          const semanticStrategy: ExtendedStrategy | undefined = node.semanticZoom.semanticZoomStrategies[0];
-          if (
-            semanticStrategy !== undefined &&
-            semanticStrategy.__typename === 'AutomaticZoomingByDepthStrategy' &&
-            semanticStrategy.activeStrategy
-          ) {
-            //node.state = GQLViewModifier.Hidden; //Hide all the nodes of the current level
-            node.style = semanticStrategy.styleSummarized;
+          const semanticStrategies: ExtendedStrategy[] | undefined = node.semanticZoom.semanticZoomStrategies;
+          for (const strategy of semanticStrategies) {
+            if (
+              strategy !== undefined &&
+              strategy.__typename === 'AutomaticZoomingByDepthStrategy' &&
+              strategy.activeStrategy
+            ) {
+              node.style = strategy.styleSummarized;
+            }
           }
         }
         count++; //Because we have hidden a level, we increment the count
       } else {
         //If we don't change the level of nodes in the diagram, we perform other changes like keeping the nodes with more than 3 connections
-        /*const numberOfConnectionsPerNode = graph.get(graph.size - count - 1).getNumberOfConnectionsPerNode();
-          for (const node of numberOfConnectionsPerNode.keys()) {
-             if (node.semanticZoom.semanticZoomStrategies[0].activeStrategy) {
+        const numberOfConnectionsPerNode = graph.get(graph.size - count - 1).getNumberOfConnectionsPerNode();
+        for (const node of numberOfConnectionsPerNode.keys()) {
+          console.log(node.label.text);
+          const semanticStrategies: ExtendedStrategy[] | undefined = node.semanticZoom.semanticZoomStrategies;
+          for (const strategy of semanticStrategies) {
+            if (
+              strategy !== undefined &&
+              strategy.__typename === 'NumberOfRelationStrategy' &&
+              strategy.activeStrategy
+            ) {
+              console.log('APPLY NUMBER OF NODES');
               if (numberOfConnectionsPerNode.get(node) < 3) {
                 node.state = GQLViewModifier.Hidden;
+                console.log('HIDE');
               }
-            } 
-          }*/
+            }
+          }
+        }
       }
     }
     return count;
