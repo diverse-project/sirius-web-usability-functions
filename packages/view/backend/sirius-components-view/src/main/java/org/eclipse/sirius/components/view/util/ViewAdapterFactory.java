@@ -55,6 +55,7 @@ import org.eclipse.sirius.components.view.EdgePalette;
 import org.eclipse.sirius.components.view.EdgeReconnectionTool;
 import org.eclipse.sirius.components.view.EdgeStyle;
 import org.eclipse.sirius.components.view.EdgeTool;
+import org.eclipse.sirius.components.view.EmptyNodeStyleDescription;
 import org.eclipse.sirius.components.view.FixedColor;
 import org.eclipse.sirius.components.view.FlexboxContainerDescription;
 import org.eclipse.sirius.components.view.FormDescription;
@@ -240,6 +241,11 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseIconLabelNodeStyleDescription(IconLabelNodeStyleDescription object) {
             return ViewAdapterFactory.this.createIconLabelNodeStyleDescriptionAdapter();
+        }
+
+        @Override
+        public Adapter caseEmptyNodeStyleDescription(EmptyNodeStyleDescription object) {
+            return ViewAdapterFactory.this.createEmptyNodeStyleDescriptionAdapter();
         }
 
         @Override
@@ -858,6 +864,20 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createIconLabelNodeStyleDescriptionAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.components.view.EmptyNodeStyleDescription
+     * <em>Empty Node Style Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
+     * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+     * end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.eclipse.sirius.components.view.EmptyNodeStyleDescription
+     * @generated
+     */
+    public Adapter createEmptyNodeStyleDescriptionAdapter() {
         return null;
     }
 

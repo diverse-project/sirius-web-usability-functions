@@ -140,6 +140,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="shape" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IconLabelNodeStyleDescription" eSuperTypes="#//NodeStyleDescription"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EmptyNodeStyleDescription" eSuperTypes="#//NodeStyleDescription"/>
   <eClassifiers xsi:type="ecore:EClass" name="LayoutStrategyDescription" abstract="true"
       interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="FreeFormLayoutStrategyDescription" eSuperTypes="#//LayoutStrategyDescription"/>
@@ -553,9 +554,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="zoomDetailled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="zoomNormal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-    	defaultValueLiteral="0.25"/>
+        defaultValueLiteral="0.25"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="zoomSummarized" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-    	defaultValueLiteral="0.05"/>
+        defaultValueLiteral="0.05"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SemanticZoomStrategy" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="activeStrategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

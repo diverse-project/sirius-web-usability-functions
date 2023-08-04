@@ -24,6 +24,8 @@ public final class NodeType {
 
     public static final String NODE_ICON_LABEL = "node:icon-label";
 
+    public static final String NODE_EMPTY = "node:empty";
+
     private NodeType() {
         // Prevent instantiation
     }

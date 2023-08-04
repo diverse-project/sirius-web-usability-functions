@@ -233,6 +233,10 @@ export interface GQLRectangularNodeStyle extends GQLINodeStyle {
   withHeader: boolean;
 }
 
+export interface GQLEmptyNodeStyle extends GQLINodeStyle {
+  empty: boolean;
+}
+
 export enum GQLLineStyle {
   Dash = 'Dash',
   Dash_Dot = 'Dash_Dot',

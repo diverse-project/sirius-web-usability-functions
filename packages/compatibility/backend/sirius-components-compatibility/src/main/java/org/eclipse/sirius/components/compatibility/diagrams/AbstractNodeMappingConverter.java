@@ -25,6 +25,7 @@ import org.eclipse.sirius.components.compatibility.api.ISemanticCandidatesProvid
 import org.eclipse.sirius.components.compatibility.utils.StringValueProvider;
 import org.eclipse.sirius.components.core.api.IEditService;
 import org.eclipse.sirius.components.core.api.IObjectService;
+import org.eclipse.sirius.components.diagrams.EmptyNodeStyle;
 import org.eclipse.sirius.components.diagrams.ILayoutStrategy;
 import org.eclipse.sirius.components.diagrams.INodeStyle;
 import org.eclipse.sirius.components.diagrams.IconLabelNodeStyle;
@@ -79,7 +80,6 @@ public class AbstractNodeMappingConverter {
         LabelStyleDescriptionConverter labelStyleDescriptionConverter = new LabelStyleDescriptionConverter(interpreter, this.objectService);
         Function<VariableManager, org.eclipse.sirius.viewpoint.description.style.LabelStyleDescription> abstractNodeMappingDescriptionProvider = new LabelStyleDescriptionProvider(interpreter,
                 abstractNodeMapping);
-
         Function<VariableManager, String> labelIdProvider = this.getLabelIdProvider();
         Function<VariableManager, String> labelExpressionProvider = this.getLabelExpressionProvider(interpreter, abstractNodeMappingDescriptionProvider);
         Function<VariableManager, LabelStyleDescription> labelStyleDescriptionProvider = this.getLabelStyleDescriptionProvider(labelStyleDescriptionConverter, abstractNodeMappingDescriptionProvider);
@@ -112,6 +112,8 @@ public class AbstractNodeMappingConverter {
                 result = NodeType.NODE_IMAGE;
             } else if (style instanceof IconLabelNodeStyle) {
                 result = NodeType.NODE_ICON_LABEL;
+            } else if (style instanceof EmptyNodeStyle) {
+                result = NodeType.NODE_EMPTY;
             }
             return result;
         };

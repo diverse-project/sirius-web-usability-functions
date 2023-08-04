@@ -54,6 +54,7 @@ import org.eclipse.sirius.components.view.EdgeDescription;
 import org.eclipse.sirius.components.view.EdgePalette;
 import org.eclipse.sirius.components.view.EdgeStyle;
 import org.eclipse.sirius.components.view.EdgeTool;
+import org.eclipse.sirius.components.view.EmptyNodeStyleDescription;
 import org.eclipse.sirius.components.view.FixedColor;
 import org.eclipse.sirius.components.view.FlexDirection;
 import org.eclipse.sirius.components.view.FlexboxContainerDescription;
@@ -164,6 +165,8 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
                 return this.createImageNodeStyleDescription();
             case ViewPackage.ICON_LABEL_NODE_STYLE_DESCRIPTION:
                 return this.createIconLabelNodeStyleDescription();
+            case ViewPackage.EMPTY_NODE_STYLE_DESCRIPTION:
+                return this.createEmptyNodeStyleDescription();
             case ViewPackage.FREE_FORM_LAYOUT_STRATEGY_DESCRIPTION:
                 return this.createFreeFormLayoutStrategyDescription();
             case ViewPackage.LIST_LAYOUT_STRATEGY_DESCRIPTION:
@@ -478,6 +481,17 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
     public IconLabelNodeStyleDescription createIconLabelNodeStyleDescription() {
         IconLabelNodeStyleDescriptionImpl iconLabelNodeStyleDescription = new IconLabelNodeStyleDescriptionImpl();
         return iconLabelNodeStyleDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EmptyNodeStyleDescription createEmptyNodeStyleDescription() {
+        EmptyNodeStyleDescriptionImpl emptyNodeStyleDescription = new EmptyNodeStyleDescriptionImpl();
+        return emptyNodeStyleDescription;
     }
 
     /**

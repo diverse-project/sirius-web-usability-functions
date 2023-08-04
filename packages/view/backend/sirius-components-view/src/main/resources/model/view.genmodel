@@ -149,6 +149,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//ImageNodeStyleDescription/shape"/>
     </genClasses>
     <genClasses ecoreClass="view.ecore#//IconLabelNodeStyleDescription"/>
+    <genClasses ecoreClass="view.ecore#//EmptyNodeStyleDescription"/>
     <genClasses image="false" ecoreClass="view.ecore#//LayoutStrategyDescription"/>
     <genClasses ecoreClass="view.ecore#//FreeFormLayoutStrategyDescription"/>
     <genClasses ecoreClass="view.ecore#//ListLayoutStrategyDescription"/>

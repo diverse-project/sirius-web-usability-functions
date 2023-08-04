@@ -105,6 +105,15 @@ public interface ViewFactory extends EFactory {
     IconLabelNodeStyleDescription createIconLabelNodeStyleDescription();
 
     /**
+     * Returns a new object of class '<em>Empty Node Style Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @return a new object of class '<em>Empty Node Style Description</em>'.
+     * @generated
+     */
+    EmptyNodeStyleDescription createEmptyNodeStyleDescription();
+
+    /**
      * Returns a new object of class '<em>Free Form Layout Strategy Description</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

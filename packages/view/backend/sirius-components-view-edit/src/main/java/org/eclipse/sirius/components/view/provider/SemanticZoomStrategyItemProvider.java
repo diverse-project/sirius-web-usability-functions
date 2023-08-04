@@ -171,17 +171,23 @@ public class SemanticZoomStrategyItemProvider extends ItemProviderAdapter
 
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_STRATEGY__STYLE_DETAILLED, ViewFactory.eINSTANCE.createIconLabelNodeStyleDescription()));
 
+        newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_STRATEGY__STYLE_DETAILLED, ViewFactory.eINSTANCE.createEmptyNodeStyleDescription()));
+
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_STRATEGY__STYLE_NORMAL, ViewFactory.eINSTANCE.createRectangularNodeStyleDescription()));
 
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_STRATEGY__STYLE_NORMAL, ViewFactory.eINSTANCE.createImageNodeStyleDescription()));
 
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_STRATEGY__STYLE_NORMAL, ViewFactory.eINSTANCE.createIconLabelNodeStyleDescription()));
 
+        newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_STRATEGY__STYLE_NORMAL, ViewFactory.eINSTANCE.createEmptyNodeStyleDescription()));
+
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_STRATEGY__STYLE_SUMMARIZED, ViewFactory.eINSTANCE.createRectangularNodeStyleDescription()));
 
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_STRATEGY__STYLE_SUMMARIZED, ViewFactory.eINSTANCE.createImageNodeStyleDescription()));
 
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_STRATEGY__STYLE_SUMMARIZED, ViewFactory.eINSTANCE.createIconLabelNodeStyleDescription()));
+
+        newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_STRATEGY__STYLE_SUMMARIZED, ViewFactory.eINSTANCE.createEmptyNodeStyleDescription()));
     }
 
     /**

@@ -302,6 +302,30 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
 
     /**
      * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.components.view.EmptyNodeStyleDescription} instances. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    protected EmptyNodeStyleDescriptionItemProvider emptyNodeStyleDescriptionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.sirius.components.view.EmptyNodeStyleDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createEmptyNodeStyleDescriptionAdapter() {
+        if (this.emptyNodeStyleDescriptionItemProvider == null) {
+            this.emptyNodeStyleDescriptionItemProvider = new EmptyNodeStyleDescriptionItemProvider(this);
+        }
+
+        return this.emptyNodeStyleDescriptionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
      * {@link org.eclipse.sirius.components.view.FreeFormLayoutStrategyDescription} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -2064,6 +2088,8 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
             this.imageNodeStyleDescriptionItemProvider.dispose();
         if (this.iconLabelNodeStyleDescriptionItemProvider != null)
             this.iconLabelNodeStyleDescriptionItemProvider.dispose();
+        if (this.emptyNodeStyleDescriptionItemProvider != null)
+            this.emptyNodeStyleDescriptionItemProvider.dispose();
         if (this.freeFormLayoutStrategyDescriptionItemProvider != null)
             this.freeFormLayoutStrategyDescriptionItemProvider.dispose();
         if (this.listLayoutStrategyDescriptionItemProvider != null)

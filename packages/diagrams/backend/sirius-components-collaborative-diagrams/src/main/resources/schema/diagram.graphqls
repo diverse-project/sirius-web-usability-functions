@@ -100,7 +100,7 @@ type LabelStyle {
   underline: Boolean!
 }
 
-union INodeStyle = ImageNodeStyle | IconLabelNodeStyle | RectangularNodeStyle
+union INodeStyle = ImageNodeStyle | IconLabelNodeStyle | RectangularNodeStyle | EmptyNodeStyle
 
 type ImageNodeStyle {
   imageURL: String!
@@ -112,6 +112,10 @@ type ImageNodeStyle {
 
 type IconLabelNodeStyle {
   backgroundColor: String!
+}
+
+type EmptyNodeStyle {
+  empty: Boolean!
 }
 
 type RectangularNodeStyle {

@@ -149,6 +149,8 @@ public class ConditionalNodeStyleItemProvider extends ConditionalItemProvider {
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.CONDITIONAL_NODE_STYLE__STYLE, ViewFactory.eINSTANCE.createImageNodeStyleDescription()));
 
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.CONDITIONAL_NODE_STYLE__STYLE, ViewFactory.eINSTANCE.createIconLabelNodeStyleDescription()));
+
+        newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.CONDITIONAL_NODE_STYLE__STYLE, ViewFactory.eINSTANCE.createEmptyNodeStyleDescription()));
     }
 
 }
