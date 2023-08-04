@@ -21,29 +21,30 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.components.view.SemanticZoom#isActiveSemanticZoom <em>Active Semantic Zoom</em>}</li>
+ * <li>{@link org.eclipse.sirius.components.view.SemanticZoomDescription#isActiveSemanticZoom <em>Active Semantic
+ * Zoom</em>}</li>
  * </ul>
  *
- * @see org.eclipse.sirius.components.view.ViewPackage#getSemanticZoom()
+ * @see org.eclipse.sirius.components.view.ViewPackage#getSemanticZoomDescription()
  * @model
  * @generated
  */
-public interface SemanticZoom extends EObject {
+public interface SemanticZoomDescription extends EObject {
     /**
      * Returns the value of the '<em><b>Active Semantic Zoom</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @return the value of the '<em>Active Semantic Zoom</em>' attribute.
      * @see #setActiveSemanticZoom(boolean)
-     * @see org.eclipse.sirius.components.view.ViewPackage#getSemanticZoom_ActiveSemanticZoom()
+     * @see org.eclipse.sirius.components.view.ViewPackage#getSemanticZoomDescription_ActiveSemanticZoom()
      * @model
      * @generated
      */
     boolean isActiveSemanticZoom();
 
     /**
-     * Sets the value of the '{@link org.eclipse.sirius.components.view.SemanticZoom#isActiveSemanticZoom <em>Active
-     * Semantic Zoom</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the '{@link org.eclipse.sirius.components.view.SemanticZoomDescription#isActiveSemanticZoom
+     * <em>Active Semantic Zoom</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Active Semantic Zoom</em>' attribute.

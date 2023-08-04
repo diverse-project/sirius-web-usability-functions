@@ -33,19 +33,19 @@ import org.eclipse.sirius.components.view.SemanticZoomDescription;
 import org.eclipse.sirius.components.view.ViewPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.sirius.components.view.SemanticZoomDescription} object. <!--
- * begin-user-doc --> <!-- end-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.sirius.components.view.SemanticZoomDescription} object.
+ * <!-- begin-user-doc --> <!-- end-user-doc -->
  *
  * @generated
  */
-public class SemanticZoomItemProvider extends ItemProviderAdapter
+public class SemanticZoomDescriptionItemProvider extends ItemProviderAdapter
         implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public SemanticZoomItemProvider(AdapterFactory adapterFactory) {
+    public SemanticZoomDescriptionItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -72,19 +72,19 @@ public class SemanticZoomItemProvider extends ItemProviderAdapter
      */
     protected void addActiveSemanticZoomPropertyDescriptor(Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_SemanticZoom_activeSemanticZoom_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_SemanticZoom_activeSemanticZoom_feature", "_UI_SemanticZoom_type"), ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM,
-                true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+                this.getString("_UI_SemanticZoomDescription_activeSemanticZoom_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_SemanticZoomDescription_activeSemanticZoom_feature", "_UI_SemanticZoomDescription_type"),
+                ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
     }
 
     /**
-     * This returns SemanticZoom.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * This returns SemanticZoomDescription.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     @Override
     public Object getImage(Object object) {
-        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/SemanticZoom"));
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/SemanticZoomDescription"));
     }
 
     /**
@@ -104,8 +104,8 @@ public class SemanticZoomItemProvider extends ItemProviderAdapter
      */
     @Override
     public String getText(Object object) {
-        SemanticZoomDescription semanticZoom = (SemanticZoomDescription) object;
-        return this.getString("_UI_SemanticZoom_type") + " " + semanticZoom.isActiveSemanticZoom();
+        SemanticZoomDescription semanticZoomDescription = (SemanticZoomDescription) object;
+        return this.getString("_UI_SemanticZoomDescription_type") + " " + semanticZoomDescription.isActiveSemanticZoom();
     }
 
     /**

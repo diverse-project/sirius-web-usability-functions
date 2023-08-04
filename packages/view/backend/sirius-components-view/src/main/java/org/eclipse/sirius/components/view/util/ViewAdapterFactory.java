@@ -90,7 +90,7 @@ import org.eclipse.sirius.components.view.RichTextDescription;
 import org.eclipse.sirius.components.view.SelectDescription;
 import org.eclipse.sirius.components.view.SelectDescriptionStyle;
 import org.eclipse.sirius.components.view.SelectionDescription;
-import org.eclipse.sirius.components.view.SemanticZoom;
+import org.eclipse.sirius.components.view.SemanticZoomDescription;
 import org.eclipse.sirius.components.view.SetValue;
 import org.eclipse.sirius.components.view.SourceEdgeEndReconnectionTool;
 import org.eclipse.sirius.components.view.Style;
@@ -599,8 +599,8 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseSemanticZoom(SemanticZoom object) {
-            return ViewAdapterFactory.this.createSemanticZoomAdapter();
+        public Adapter caseSemanticZoomDescription(SemanticZoomDescription object) {
+            return ViewAdapterFactory.this.createSemanticZoomDescriptionAdapter();
         }
 
         @Override
@@ -1832,15 +1832,16 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.components.view.SemanticZoom <em>Semantic
-     * Zoom</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.components.view.SemanticZoomDescription
+     * <em>Semantic Zoom Description</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+     * end-user-doc -->
      *
      * @return the new adapter.
-     * @see org.eclipse.sirius.components.view.SemanticZoom
+     * @see org.eclipse.sirius.components.view.SemanticZoomDescription
      * @generated
      */
-    public Adapter createSemanticZoomAdapter() {
+    public Adapter createSemanticZoomDescriptionAdapter() {
         return null;
     }
 

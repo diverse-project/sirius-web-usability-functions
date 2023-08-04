@@ -1706,26 +1706,27 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.eclipse.sirius.components.view.SemanticZoom}
-     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * This keeps track of the one adapter used for all
+     * {@link org.eclipse.sirius.components.view.SemanticZoomDescription} instances. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @generated
      */
-    protected SemanticZoomItemProvider semanticZoomItemProvider;
+    protected SemanticZoomDescriptionItemProvider semanticZoomDescriptionItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.eclipse.sirius.components.view.SemanticZoom}. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This creates an adapter for a {@link org.eclipse.sirius.components.view.SemanticZoomDescription}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     @Override
-    public Adapter createSemanticZoomAdapter() {
-        if (this.semanticZoomItemProvider == null) {
-            this.semanticZoomItemProvider = new SemanticZoomItemProvider(this);
+    public Adapter createSemanticZoomDescriptionAdapter() {
+        if (this.semanticZoomDescriptionItemProvider == null) {
+            this.semanticZoomDescriptionItemProvider = new SemanticZoomDescriptionItemProvider(this);
         }
 
-        return this.semanticZoomItemProvider;
+        return this.semanticZoomDescriptionItemProvider;
     }
 
     /**
@@ -2121,8 +2122,8 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
             this.edgePaletteItemProvider.dispose();
         if (this.selectionDescriptionItemProvider != null)
             this.selectionDescriptionItemProvider.dispose();
-        if (this.semanticZoomItemProvider != null)
-            this.semanticZoomItemProvider.dispose();
+        if (this.semanticZoomDescriptionItemProvider != null)
+            this.semanticZoomDescriptionItemProvider.dispose();
     }
 
 }

@@ -16,22 +16,23 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.sirius.components.view.SemanticZoom;
+import org.eclipse.sirius.components.view.SemanticZoomDescription;
 import org.eclipse.sirius.components.view.ViewPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Semantic Zoom</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Semantic Zoom Description</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.sirius.components.view.impl.SemanticZoomImpl#isActiveSemanticZoom <em>Active Semantic
- * Zoom</em>}</li>
+ * <li>{@link org.eclipse.sirius.components.view.impl.SemanticZoomDescriptionImpl#isActiveSemanticZoom <em>Active
+ * Semantic Zoom</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SemanticZoomImpl extends MinimalEObjectImpl.Container implements SemanticZoom {
+public class SemanticZoomDescriptionImpl extends MinimalEObjectImpl.Container implements SemanticZoomDescription {
     /**
      * The default value of the '{@link #isActiveSemanticZoom() <em>Active Semantic Zoom</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -57,7 +58,7 @@ public class SemanticZoomImpl extends MinimalEObjectImpl.Container implements Se
      *
      * @generated
      */
-    protected SemanticZoomImpl() {
+    protected SemanticZoomDescriptionImpl() {
         super();
     }
 
@@ -68,7 +69,7 @@ public class SemanticZoomImpl extends MinimalEObjectImpl.Container implements Se
      */
     @Override
     protected EClass eStaticClass() {
-        return ViewPackage.Literals.SEMANTIC_ZOOM;
+        return ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION;
     }
 
     /**
@@ -91,7 +92,7 @@ public class SemanticZoomImpl extends MinimalEObjectImpl.Container implements Se
         boolean oldActiveSemanticZoom = this.activeSemanticZoom;
         this.activeSemanticZoom = newActiveSemanticZoom;
         if (this.eNotificationRequired())
-            this.eNotify(new ENotificationImpl(this, Notification.SET, ViewPackage.SEMANTIC_ZOOM__ACTIVE_SEMANTIC_ZOOM, oldActiveSemanticZoom, this.activeSemanticZoom));
+            this.eNotify(new ENotificationImpl(this, Notification.SET, ViewPackage.SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM, oldActiveSemanticZoom, this.activeSemanticZoom));
     }
 
     /**
@@ -102,7 +103,7 @@ public class SemanticZoomImpl extends MinimalEObjectImpl.Container implements Se
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ViewPackage.SEMANTIC_ZOOM__ACTIVE_SEMANTIC_ZOOM:
+            case ViewPackage.SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM:
                 return this.isActiveSemanticZoom();
         }
         return super.eGet(featureID, resolve, coreType);
@@ -116,7 +117,7 @@ public class SemanticZoomImpl extends MinimalEObjectImpl.Container implements Se
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ViewPackage.SEMANTIC_ZOOM__ACTIVE_SEMANTIC_ZOOM:
+            case ViewPackage.SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM:
                 this.setActiveSemanticZoom((Boolean) newValue);
                 return;
         }
@@ -131,7 +132,7 @@ public class SemanticZoomImpl extends MinimalEObjectImpl.Container implements Se
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ViewPackage.SEMANTIC_ZOOM__ACTIVE_SEMANTIC_ZOOM:
+            case ViewPackage.SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM:
                 this.setActiveSemanticZoom(ACTIVE_SEMANTIC_ZOOM_EDEFAULT);
                 return;
         }
@@ -146,7 +147,7 @@ public class SemanticZoomImpl extends MinimalEObjectImpl.Container implements Se
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ViewPackage.SEMANTIC_ZOOM__ACTIVE_SEMANTIC_ZOOM:
+            case ViewPackage.SEMANTIC_ZOOM_DESCRIPTION__ACTIVE_SEMANTIC_ZOOM:
                 return this.activeSemanticZoom != ACTIVE_SEMANTIC_ZOOM_EDEFAULT;
         }
         return super.eIsSet(featureID);
@@ -169,4 +170,4 @@ public class SemanticZoomImpl extends MinimalEObjectImpl.Container implements Se
         return result.toString();
     }
 
-} // SemanticZoomImpl
+} // SemanticZoomDescriptionImpl

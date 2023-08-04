@@ -648,12 +648,12 @@ public interface ViewFactory extends EFactory {
     SelectionDescription createSelectionDescription();
 
     /**
-     * Returns a new object of class '<em>Semantic Zoom</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Semantic Zoom Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Semantic Zoom</em>'.
+     * @return a new object of class '<em>Semantic Zoom Description</em>'.
      * @generated
      */
-    SemanticZoom createSemanticZoom();
+    SemanticZoomDescription createSemanticZoomDescription();
 
     /**
      * Returns the package supported by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->

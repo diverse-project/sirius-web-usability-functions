@@ -73,7 +73,9 @@ public final class NodeDescription implements IDiagramElementDescription {
     private BiFunction<VariableManager, String, IStatus> labelEditHandler;
 
     private Function<VariableManager, IStatus> deleteHandler;
-    
+
+    //private Function<VariableManager, SemanticZoom> activeSemanticZoom;
+
     private boolean activeSemanticZoom;
 
     private NodeDescription() {
@@ -160,7 +162,7 @@ public final class NodeDescription implements IDiagramElementDescription {
     public BiFunction<VariableManager, String, IStatus> getLabelEditHandler() {
         return this.labelEditHandler;
     }
-    
+
     public boolean isActiveSemanticZoom() {
         return this.activeSemanticZoom;
     }
@@ -221,7 +223,7 @@ public final class NodeDescription implements IDiagramElementDescription {
         private List<String> reusedBorderNodeDescriptionIds = new ArrayList<>();
 
         private List<String> reusedChildNodeDescriptionIds = new ArrayList<>();
-        
+
         private boolean activeSemanticZoom;
 
         private BiFunction<VariableManager, String, IStatus> labelEditHandler;
@@ -349,7 +351,7 @@ public final class NodeDescription implements IDiagramElementDescription {
             this.labelEditHandler = Objects.requireNonNull(labelEditHandler);
             return this;
         }
-        
+
         public Builder activeSemanticZoom(boolean activeSemanticZoom) {
             this.activeSemanticZoom = activeSemanticZoom;
             return this;
