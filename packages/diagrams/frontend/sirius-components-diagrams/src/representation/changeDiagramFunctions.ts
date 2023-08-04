@@ -185,55 +185,50 @@ export class DiagramRefreshTool {
     const numberOfLevels = [...graph.keys()].length;
     var scaleCount: number = [...graph.keys()].length + numberOfLevels / 6;
     const listOfLevelsNumber: number[] = [1.0, 0.75, 0.5, 0.25, 0.1, 0.05];
-    console.log(level);
-    //console.log(nodeList);
     if (this.listOfLevels == null) {
       this.listOfLevels = new Map<number, GQLNode[]>();
       const tmpNodeList: GQLNode[] = [];
       for (const node of nodeList) {
         tmpNodeList.push(structuredClone(node));
       }
-      console.log('Init :');
       this.listOfLevels.set(1.0, tmpNodeList);
-      console.log(this.listOfLevels.get(1.0));
-      //console.log(this.listOfLevels.get(1.0));
       for (const level of listOfLevelsNumber) {
-        ({ scaleCount, count } = this.scaleLevelHiding(
-          scaleCount,
-          numberOfLevels,
-          count,
-          graph,
-          elements,
-          zoomLevelDifference
-        ));
-        for (const element of elements) {
-          element.state = GQLViewModifier.Hidden;
-        }
-        for (const element of nodeList) {
-          if (!elements.includes(element)) {
-            if (zoomLevelNumber == 1.0) {
-              element.label.style.fontSize = 14;
-            }
-            element.state = GQLViewModifier.Normal;
+        if (level != 1.0) {
+          ({ scaleCount, count } = this.scaleLevelHiding(
+            scaleCount,
+            numberOfLevels,
+            count,
+            graph,
+            elements,
+            zoomLevelDifference
+          ));
+          for (const element of elements) {
+            element.state = GQLViewModifier.Hidden;
           }
+          for (const element of nodeList) {
+            if (!elements.includes(element)) {
+              if (zoomLevelNumber == 1.0) {
+                element.label.style.fontSize = 14;
+              }
+              element.state = GQLViewModifier.Normal;
+            }
+          }
+          const tmpNodeList: GQLNode[] = [];
+          for (const node of nodeList) {
+            tmpNodeList.push(structuredClone(node));
+          }
+          this.listOfLevels.set(level, tmpNodeList);
         }
-        const tmpNodeList: GQLNode[] = [];
-        for (const node of nodeList) {
-          tmpNodeList.push(structuredClone(node));
-        }
-        this.listOfLevels.set(level, tmpNodeList);
       }
     }
     for (const level of listOfLevelsNumber) {
       if (zoomLevelNumber == level) {
         for (let i = 0; i < nodeList.length; i++) {
           const nodeTmp = this.listOfLevels.get(level).find((n) => n.id == nodeList[i].id);
-          console.log(this.listOfLevels.get(1.0));
           nodeList[i].state = nodeTmp.state;
           nodeList[i].label = nodeTmp.label;
           nodeList[i].position = nodeTmp.position;
           nodeList[i].size = nodeTmp.size;
-          console.log(nodeList[i].label.text + ' ' + nodeList[i].state);
         }
       }
     }
