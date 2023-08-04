@@ -104,7 +104,7 @@ export const mapToString = (map: Map<string, GQLNode>): string => {
   return 'null';
 };
 
-export const mapIdToNodes = (diagram: GQLDiagram): Map<string, GQLNode> => {
+/* export const mapIdToNodes = (diagram: GQLDiagram): Map<string, GQLNode> => {
   if (diagram != null) {
     let idToNodes = new Map<string, GQLNode>();
     const nodes = diagram.nodes;
@@ -112,6 +112,23 @@ export const mapIdToNodes = (diagram: GQLDiagram): Map<string, GQLNode> => {
       for (const child of node.childNodes) {
         idToNodes.set(child.id, child);
       }
+    }
+    return idToNodes;
+  }
+  return null;
+}; */
+
+export const mapIdToNodes = (diagram: GQLDiagram): Map<string, GQLNode> => {
+  if (diagram != null) {
+    let idToNodes = new Map<string, GQLNode>();
+    const traverse = (node: GQLNode) => {
+      idToNodes.set(node.id, node);
+      for (const childNode of node.childNodes) {
+        traverse(childNode);
+      }
+    };
+    for (const node of diagram.nodes) {
+      traverse(node);
     }
     return idToNodes;
   }
@@ -153,7 +170,10 @@ export const diagramToGraph = (diagram: GQLDiagram): [Map<number, DirectionalGra
 export const getEachLevelOfNodes = (diagram: GQLDiagram): [Map<number, GQLNode[]>, GQLNode[]] => {
   if (diagram != null) {
     const map = new Map<number, GQLNode[]>();
-    const nodeList: GQLNode[] = structuredClone(diagram.nodes);
+    const nodeList: GQLNode[] = [];
+    for (const node of diagram.nodes) {
+      nodeList.push(node);
+    }
     var floor = false;
     var count = 0;
     var nodesAtEachLevel = diagram.nodes;
