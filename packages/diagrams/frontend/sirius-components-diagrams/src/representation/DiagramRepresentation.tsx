@@ -21,8 +21,8 @@ import {
   useMultiToast,
 } from '@eclipse-sirius/sirius-components-core';
 import { SelectionDialog } from '@eclipse-sirius/sirius-components-selection';
-import makeStyles from '@material-ui/core/styles/makeStyles';
 import Typography from '@material-ui/core/Typography';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import { useMachine } from '@xstate/react';
 import { useCallback, useContext, useEffect, useRef } from 'react';
 import { HoverFeedbackAction, SEdge, SModelElement, SNode, SPort } from 'sprotty';
@@ -89,6 +89,7 @@ import {
   GQLUpdateNodePositionData,
   GQLUpdateNodePositionInput,
   GQLUpdateNodePositionVariables,
+  GQLViewModifier,
   Menu,
   Palette,
 } from './DiagramRepresentation.types';
@@ -97,7 +98,6 @@ import {
   DiagramRefreshedEvent,
   DiagramRepresentationContext,
   DiagramRepresentationEvent,
-  diagramRepresentationMachine,
   HandleDiagramDescriptionResultEvent,
   HandleSelectedObjectInSelectionDialogEvent,
   HideToastEvent,
@@ -105,9 +105,9 @@ import {
   ResetSelectedObjectInSelectionDialogEvent,
   ResetToolsEvent,
   SchemaValue,
+  SelectZoomLevelEvent,
   SelectedElementEvent,
   SelectionEvent,
-  SelectZoomLevelEvent,
   SetActiveConnectorToolsEvent,
   SetActiveToolEvent,
   SetContextualMenuEvent,
@@ -117,9 +117,12 @@ import {
   ShowToastEvent,
   SubscribersUpdatedEvent,
   SwitchRepresentationEvent,
+  diagramRepresentationMachine,
 } from './DiagramRepresentationMachine';
 import { getDiagramDescriptionQuery } from './GetDiagramDescriptionQuery';
 import { GQLGetDiagramDescriptionData, GQLGetDiagramDescriptionVariables } from './GetDiagramDescriptionQuery.types';
+import { getDiagramNodesState } from './changeDiagramFunctions';
+import { diagramToGraph } from './graph';
 import {
   arrangeAllOp,
   deleteFromDiagramMutation,
@@ -665,6 +668,8 @@ export const DiagramRepresentation = ({
       );
     }
   };
+
+  let elementTest = new SModelElement();
   /**
    * Initialize the diagram server used by Sprotty in order to perform the diagram edition. This
    * initialization will be done each time we are in the loading state.
@@ -844,6 +849,24 @@ export const DiagramRepresentation = ({
             type: 'HANDLE_DIAGRAM_REFRESHED',
             diagram: diagramEvent.diagram,
           };
+          if (diagram != null) {
+            //deleteElements([element], GQLDeletionPolicy.GRAPHICAL);
+          }
+          const graph = diagramToGraph(diagram);
+          if (graph != null) {
+            var elements = graph.getRootNodes();
+            for (var element of elements) {
+              element.state = GQLViewModifier.Hidden;
+            }
+            console.log(getDiagramNodesState(diagram));
+            const action = {
+              kind: 'siriusUpdateModel',
+              diagram: diagram,
+              diagramDescription: diagramDescription,
+              readOnly: readOnly,
+            };
+            diagramServer.handle(action);
+          }
           dispatch(diagramRefreshedEvent);
         } else if (isSubscribersUpdatedEventPayload(diagramEvent)) {
           const subscribersUpdatedEvent: SubscribersUpdatedEvent = {

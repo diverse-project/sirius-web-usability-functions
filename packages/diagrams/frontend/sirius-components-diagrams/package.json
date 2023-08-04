@@ -26,7 +26,8 @@
     "build": "vite build && cp src/index.d.ts dist/ && mkdir -p dist/representation && cp src/representation/DiagramRepresentation.d.ts dist/representation/",
     "format": "prettier --write \"src/**/*.{js,ts,tsx,css}\"",
     "format-lint": "prettier --list-different \"src/**/*.{js,ts,tsx,css}\"",
-    "publish:local": "yalc push"
+    "publish:local": "yalc push",
+    "formatbuild": "prettier --write \"src/**/*.{js,ts,tsx,css}\" && vite build && cp src/index.d.ts dist/ && mkdir -p dist/representation && cp src/representation/DiagramRepresentation.d.ts dist/representation/"
   },
   "peerDependencies": {
     "@apollo/client": "3.6.9",

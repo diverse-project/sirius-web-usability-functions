@@ -97,7 +97,7 @@ export const getToolSectionsQuery = gql`
   }
 `;
 
-const hideDiagramElementMutation = gql`
+export const hideDiagramElementMutation = gql`
   mutation hideDiagramElement($input: HideDiagramElementInput!) {
     hideDiagramElement(input: $input) {
       __typename

@@ -10,12 +10,11 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
+import { IconButton, Link } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import Link from '@material-ui/core/Link';
-import { emphasize, makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
+import { emphasize, makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { SiriusIcon } from '../core/SiriusIcon';
 import { Help } from './Help';

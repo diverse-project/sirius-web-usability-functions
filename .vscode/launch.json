@@ -52,7 +52,13 @@
       "smartStep": true,
       "console": "integratedTerminal"
     },
-
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/app"
+    },
     {
       "type": "node",
       "request": "launch",
