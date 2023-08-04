@@ -20,18 +20,29 @@ package org.eclipse.sirius.components.diagrams;
 public class NumberOfRelationStrategy extends SemanticZoomStrategy {
 
     public static final String KIND = "NumberOfRelationStrategy";
+    private int numberOfRelation;
 
     public NumberOfRelationStrategy() {
         super(false, null, null, null);
+        this.numberOfRelation = 3;
     }
 
-    public NumberOfRelationStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized) {
+    public NumberOfRelationStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized, int numberOfRelation) {
         super(activeStrategy, styleDetailled, styleNormal, styleSummarized);
+        this.numberOfRelation = numberOfRelation;
     }
 
     @Override
     public String getKind() {
         return KIND;
+    }
+
+    public int getNumberOfRelation() {
+        return this.numberOfRelation;
+    }
+
+    public void setNumberOfRelation(int numberOfRelation) {
+        this.numberOfRelation = numberOfRelation;
     }
 
 }

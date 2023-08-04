@@ -64,6 +64,7 @@ type AutomaticZoomingByDepthStrategy {
 
 type NumberOfRelationStrategy {
 	activeStrategy: Boolean!
+	numberOfRelation: Int!
 	styleDetailled: INodeStyle
 	styleNormal: INodeStyle
 	styleSummarized: INodeStyle

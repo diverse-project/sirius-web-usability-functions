@@ -3709,6 +3709,16 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
      * @generated
      */
     @Override
+    public EAttribute getNumberOfRelationStrategy_NumberOfRelation() {
+        return (EAttribute) this.numberOfRelationStrategyEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getManuallyDefinedStrategy() {
         return this.manuallyDefinedStrategyEClass;
     }
@@ -4290,6 +4300,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
         this.automaticZoomingByDepthStrategyEClass = this.createEClass(AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY);
 
         this.numberOfRelationStrategyEClass = this.createEClass(NUMBER_OF_RELATION_STRATEGY);
+        this.createEAttribute(this.numberOfRelationStrategyEClass, NUMBER_OF_RELATION_STRATEGY__NUMBER_OF_RELATION);
 
         this.manuallyDefinedStrategyEClass = this.createEClass(MANUALLY_DEFINED_STRATEGY);
 
@@ -5030,6 +5041,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
         this.initEClass(this.automaticZoomingByDepthStrategyEClass, AutomaticZoomingByDepthStrategy.class, "AutomaticZoomingByDepthStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         this.initEClass(this.numberOfRelationStrategyEClass, NumberOfRelationStrategy.class, "NumberOfRelationStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getNumberOfRelationStrategy_NumberOfRelation(), this.ecorePackage.getEInt(), "numberOfRelation", "3", 0, 1, NumberOfRelationStrategy.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.manuallyDefinedStrategyEClass, ManuallyDefinedStrategy.class, "ManuallyDefinedStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

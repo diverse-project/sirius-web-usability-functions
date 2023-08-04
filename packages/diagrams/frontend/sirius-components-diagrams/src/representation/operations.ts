@@ -144,6 +144,7 @@ export const diagramEventSubscription = gql`
     }
     ... on NumberOfRelationStrategy {
       activeStrategy
+      numberOfRelation
       styleDetailled {
         ...styleFields
       }
