@@ -73,6 +73,7 @@ import org.eclipse.sirius.components.view.FreeFormLayoutStrategyDescription;
 import org.eclipse.sirius.components.view.LabelEditTool;
 import org.eclipse.sirius.components.view.LayoutStrategyDescription;
 import org.eclipse.sirius.components.view.ListLayoutStrategyDescription;
+import org.eclipse.sirius.components.view.ManuallyDefinedStrategy;
 import org.eclipse.sirius.components.view.NodeStyleDescription;
 import org.eclipse.sirius.components.view.NumberOfRelationStrategy;
 import org.eclipse.sirius.components.view.RepresentationDescription;
@@ -331,7 +332,8 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
                 } else if (strategy instanceof NumberOfRelationStrategy) {
                     strategies.add(new org.eclipse.sirius.components.diagrams.NumberOfRelationStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized, ((NumberOfRelationStrategy) strategy).getNumberOfRelation()));
                 } else {
-                    strategies.add(new org.eclipse.sirius.components.diagrams.ManuallyDefinedStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized));
+                    ManuallyDefinedStrategy strategyCast = (ManuallyDefinedStrategy) strategy;
+                    strategies.add(new org.eclipse.sirius.components.diagrams.ManuallyDefinedStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized, strategyCast.getZoomDetailled(), strategyCast.getZoomNormal(), strategyCast.getZoomSummarized()));
                 }
             }
         }

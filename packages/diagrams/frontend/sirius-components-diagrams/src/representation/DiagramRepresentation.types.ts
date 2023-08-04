@@ -175,7 +175,11 @@ export interface NumberOfRelationStrategy extends GQLISemanticZoomStrategy {
   numberOfRelation: number;
 }
 
-export interface ManuallyDefinedStrategy extends GQLISemanticZoomStrategy {}
+export interface ManuallyDefinedStrategy extends GQLISemanticZoomStrategy {
+  zoomDetailled: number;
+  zoomNormal: number;
+  zoomSummarized: number;
+}
 
 export interface GQLLabel {
   id: string;

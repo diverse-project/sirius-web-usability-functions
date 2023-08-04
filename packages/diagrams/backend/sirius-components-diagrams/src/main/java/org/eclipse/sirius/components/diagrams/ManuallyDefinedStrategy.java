@@ -20,18 +20,53 @@ package org.eclipse.sirius.components.diagrams;
 public class ManuallyDefinedStrategy extends SemanticZoomStrategy {
 
     public static final String KIND = "ManuallyDefinedStrategy";
+    private double zoomDetailled;
+    private double zoomNormal;
+    private double zoomSummarized;
 
     public ManuallyDefinedStrategy() {
         super(false, null, null, null);
+        this.zoomDetailled = 0.75;
+        this.zoomNormal = 0.25;
+        this.zoomSummarized = 0.05;
     }
 
-    public ManuallyDefinedStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized) {
+    public ManuallyDefinedStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized, double zoomDetailled, double zoomNormal, double zoomSummarized) {
         super(activeStrategy, styleDetailled, styleNormal, styleSummarized);
+        this.zoomDetailled = zoomDetailled;
+        this.zoomNormal = zoomNormal;
+        this.zoomSummarized = zoomSummarized;
     }
 
     @Override
     public String getKind() {
         return KIND;
     }
+
+    public double getZoomDetailled() {
+        return this.zoomDetailled;
+    }
+
+    public void setZoomDetailled(double zoomDetailled) {
+        this.zoomDetailled = zoomDetailled;
+    }
+
+    public double getZoomNormal() {
+        return this.zoomNormal;
+    }
+
+    public void setZoomNormal(double zoomNormal) {
+        this.zoomNormal = zoomNormal;
+    }
+
+    public double getZoomSummarized() {
+        return this.zoomSummarized;
+    }
+
+    public void setZoomSummarized(double zoomSummarized) {
+        this.zoomSummarized = zoomSummarized;
+    }
+
+
 
 }

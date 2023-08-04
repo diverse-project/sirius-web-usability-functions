@@ -6,6 +6,8 @@ import {
   GQLISemanticZoomStrategy,
   GQLNode,
   GQLViewModifier,
+  ManuallyDefinedStrategy,
+  NumberOfRelationStrategy,
 } from './DiagramRepresentation.types';
 import { DirectionalGraph, diagramToGraph, mapIdToNodes } from './graph';
 
@@ -110,10 +112,14 @@ export class DiagramRefreshTool {
         }
       }
     }
-    //Reset the diagram
+    //Apply the style
     for (let i = 0; i < nodeList.length; i++) {
-      if (this.listOfLevels.get(zoomLevelNumber) != undefined) {
-        const nodeTmp = this.listOfLevels.get(zoomLevelNumber).find((n) => n.id == nodeList[i].id);
+      let zoomLevelNumberProtection = zoomLevelNumber;
+      if (zoomLevelNumber > 1) {
+        zoomLevelNumberProtection = 1;
+      }
+      if (this.listOfLevels.get(zoomLevelNumberProtection) != undefined) {
+        const nodeTmp = this.listOfLevels.get(zoomLevelNumberProtection).find((n) => n.id == nodeList[i].id);
         nodeList[i].state = nodeTmp.state;
         nodeList[i].label = nodeTmp.label;
         nodeList[i].position = nodeTmp.position;
@@ -181,17 +187,17 @@ export class DiagramRefreshTool {
             node.style = strategy.styleSummarized;
           }
           if (strategy !== undefined && strategy.__typename === 'ManuallyDefinedStrategy' && strategy.activeStrategy) {
-            if (level == 0.75) {
-              //TODO : Change with the values defined in the Strategy
+            const strategyCast = strategy as ManuallyDefinedStrategy;
+            if (level == strategyCast.zoomDetailled) {
               node.style = strategy.styleDetailled;
-            } else if (level == 0.25) {
+            } else if (level == strategyCast.zoomNormal) {
               node.style = strategy.styleNormal;
-            } else if (level == 0.05) {
+            } else if (level == strategyCast.zoomSummarized) {
               node.style = strategy.styleSummarized;
             }
           }
           if (strategy !== undefined && strategy.__typename === 'NumberOfRelationStrategy' && strategy.activeStrategy) {
-            if (numberOfConnectionsPerNode.get(node) < 3) {
+            if (numberOfConnectionsPerNode.get(node) < (strategy as NumberOfRelationStrategy).numberOfRelation) {
               node.state = GQLViewModifier.Hidden; //TODO : Change by setting the style
             }
           }

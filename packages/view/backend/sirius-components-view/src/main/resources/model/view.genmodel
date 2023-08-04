@@ -416,7 +416,11 @@
     <genClasses ecoreClass="view.ecore#//NumberOfRelationStrategy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//NumberOfRelationStrategy/numberOfRelation"/>
     </genClasses>
-    <genClasses ecoreClass="view.ecore#//ManuallyDefinedStrategy"/>
+    <genClasses ecoreClass="view.ecore#//ManuallyDefinedStrategy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//ManuallyDefinedStrategy/zoomDetailled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//ManuallyDefinedStrategy/zoomNormal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//ManuallyDefinedStrategy/zoomSummarized"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="view.ecore#//SemanticZoomStrategy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute view.ecore#//SemanticZoomStrategy/activeStrategy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference view.ecore#//SemanticZoomStrategy/styleDetailled"/>

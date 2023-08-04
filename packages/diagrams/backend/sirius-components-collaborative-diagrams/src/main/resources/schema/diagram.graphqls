@@ -72,6 +72,9 @@ type NumberOfRelationStrategy {
 
 type ManuallyDefinedStrategy {
 	activeStrategy: Boolean!
+	zoomDetailled: Float!
+	zoomNormal: Float!
+	zoomSummarized: Float!
 	styleDetailled: INodeStyle
 	styleNormal: INodeStyle
 	styleSummarized: INodeStyle

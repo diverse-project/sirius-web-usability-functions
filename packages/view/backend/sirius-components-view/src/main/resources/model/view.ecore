@@ -549,7 +549,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfRelation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ManuallyDefinedStrategy" eSuperTypes="#//SemanticZoomStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ManuallyDefinedStrategy" eSuperTypes="#//SemanticZoomStrategy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zoomDetailled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zoomNormal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    	defaultValueLiteral="0.25"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zoomSummarized" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    	defaultValueLiteral="0.05"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SemanticZoomStrategy" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="activeStrategy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="styleDetailled" eType="#//NodeStyleDescription"
