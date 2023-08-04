@@ -44,6 +44,7 @@ import {
   SetViewportAction,
   UpdateModelAction,
 } from 'sprotty-protocol';
+import { diagramRefreshTool } from '../representation/changeDiagramFunctions';
 import {
   Bounds,
   CursorValue,
@@ -381,7 +382,10 @@ export class DiagramServer extends ModelSource {
   handleSiriusUpdateModelAction(action: SiriusUpdateModelAction) {
     const { diagram, diagramDescription, readOnly } = action;
     if (diagram) {
-      const convertedDiagram = convertDiagram(diagram, diagramDescription, this.httpOrigin, readOnly);
+      const diagramWithSemanticZoom = diagramRefreshTool.refreshDiagramWhithLevel(
+        action.localUpdate ? undefined : diagram
+      );
+      const convertedDiagram = convertDiagram(diagramWithSemanticZoom, diagramDescription, this.httpOrigin, readOnly);
       const sprottyModel = this.modelFactory.createRoot(convertedDiagram);
       this.actionDispatcher.request<SelectionResult>(GetSelectionAction.create()).then((selectionResult) => {
         (sprottyModel as any).cursor = 'pointer';

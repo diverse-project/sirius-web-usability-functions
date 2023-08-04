@@ -26,6 +26,7 @@ export interface SiriusUpdateModelAction extends Action {
   diagram: GQLDiagram;
   diagramDescription: DiagramDescription;
   readOnly: boolean;
+  localUpdate: boolean;
 }
 
 export interface SetActiveToolAction extends Action {

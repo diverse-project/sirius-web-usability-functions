@@ -24,7 +24,7 @@ import { SelectionDialog } from '@eclipse-sirius/sirius-components-selection';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { useMachine } from '@xstate/react';
-import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef } from 'react';
 import { HoverFeedbackAction, SEdge, SModelElement, SNode, SPort } from 'sprotty';
 import { FitToScreenAction, Point } from 'sprotty-protocol';
 import { DropArea } from '../droparea/DropArea';
@@ -120,8 +120,7 @@ import {
 } from './DiagramRepresentationMachine';
 import { getDiagramDescriptionQuery } from './GetDiagramDescriptionQuery';
 import { GQLGetDiagramDescriptionData, GQLGetDiagramDescriptionVariables } from './GetDiagramDescriptionQuery.types';
-import { DiagramRefreshTool } from './changeDiagramFunctions';
-import { diagramToGraph } from './graph';
+import { diagramRefreshTool } from './changeDiagramFunctions';
 import {
   arrangeAllOp,
   deleteFromDiagramMutation,
@@ -372,9 +371,6 @@ export const DiagramRepresentation = ({
     selectedObjectId,
   } = context;
 
-  //Just to initialize with null values but good type
-  const [diagramRefreshTool] = useState(new DiagramRefreshTool(diagram, diagramDescription, readOnly, diagramServer));
-
   const {
     loading: diagramDescriptionLoading,
     data: diagramDescriptionData,
@@ -385,10 +381,6 @@ export const DiagramRepresentation = ({
       diagramId: representationId,
     },
   });
-
-  if (diagram != null) {
-    console.log(diagram);
-  }
 
   useEffect(() => {
     if (diagramRepresentation === 'loadingDiagramDescription' && !diagramDescriptionLoading) {
@@ -458,7 +450,13 @@ export const DiagramRepresentation = ({
    */
   useEffect(() => {
     if (diagramServer && diagramDescription) {
-      const action: SiriusUpdateModelAction = { kind: 'siriusUpdateModel', diagram, diagramDescription, readOnly };
+      const action: SiriusUpdateModelAction = {
+        kind: 'siriusUpdateModel',
+        diagram,
+        diagramDescription,
+        readOnly,
+        localUpdate: false,
+      };
       diagramServer.actionDispatcher.dispatch(action);
     }
   }, [diagram, diagramDescription, diagramServer, readOnly]);
@@ -854,12 +852,6 @@ export const DiagramRepresentation = ({
             type: 'HANDLE_DIAGRAM_REFRESHED',
             diagram: diagramEvent.diagram,
           };
-          //console.log(getEachLevelOfNodes(diagram));
-          const graph = diagramToGraph(diagram);
-          if (graph != null) {
-            //console.log(graph);
-            //console.log(graph.toString());
-          }
           dispatch(diagramRefreshedEvent);
         } else if (isSubscribersUpdatedEventPayload(diagramEvent)) {
           const subscribersUpdatedEvent: SubscribersUpdatedEvent = {
@@ -921,7 +913,15 @@ export const DiagramRepresentation = ({
       diagramServer.actionDispatcher.dispatch(action);
       const selectZoomLevelEvent: SelectZoomLevelEvent = { type: 'SELECT_ZOOM_LEVEL', level };
       //Calling the tool to display the modified diagram
-      diagramRefreshTool.refreshDiagramWhithLevel(diagram, diagramDescription, readOnly, diagramServer, level);
+      diagramRefreshTool.setZoomLevel(level);
+      const updateModelAction: SiriusUpdateModelAction = {
+        kind: 'siriusUpdateModel',
+        diagram: diagram,
+        diagramDescription: diagramDescription,
+        readOnly: readOnly,
+        localUpdate: true,
+      };
+      diagramServer.actionDispatcher.dispatch(updateModelAction); //Call the action that refresh the diagram displayed
       dispatch(selectZoomLevelEvent);
     }
   };
