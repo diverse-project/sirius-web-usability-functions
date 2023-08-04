@@ -67,6 +67,8 @@ public final class Node implements IDiagramElement {
 
     private Set<CustomizableProperties> customizedProperties;
 
+    private boolean activeSemanticZoom;
+
     private Node() {
         // Prevent instantiation
     }
@@ -157,6 +159,10 @@ public final class Node implements IDiagramElement {
         return new Builder(node);
     }
 
+    public boolean isActiveSemanticZoom() {
+        return this.activeSemanticZoom;
+    }
+
     @Override
     public String toString() {
         String pattern = "{0} '{'id: {1}, targetObjectId: {2}, targetObjectKind: {3}, targetObjectLabel: {4}, descriptionId: {5}, state: {6}, label: {7}, styleType: {8}, borderNodeCount: {9}, childNodeCount: {10}'}'";
@@ -209,6 +215,8 @@ public final class Node implements IDiagramElement {
 
         private Set<CustomizableProperties> customizedProperties = Set.of();
 
+        private boolean activeSemanticZoom;
+
         private Builder(String id) {
             this.id = Objects.requireNonNull(id);
         }
@@ -233,6 +241,7 @@ public final class Node implements IDiagramElement {
             this.borderNodes = node.getBorderNodes();
             this.childNodes = node.getChildNodes();
             this.customizedProperties = node.getCustomizedProperties();
+            this.activeSemanticZoom = node.isActiveSemanticZoom();
         }
 
         public Builder type(String type) {
@@ -325,6 +334,11 @@ public final class Node implements IDiagramElement {
             return this;
         }
 
+        public Builder activeSemanticZoom(boolean activeSemanticZoom) {
+            this.activeSemanticZoom = activeSemanticZoom;
+            return this;
+        }
+
         public Node build() {
             Node node = new Node();
             node.id = Objects.requireNonNull(this.id);
@@ -346,6 +360,7 @@ public final class Node implements IDiagramElement {
             node.borderNodes = Objects.requireNonNull(this.borderNodes);
             node.childNodes = Objects.requireNonNull(this.childNodes);
             node.customizedProperties = this.customizedProperties;
+            node.activeSemanticZoom = this.activeSemanticZoom;
             return node;
         }
     }

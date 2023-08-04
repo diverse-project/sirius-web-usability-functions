@@ -70,6 +70,8 @@ public final class NodeElementProps implements IProps {
 
     private Set<CustomizableProperties> customizableProperties;
 
+    private boolean activeSemanticZoom;
+
     private List<Element> children;
 
     private NodeElementProps() {
@@ -144,6 +146,10 @@ public final class NodeElementProps implements IProps {
         return new Builder(id);
     }
 
+    public boolean isActiveSemanticZoom() {
+        return this.activeSemanticZoom;
+    }
+
     @Override
     public List<Element> getChildren() {
         return this.children;
@@ -193,6 +199,8 @@ public final class NodeElementProps implements IProps {
         private boolean userResizable;
 
         private Set<CustomizableProperties> customizableProperties = Set.of();
+
+        private boolean activeSemanticZoom;
 
         private List<Element> children;
 
@@ -275,6 +283,11 @@ public final class NodeElementProps implements IProps {
             return this;
         }
 
+        public Builder activeSemanticZoom(boolean activeSemanticZoom) {
+            this.activeSemanticZoom = activeSemanticZoom;
+            return this;
+        }
+
         public Builder children(List<Element> children) {
             this.children = Objects.requireNonNull(children);
             return this;
@@ -297,6 +310,7 @@ public final class NodeElementProps implements IProps {
             nodeElementProps.position = Objects.requireNonNull(this.position);
             nodeElementProps.size = Objects.requireNonNull(this.size);
             nodeElementProps.userResizable = this.userResizable;
+            nodeElementProps.activeSemanticZoom = Objects.requireNonNull(this.activeSemanticZoom);
             nodeElementProps.children = Objects.requireNonNull(this.children);
             nodeElementProps.customizableProperties = Objects.requireNonNull(this.customizableProperties);
             return nodeElementProps;

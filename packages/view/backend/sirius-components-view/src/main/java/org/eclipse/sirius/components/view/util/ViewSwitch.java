@@ -89,6 +89,7 @@ import org.eclipse.sirius.components.view.RichTextDescription;
 import org.eclipse.sirius.components.view.SelectDescription;
 import org.eclipse.sirius.components.view.SelectDescriptionStyle;
 import org.eclipse.sirius.components.view.SelectionDescription;
+import org.eclipse.sirius.components.view.SemanticZoom;
 import org.eclipse.sirius.components.view.SetValue;
 import org.eclipse.sirius.components.view.SourceEdgeEndReconnectionTool;
 import org.eclipse.sirius.components.view.Style;
@@ -1030,6 +1031,13 @@ public class ViewSwitch<T> extends Switch<T> {
             case ViewPackage.SELECTION_DESCRIPTION: {
                 SelectionDescription selectionDescription = (SelectionDescription) theEObject;
                 T result = this.caseSelectionDescription(selectionDescription);
+                if (result == null)
+                    result = this.defaultCase(theEObject);
+                return result;
+            }
+            case ViewPackage.SEMANTIC_ZOOM: {
+                SemanticZoom semanticZoom = (SemanticZoom) theEObject;
+                T result = this.caseSemanticZoom(semanticZoom);
                 if (result == null)
                     result = this.defaultCase(theEObject);
                 return result;
@@ -2341,6 +2349,20 @@ public class ViewSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseSelectionDescription(SelectionDescription object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Semantic Zoom</em>'. <!-- begin-user-doc -->
+     * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Semantic Zoom</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSemanticZoom(SemanticZoom object) {
         return null;
     }
 

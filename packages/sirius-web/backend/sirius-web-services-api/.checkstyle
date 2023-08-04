@@ -2,7 +2,7 @@
 
 <fileset-config file-format-version="1.2.0" simple-config="false" sync-formatter="false">
   <local-check-config name="maven-checkstyle-plugin validate" location="file:/C:/Users/aallain/Documents/workspace_sirius/sirius-components/packages/releng/backend/sirius-components-resources/checkstyle/CheckstyleConfiguration.xml" type="remote" description="maven-checkstyle-plugin configuration validate">
-    <property name="checkstyle.header.file" value="C:\Users\aallain\Documents\workspace_spring_theo\.metadata\.plugins\org.eclipse.core.resources\.projects\sirius-web-services-api\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-header-validate.txt"/>
+    <property name="checkstyle.header.file" value="C:\Users\aallain\Documents\workspace_spring\.metadata\.plugins\org.eclipse.core.resources\.projects\sirius-web-services-api\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-header-validate.txt"/>
     <property name="checkstyle.cache.file" value="${project_loc}/target/checkstyle-cachefile"/>
   </local-check-config>
   <fileset name="java-sources-validate" enabled="true" check-config-name="maven-checkstyle-plugin validate" local="true">

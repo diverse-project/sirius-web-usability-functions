@@ -203,4 +203,27 @@ public interface NodeDescription extends DiagramElementDescription {
      */
     void setPalette(NodePalette value);
 
+    /**
+     * Returns the value of the '<em><b>Semantic Zoom</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @return the value of the '<em>Semantic Zoom</em>' containment reference.
+     * @see #setSemanticZoom(SemanticZoom)
+     * @see org.eclipse.sirius.components.view.ViewPackage#getNodeDescription_SemanticZoom()
+     * @model containment="true"
+     * @generated
+     */
+    SemanticZoom getSemanticZoom();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.sirius.components.view.NodeDescription#getSemanticZoom <em>Semantic
+     * Zoom</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @param value
+     *            the new value of the '<em>Semantic Zoom</em>' containment reference.
+     * @see #getSemanticZoom()
+     * @generated
+     */
+    void setSemanticZoom(SemanticZoom value);
+
 } // NodeDescription

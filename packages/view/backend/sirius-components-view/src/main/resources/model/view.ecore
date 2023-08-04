@@ -60,6 +60,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="collapsible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="palette" eType="#//NodePalette"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="semanticZoom" eType="#//SemanticZoom"
+    containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childrenLayoutStrategy"
         eType="#//LayoutStrategyDescription" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//NodeStyleDescription"
@@ -537,5 +539,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionCandidatesExpression"
         eType="#//InterpretedExpression" defaultValueLiteral="aql:self"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectionMessage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SemanticZoom">
+  	<eStructuralFeatures xsi:type="ecore:EAttribute" name="activeSemanticZoom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

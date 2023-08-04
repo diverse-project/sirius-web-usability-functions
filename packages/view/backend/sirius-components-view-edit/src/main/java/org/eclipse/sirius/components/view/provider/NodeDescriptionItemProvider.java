@@ -141,6 +141,7 @@ public class NodeDescriptionItemProvider extends DiagramElementDescriptionItemPr
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures.add(ViewPackage.Literals.NODE_DESCRIPTION__PALETTE);
+            this.childrenFeatures.add(ViewPackage.Literals.NODE_DESCRIPTION__SEMANTIC_ZOOM);
             this.childrenFeatures.add(ViewPackage.Literals.NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY);
             this.childrenFeatures.add(ViewPackage.Literals.NODE_DESCRIPTION__STYLE);
             this.childrenFeatures.add(ViewPackage.Literals.NODE_DESCRIPTION__CONDITIONAL_STYLES);
@@ -211,6 +212,7 @@ public class NodeDescriptionItemProvider extends DiagramElementDescriptionItemPr
                 this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case ViewPackage.NODE_DESCRIPTION__PALETTE:
+            case ViewPackage.NODE_DESCRIPTION__SEMANTIC_ZOOM:
             case ViewPackage.NODE_DESCRIPTION__STYLE:
             case ViewPackage.NODE_DESCRIPTION__CONDITIONAL_STYLES:
             case ViewPackage.NODE_DESCRIPTION__CHILDREN_DESCRIPTIONS:
@@ -240,6 +242,7 @@ public class NodeDescriptionItemProvider extends DiagramElementDescriptionItemPr
         nodeChild.setStyle(ViewFactory.eINSTANCE.createRectangularNodeStyleDescription());
         nodeChild.setChildrenLayoutStrategy(ViewFactory.eINSTANCE.createFreeFormLayoutStrategyDescription());
         nodeChild.setPalette(defaultToolsFactory.createDefaultNodePalette());
+        nodeChild.setSemanticZoom(ViewFactory.eINSTANCE.createSemanticZoom());
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.NODE_DESCRIPTION__CHILDREN_DESCRIPTIONS, nodeChild));
 
         NodeDescription borderNodeChild = ViewFactory.eINSTANCE.createNodeDescription();
@@ -257,6 +260,8 @@ public class NodeDescriptionItemProvider extends DiagramElementDescriptionItemPr
 
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY, ViewFactory.eINSTANCE.createFreeFormLayoutStrategyDescription()));
         newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.NODE_DESCRIPTION__CHILDREN_LAYOUT_STRATEGY, ViewFactory.eINSTANCE.createListLayoutStrategyDescription()));
+        newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.NODE_DESCRIPTION__SEMANTIC_ZOOM, ViewFactory.eINSTANCE.createSemanticZoom()));
+
     }
 
     /**

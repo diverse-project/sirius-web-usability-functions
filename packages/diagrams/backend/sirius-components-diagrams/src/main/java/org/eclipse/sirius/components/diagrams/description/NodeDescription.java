@@ -73,6 +73,8 @@ public final class NodeDescription implements IDiagramElementDescription {
     private BiFunction<VariableManager, String, IStatus> labelEditHandler;
 
     private Function<VariableManager, IStatus> deleteHandler;
+    
+    private boolean activeSemanticZoom;
 
     private NodeDescription() {
         // Prevent instantiation
@@ -158,6 +160,10 @@ public final class NodeDescription implements IDiagramElementDescription {
     public BiFunction<VariableManager, String, IStatus> getLabelEditHandler() {
         return this.labelEditHandler;
     }
+    
+    public boolean isActiveSemanticZoom() {
+        return this.activeSemanticZoom;
+    }
 
     public static Builder newNodeDescription(String id) {
         return new Builder(id);
@@ -215,6 +221,8 @@ public final class NodeDescription implements IDiagramElementDescription {
         private List<String> reusedBorderNodeDescriptionIds = new ArrayList<>();
 
         private List<String> reusedChildNodeDescriptionIds = new ArrayList<>();
+        
+        private boolean activeSemanticZoom;
 
         private BiFunction<VariableManager, String, IStatus> labelEditHandler;
 
@@ -244,6 +252,7 @@ public final class NodeDescription implements IDiagramElementDescription {
             this.labelEditHandler = nodeDescription.getLabelEditHandler();
             this.deleteHandler = nodeDescription.getDeleteHandler();
             this.shouldRenderPredicate = nodeDescription.getShouldRenderPredicate();
+            this.activeSemanticZoom = nodeDescription.isActiveSemanticZoom();
         }
 
         public Builder synchronizationPolicy(SynchronizationPolicy synchronizationPolicy) {
@@ -340,6 +349,11 @@ public final class NodeDescription implements IDiagramElementDescription {
             this.labelEditHandler = Objects.requireNonNull(labelEditHandler);
             return this;
         }
+        
+        public Builder activeSemanticZoom(boolean activeSemanticZoom) {
+            this.activeSemanticZoom = activeSemanticZoom;
+            return this;
+        }
 
         public NodeDescription build() {
             NodeDescription nodeDescription = new NodeDescription();
@@ -363,6 +377,7 @@ public final class NodeDescription implements IDiagramElementDescription {
             nodeDescription.reusedChildNodeDescriptionIds = Objects.requireNonNull(this.reusedChildNodeDescriptionIds);
             nodeDescription.labelEditHandler = Objects.requireNonNull(this.labelEditHandler);
             nodeDescription.deleteHandler = Objects.requireNonNull(this.deleteHandler);
+            nodeDescription.activeSemanticZoom = Objects.requireNonNull(this.activeSemanticZoom);
             return nodeDescription;
         }
     }

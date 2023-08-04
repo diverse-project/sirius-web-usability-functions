@@ -89,6 +89,7 @@ import org.eclipse.sirius.components.view.RichTextDescription;
 import org.eclipse.sirius.components.view.SelectDescription;
 import org.eclipse.sirius.components.view.SelectDescriptionStyle;
 import org.eclipse.sirius.components.view.SelectionDescription;
+import org.eclipse.sirius.components.view.SemanticZoom;
 import org.eclipse.sirius.components.view.SetValue;
 import org.eclipse.sirius.components.view.SourceEdgeEndReconnectionTool;
 import org.eclipse.sirius.components.view.SynchronizationPolicy;
@@ -290,6 +291,8 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
                 return this.createEdgePalette();
             case ViewPackage.SELECTION_DESCRIPTION:
                 return this.createSelectionDescription();
+            case ViewPackage.SEMANTIC_ZOOM:
+                return this.createSemanticZoom();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -1181,6 +1184,17 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
     public SelectionDescription createSelectionDescription() {
         SelectionDescriptionImpl selectionDescription = new SelectionDescriptionImpl();
         return selectionDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public SemanticZoom createSemanticZoom() {
+        SemanticZoomImpl semanticZoom = new SemanticZoomImpl();
+        return semanticZoom;
     }
 
     /**
