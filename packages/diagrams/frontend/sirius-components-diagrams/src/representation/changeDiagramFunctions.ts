@@ -113,21 +113,16 @@ export class DiagramRefreshTool {
       }
     }
     //We set the diagram (value of each node) to the value stored in the map
-    for (const level of listOfLevelsNumber) {
-      if (zoomLevelNumber == level) {
-        if (level == 0.75) {
-          this.hideEdgesLabel(this.diagram);
-        }
-        for (let i = 0; i < nodeList.length; i++) {
-          const nodeTmp = this.listOfLevels.get(level).find((n) => n.id == nodeList[i].id);
-          nodeList[i].state = nodeTmp.state;
-          nodeList[i].label = nodeTmp.label;
-          nodeList[i].position = nodeTmp.position;
-          nodeList[i].size = nodeTmp.size;
-        }
-      }
+    if (zoomLevelNumber == 0.75) {
+      this.hideEdgesLabel(this.diagram);
     }
-    console.log(this.diagram);
+    for (let i = 0; i < nodeList.length; i++) {
+      const nodeTmp = this.listOfLevels.get(zoomLevelNumber).find((n) => n.id == nodeList[i].id);
+      nodeList[i].state = nodeTmp.state;
+      nodeList[i].label = nodeTmp.label;
+      nodeList[i].position = nodeTmp.position;
+      nodeList[i].size = nodeTmp.size;
+    }
   }
 
   //Hide the label of all edges
@@ -177,7 +172,7 @@ export class DiagramRefreshTool {
           //If we are changing of level
           for (let i = graph.size - count - 1; i >= 0; i--) {
             for (const node of graph.get(i).getNodes()) {
-              if (node.semanticZoom.automaticZoomingByDepthStrategy.activeStrategy) {
+              if (node.semanticZoom.semanticZoomStrategies[0].activeStrategy) {
                 node.label.style.fontSize = 30; //For all nodes, set the font size to 30
                 if (i == graph.size - count - 1) {
                   node.state = GQLViewModifier.Hidden; //Adding all the nodes of the current level to the list to hide
@@ -198,7 +193,7 @@ export class DiagramRefreshTool {
           //If we don't change the level of nodes in the diagram, we perform other changes like keeping the nodes with more than 3 connections
           const numberOfConnectionsPerNode = graph.get(graph.size - count - 1).getNumberOfConnectionsPerNode();
           for (const node of numberOfConnectionsPerNode.keys()) {
-            if (node.semanticZoom.automaticZoomingByDepthStrategy.activeStrategy) {
+            if (node.semanticZoom.semanticZoomStrategies[0].activeStrategy) {
               if (numberOfConnectionsPerNode.get(node) < 3) {
                 node.state = GQLViewModifier.Hidden;
               }

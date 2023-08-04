@@ -93,6 +93,7 @@ import org.eclipse.sirius.components.view.SelectDescription;
 import org.eclipse.sirius.components.view.SelectDescriptionStyle;
 import org.eclipse.sirius.components.view.SelectionDescription;
 import org.eclipse.sirius.components.view.SemanticZoomDescription;
+import org.eclipse.sirius.components.view.SemanticZoomStrategy;
 import org.eclipse.sirius.components.view.SetValue;
 import org.eclipse.sirius.components.view.SourceEdgeEndReconnectionTool;
 import org.eclipse.sirius.components.view.Style;
@@ -1049,6 +1050,8 @@ public class ViewSwitch<T> extends Switch<T> {
                 AutomaticZoomingByDepthStrategy automaticZoomingByDepthStrategy = (AutomaticZoomingByDepthStrategy) theEObject;
                 T result = this.caseAutomaticZoomingByDepthStrategy(automaticZoomingByDepthStrategy);
                 if (result == null)
+                    result = this.caseSemanticZoomStrategy(automaticZoomingByDepthStrategy);
+                if (result == null)
                     result = this.defaultCase(theEObject);
                 return result;
             }
@@ -1056,12 +1059,23 @@ public class ViewSwitch<T> extends Switch<T> {
                 NumberOfRelationStrategy numberOfRelationStrategy = (NumberOfRelationStrategy) theEObject;
                 T result = this.caseNumberOfRelationStrategy(numberOfRelationStrategy);
                 if (result == null)
+                    result = this.caseSemanticZoomStrategy(numberOfRelationStrategy);
+                if (result == null)
                     result = this.defaultCase(theEObject);
                 return result;
             }
             case ViewPackage.MANUALLY_DEFINED_STRATEGY: {
                 ManuallyDefinedStrategy manuallyDefinedStrategy = (ManuallyDefinedStrategy) theEObject;
                 T result = this.caseManuallyDefinedStrategy(manuallyDefinedStrategy);
+                if (result == null)
+                    result = this.caseSemanticZoomStrategy(manuallyDefinedStrategy);
+                if (result == null)
+                    result = this.defaultCase(theEObject);
+                return result;
+            }
+            case ViewPackage.SEMANTIC_ZOOM_STRATEGY: {
+                SemanticZoomStrategy semanticZoomStrategy = (SemanticZoomStrategy) theEObject;
+                T result = this.caseSemanticZoomStrategy(semanticZoomStrategy);
                 if (result == null)
                     result = this.defaultCase(theEObject);
                 return result;
@@ -2433,6 +2447,21 @@ public class ViewSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseManuallyDefinedStrategy(ManuallyDefinedStrategy object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Semantic Zoom Strategy</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Semantic Zoom Strategy</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSemanticZoomStrategy(SemanticZoomStrategy object) {
         return null;
     }
 

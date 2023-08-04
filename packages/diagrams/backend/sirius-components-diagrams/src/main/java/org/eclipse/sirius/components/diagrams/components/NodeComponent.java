@@ -181,7 +181,6 @@ public class NodeComponent implements IComponent {
 
         var borderNodes = this.getBorderNodes(optionalPreviousNode, nodeVariableManager, nodeId, state, nodeDescriptionRequestor);
 
-
         var parentState = state;
         if (collapsingState == CollapsingState.COLLAPSED) {
             parentState = ViewModifier.Hidden;

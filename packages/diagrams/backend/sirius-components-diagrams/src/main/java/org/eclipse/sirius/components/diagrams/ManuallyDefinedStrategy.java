@@ -21,6 +21,10 @@ public class ManuallyDefinedStrategy extends SemanticZoomStrategy {
 
     public static final String KIND = "ManuallyDefinedStrategy";
 
+    public ManuallyDefinedStrategy() {
+        super(false, null, null, null);
+    }
+
     public ManuallyDefinedStrategy(boolean activeStrategy, INodeStyle styleDetailled, INodeStyle styleNormal, INodeStyle styleSummarized) {
         super(activeStrategy, styleDetailled, styleNormal, styleSummarized);
     }

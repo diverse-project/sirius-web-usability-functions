@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.eclipse.sirius.components.view.emf.diagram;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -20,6 +21,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -70,11 +72,11 @@ import org.eclipse.sirius.components.view.FreeFormLayoutStrategyDescription;
 import org.eclipse.sirius.components.view.LabelEditTool;
 import org.eclipse.sirius.components.view.LayoutStrategyDescription;
 import org.eclipse.sirius.components.view.ListLayoutStrategyDescription;
-import org.eclipse.sirius.components.view.ManuallyDefinedStrategy;
 import org.eclipse.sirius.components.view.NodeStyleDescription;
 import org.eclipse.sirius.components.view.NumberOfRelationStrategy;
 import org.eclipse.sirius.components.view.RepresentationDescription;
 import org.eclipse.sirius.components.view.SemanticZoomDescription;
+import org.eclipse.sirius.components.view.SemanticZoomStrategy;
 import org.eclipse.sirius.components.view.ViewPackage;
 import org.eclipse.sirius.components.view.emf.IRepresentationDescriptionConverter;
 import org.eclipse.sirius.components.view.emf.diagram.providers.api.IViewToolImageProvider;
@@ -242,16 +244,16 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
         };
 
         Function<VariableManager, SemanticZoom> semanticZoomProvider =  variableManager -> {
-            SemanticZoom semanticZoomStrategy = null;
+            SemanticZoom semanticZoom = null;
 
             SemanticZoomDescription semanticZoomDescription = viewNodeDescription.getSemanticZoomDescription();
             if (semanticZoomDescription != null) {
-                ISemanticZoomStrategy[] strategies = this.gettingListOfStrategies(variableManager, semanticZoomDescription);
-                semanticZoomStrategy =  new SemanticZoom(strategies[0], strategies[1], strategies[2]);
+                List<ISemanticZoomStrategy> strategies = this.gettingListOfStrategies(variableManager, semanticZoomDescription);
+                semanticZoom =  new SemanticZoom(strategies);
             } else {
-                semanticZoomStrategy = new SemanticZoom();
+                semanticZoom = new SemanticZoom();
             }
-            return semanticZoomStrategy;
+            return semanticZoom;
         };
 
         Function<VariableManager, Size> sizeProvider = variableManager -> this.computeSize(viewNodeDescription, interpreter, variableManager);
@@ -286,7 +288,7 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
                 .reusedBorderNodeDescriptionIds(reusedBorderNodeDescriptionIds)
                 .sizeProvider(sizeProvider)
                 .userResizable(viewNodeDescription.isUserResizable())
-                .activeSemanticZoom(semanticZoomProvider)
+                .semanticZoom(semanticZoomProvider)
                 .labelEditHandler(this.createNodeLabelEditHandler(viewNodeDescription, converterContext))
                 .deleteHandler(this.createDeleteHandler(viewNodeDescription, converterContext))
                 .shouldRenderPredicate(shouldRenderPredicate)
@@ -301,39 +303,25 @@ public class ViewDiagramDescriptionConverter implements IRepresentationDescripti
      * @param semanticZoomDescription
      * @return
      */
-    private ISemanticZoomStrategy[] gettingListOfStrategies(VariableManager variableManager, SemanticZoomDescription semanticZoomDescription) {
-        AutomaticZoomingByDepthStrategy automaticZoomingByDepthStrategyView = semanticZoomDescription.getAutomaticZoomingByDepthStrategy();
-        NumberOfRelationStrategy numberOfRelationStrategyView = semanticZoomDescription.getNumberOfRelationStrategy();
-        ManuallyDefinedStrategy manuallyDefinedStrategyView = semanticZoomDescription.getManuallyDefinedStrategy();
-        ISemanticZoomStrategy automaticZoomingByDepthStrategy = null;
-        ISemanticZoomStrategy numberOfRelationStrategy = null;
-        ISemanticZoomStrategy manuallyDefinedStrategy = null;
+    private List<ISemanticZoomStrategy> gettingListOfStrategies(VariableManager variableManager, SemanticZoomDescription semanticZoomDescription) {
+        List<ISemanticZoomStrategy> strategies = new ArrayList<>();
+        EList<SemanticZoomStrategy> strategiesView = semanticZoomDescription.getSemanticZoomStrategies();
         Optional<String> optionalEditingContextId = variableManager.get(IEditingContext.EDITING_CONTEXT, IEditingContext.class).map(IEditingContext::getId);
-        if (automaticZoomingByDepthStrategyView != null) {
-            automaticZoomingByDepthStrategy = new org.eclipse.sirius.components.diagrams.AutomaticZoomingByDepthStrategy(
-                automaticZoomingByDepthStrategyView.isActiveStrategy(),
-                this.stylesFactory.createNodeStyle(automaticZoomingByDepthStrategyView.getStyleDetailled(), optionalEditingContextId),
-                this.stylesFactory.createNodeStyle(automaticZoomingByDepthStrategyView.getStyleNormal(), optionalEditingContextId),
-                this.stylesFactory.createNodeStyle(automaticZoomingByDepthStrategyView.getStyleSummarized(), optionalEditingContextId));
+        for (SemanticZoomStrategy strategy : strategiesView) {
+            if (strategy != null) {
+                boolean activeStrategy = strategy.isActiveStrategy();
+                INodeStyle styleDetailled = this.stylesFactory.createNodeStyle(strategy.getStyleDetailled(), optionalEditingContextId);
+                INodeStyle styleNormal = this.stylesFactory.createNodeStyle(strategy.getStyleNormal(), optionalEditingContextId);
+                INodeStyle styleSummarized = this.stylesFactory.createNodeStyle(strategy.getStyleSummarized(), optionalEditingContextId);
+                if (strategy instanceof AutomaticZoomingByDepthStrategy) {
+                    strategies.add(new org.eclipse.sirius.components.diagrams.AutomaticZoomingByDepthStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized));
+                } else if (strategy instanceof NumberOfRelationStrategy) {
+                    strategies.add(new org.eclipse.sirius.components.diagrams.NumberOfRelationStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized));
+                } else {
+                    strategies.add(new org.eclipse.sirius.components.diagrams.ManuallyDefinedStrategy(activeStrategy, styleDetailled, styleNormal, styleSummarized));
+                }
+            }
         }
-        if (numberOfRelationStrategyView != null) {
-            numberOfRelationStrategy = new org.eclipse.sirius.components.diagrams.NumberOfRelationStrategy(
-                numberOfRelationStrategyView.isActiveStrategy(),
-                this.stylesFactory.createNodeStyle(numberOfRelationStrategyView.getStyleDetailled(), optionalEditingContextId),
-                this.stylesFactory.createNodeStyle(numberOfRelationStrategyView.getStyleNormal(), optionalEditingContextId),
-                this.stylesFactory.createNodeStyle(numberOfRelationStrategyView.getStyleSummarized(), optionalEditingContextId));
-        }
-        if (manuallyDefinedStrategyView != null) {
-            manuallyDefinedStrategy = new org.eclipse.sirius.components.diagrams.ManuallyDefinedStrategy(
-                manuallyDefinedStrategyView.isActiveStrategy(),
-                this.stylesFactory.createNodeStyle(manuallyDefinedStrategyView.getStyleDetailled(), optionalEditingContextId),
-                this.stylesFactory.createNodeStyle(manuallyDefinedStrategyView.getStyleNormal(), optionalEditingContextId),
-                this.stylesFactory.createNodeStyle(manuallyDefinedStrategyView.getStyleSummarized(), optionalEditingContextId));
-        }
-        ISemanticZoomStrategy[] strategies = new ISemanticZoomStrategy[3];
-        strategies[0] = automaticZoomingByDepthStrategy;
-        strategies[1] = numberOfRelationStrategy;
-        strategies[1] = manuallyDefinedStrategy;
         return strategies;
     }
 

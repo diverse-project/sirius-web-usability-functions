@@ -123,46 +123,52 @@ export const diagramEventSubscription = gql`
     }
     userResizable
     semanticZoom {
-      automaticZoomingByDepthStrategy {
-        activeStrategy
-        styleDetailled {
-          ...styleFields
-        }
-        styleNormal {
-          ...styleFields
-        }
-        styleSummarized {
-          ...styleFields
-        }
-      }
-      numberOfRelationStrategy {
-        activeStrategy
-        styleDetailled {
-          ...styleFields
-        }
-        styleNormal {
-          ...styleFields
-        }
-        styleSummarized {
-          ...styleFields
-        }
-      }
-      manuallyDefinedStrategy {
-        activeStrategy
-        styleDetailled {
-          ...styleFields
-        }
-        styleNormal {
-          ...styleFields
-        }
-        styleSummarized {
-          ...styleFields
-        }
+      semanticZoomStrategies {
+        ...semanticZoomStrategyFields
       }
     }
   }
 
-  fragment styleFields on NodeStyle {
+  fragment semanticZoomStrategyFields on ISemanticZoomStrategy {
+    ... on AutomaticZoomingByDepthStrategy {
+      activeStrategy
+      styleDetailled {
+        ...styleFields
+      }
+      styleNormal {
+        ...styleFields
+      }
+      styleSummarized {
+        ...styleFields
+      }
+    }
+    ... on NumberOfRelationStrategy {
+      activeStrategy
+      styleDetailled {
+        ...styleFields
+      }
+      styleNormal {
+        ...styleFields
+      }
+      styleSummarized {
+        ...styleFields
+      }
+    }
+    ... on ManuallyDefinedStrategy {
+      activeStrategy
+      styleDetailled {
+        ...styleFields
+      }
+      styleNormal {
+        ...styleFields
+      }
+      styleSummarized {
+        ...styleFields
+      }
+    }
+  }
+
+  fragment styleFields on INodeStyle {
     ... on RectangularNodeStyle {
       color
       borderColor

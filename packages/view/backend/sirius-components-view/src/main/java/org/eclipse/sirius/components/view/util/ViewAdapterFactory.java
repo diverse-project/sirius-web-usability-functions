@@ -94,6 +94,7 @@ import org.eclipse.sirius.components.view.SelectDescription;
 import org.eclipse.sirius.components.view.SelectDescriptionStyle;
 import org.eclipse.sirius.components.view.SelectionDescription;
 import org.eclipse.sirius.components.view.SemanticZoomDescription;
+import org.eclipse.sirius.components.view.SemanticZoomStrategy;
 import org.eclipse.sirius.components.view.SetValue;
 import org.eclipse.sirius.components.view.SourceEdgeEndReconnectionTool;
 import org.eclipse.sirius.components.view.Style;
@@ -619,6 +620,11 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseManuallyDefinedStrategy(ManuallyDefinedStrategy object) {
             return ViewAdapterFactory.this.createManuallyDefinedStrategyAdapter();
+        }
+
+        @Override
+        public Adapter caseSemanticZoomStrategy(SemanticZoomStrategy object) {
+            return ViewAdapterFactory.this.createSemanticZoomStrategyAdapter();
         }
 
         @Override
@@ -1902,6 +1908,20 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createManuallyDefinedStrategyAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.sirius.components.view.SemanticZoomStrategy
+     * <em>Semantic Zoom Strategy</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+     * end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.eclipse.sirius.components.view.SemanticZoomStrategy
+     * @generated
+     */
+    public Adapter createSemanticZoomStrategyAdapter() {
         return null;
     }
 

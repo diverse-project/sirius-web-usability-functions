@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.io.IOException;
 
 import org.eclipse.sirius.components.diagrams.INodeStyle;
+import org.eclipse.sirius.components.diagrams.ISemanticZoomStrategy;
 import org.eclipse.sirius.components.diagrams.IconLabelNodeStyle;
 import org.eclipse.sirius.components.diagrams.ImageNodeStyle;
 import org.eclipse.sirius.components.diagrams.Node;
@@ -54,6 +55,7 @@ public class INodeStyleDeserializer extends StdDeserializer<INodeStyle> {
             ObjectNode root = mapper.readTree(jsonParser);
 
             Object parent = jsonParser.getParsingContext().getCurrentValue();
+            String name = jsonParser.getParsingContext().getCurrentName();
             if (parent instanceof Node parentNode) {
                 switch (parentNode.getType()) {
                     case NodeType.NODE_RECTANGLE:
@@ -68,6 +70,17 @@ public class INodeStyleDeserializer extends StdDeserializer<INodeStyle> {
                     default:
                         nodeStyle = mapper.readValue(root.toString(), RectangularNodeStyle.class);
                         break;
+                }
+            }
+            if (parent instanceof ISemanticZoomStrategy) {
+                if (root.get("withHeader") != null) {
+                    nodeStyle = mapper.readValue(root.toString(), RectangularNodeStyle.class);
+                } else if (root.get("imageURL") != null) {
+                    nodeStyle = mapper.readValue(root.toString(), ImageNodeStyle.class);
+                } else if (root.get("backgroundColor") != null) {
+                    nodeStyle = mapper.readValue(root.toString(), IconLabelNodeStyle.class);
+                } else {
+                    nodeStyle = mapper.readValue(root.toString(), RectangularNodeStyle.class);
                 }
             }
         }

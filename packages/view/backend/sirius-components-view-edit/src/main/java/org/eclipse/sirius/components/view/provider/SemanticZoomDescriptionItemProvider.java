@@ -75,9 +75,7 @@ public class SemanticZoomDescriptionItemProvider extends ItemProviderAdapter
     public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            this.childrenFeatures.add(ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY);
-            this.childrenFeatures.add(ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__NUMBER_OF_RELATION_STRATEGY);
-            this.childrenFeatures.add(ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__MANUALLY_DEFINED_STRATEGY);
+            this.childrenFeatures.add(ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__SEMANTIC_ZOOM_STRATEGIES);
         }
         return this.childrenFeatures;
     }
@@ -137,9 +135,7 @@ public class SemanticZoomDescriptionItemProvider extends ItemProviderAdapter
         this.updateChildren(notification);
 
         switch (notification.getFeatureID(SemanticZoomDescription.class)) {
-            case ViewPackage.SEMANTIC_ZOOM_DESCRIPTION__AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY:
-            case ViewPackage.SEMANTIC_ZOOM_DESCRIPTION__NUMBER_OF_RELATION_STRATEGY:
-            case ViewPackage.SEMANTIC_ZOOM_DESCRIPTION__MANUALLY_DEFINED_STRATEGY:
+            case ViewPackage.SEMANTIC_ZOOM_DESCRIPTION__SEMANTIC_ZOOM_STRATEGIES:
                 this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -156,12 +152,11 @@ public class SemanticZoomDescriptionItemProvider extends ItemProviderAdapter
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__AUTOMATIC_ZOOMING_BY_DEPTH_STRATEGY, ViewFactory.eINSTANCE.createAutomaticZoomingByDepthStrategy()));
+        newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__SEMANTIC_ZOOM_STRATEGIES, ViewFactory.eINSTANCE.createAutomaticZoomingByDepthStrategy()));
 
-        newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__NUMBER_OF_RELATION_STRATEGY, ViewFactory.eINSTANCE.createNumberOfRelationStrategy()));
+        newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__SEMANTIC_ZOOM_STRATEGIES, ViewFactory.eINSTANCE.createNumberOfRelationStrategy()));
 
-        newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__MANUALLY_DEFINED_STRATEGY, ViewFactory.eINSTANCE.createManuallyDefinedStrategy()));
+        newChildDescriptors.add(this.createChildParameter(ViewPackage.Literals.SEMANTIC_ZOOM_DESCRIPTION__SEMANTIC_ZOOM_STRATEGIES, ViewFactory.eINSTANCE.createManuallyDefinedStrategy()));
     }
 
     /**
