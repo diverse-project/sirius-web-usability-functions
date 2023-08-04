@@ -23,6 +23,7 @@ import java.util.function.Predicate;
 import org.eclipse.sirius.components.annotations.Immutable;
 import org.eclipse.sirius.components.diagrams.ILayoutStrategy;
 import org.eclipse.sirius.components.diagrams.INodeStyle;
+import org.eclipse.sirius.components.diagrams.SemanticZoom;
 import org.eclipse.sirius.components.diagrams.Size;
 import org.eclipse.sirius.components.representations.IStatus;
 import org.eclipse.sirius.components.representations.VariableManager;
@@ -74,9 +75,7 @@ public final class NodeDescription implements IDiagramElementDescription {
 
     private Function<VariableManager, IStatus> deleteHandler;
 
-    //private Function<VariableManager, SemanticZoom> activeSemanticZoom;
-
-    private boolean activeSemanticZoom;
+    private Function<VariableManager, SemanticZoom> semanticZoom;
 
     private NodeDescription() {
         // Prevent instantiation
@@ -163,8 +162,8 @@ public final class NodeDescription implements IDiagramElementDescription {
         return this.labelEditHandler;
     }
 
-    public boolean isActiveSemanticZoom() {
-        return this.activeSemanticZoom;
+    public Function<VariableManager, SemanticZoom> getSemanticZoom() {
+        return this.semanticZoom;
     }
 
     public static Builder newNodeDescription(String id) {
@@ -224,7 +223,7 @@ public final class NodeDescription implements IDiagramElementDescription {
 
         private List<String> reusedChildNodeDescriptionIds = new ArrayList<>();
 
-        private boolean activeSemanticZoom;
+        private Function<VariableManager, SemanticZoom> semanticZoom;
 
         private BiFunction<VariableManager, String, IStatus> labelEditHandler;
 
@@ -254,7 +253,7 @@ public final class NodeDescription implements IDiagramElementDescription {
             this.labelEditHandler = nodeDescription.getLabelEditHandler();
             this.deleteHandler = nodeDescription.getDeleteHandler();
             this.shouldRenderPredicate = nodeDescription.getShouldRenderPredicate();
-            this.activeSemanticZoom = nodeDescription.isActiveSemanticZoom();
+            this.semanticZoom = nodeDescription.getSemanticZoom();
         }
 
         public Builder synchronizationPolicy(SynchronizationPolicy synchronizationPolicy) {
@@ -352,8 +351,8 @@ public final class NodeDescription implements IDiagramElementDescription {
             return this;
         }
 
-        public Builder activeSemanticZoom(boolean activeSemanticZoom) {
-            this.activeSemanticZoom = activeSemanticZoom;
+        public Builder activeSemanticZoom(Function<VariableManager, SemanticZoom> semanticZoom) {
+            this.semanticZoom = semanticZoom;
             return this;
         }
 
@@ -379,7 +378,7 @@ public final class NodeDescription implements IDiagramElementDescription {
             nodeDescription.reusedChildNodeDescriptionIds = Objects.requireNonNull(this.reusedChildNodeDescriptionIds);
             nodeDescription.labelEditHandler = Objects.requireNonNull(this.labelEditHandler);
             nodeDescription.deleteHandler = Objects.requireNonNull(this.deleteHandler);
-            nodeDescription.activeSemanticZoom = Objects.requireNonNull(this.activeSemanticZoom);
+            nodeDescription.semanticZoom = Objects.requireNonNull(this.semanticZoom);
             return nodeDescription;
         }
     }

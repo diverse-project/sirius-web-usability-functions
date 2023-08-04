@@ -30,6 +30,7 @@ import org.eclipse.sirius.components.diagrams.NodeType;
 import org.eclipse.sirius.components.diagrams.ParametricSVGNodeType;
 import org.eclipse.sirius.components.diagrams.Position;
 import org.eclipse.sirius.components.diagrams.RectangularNodeStyle;
+import org.eclipse.sirius.components.diagrams.SemanticZoom;
 import org.eclipse.sirius.components.diagrams.Size;
 import org.eclipse.sirius.components.diagrams.ViewCreationRequest;
 import org.eclipse.sirius.components.diagrams.ViewModifier;
@@ -176,6 +177,8 @@ public class NodeComponent implements IComponent {
 
         ILayoutStrategy layoutStrategy = nodeDescription.getChildrenLayoutStrategyProvider().apply(nodeVariableManager);
 
+        SemanticZoom semanticZoom = nodeDescription.getSemanticZoom().apply(nodeVariableManager);
+
         var borderNodes = this.getBorderNodes(optionalPreviousNode, nodeVariableManager, nodeId, state, nodeDescriptionRequestor);
 
 
@@ -234,7 +237,6 @@ public class NodeComponent implements IComponent {
                 .position(position)
                 .size(size)
                 .userResizable(nodeDescription.isUserResizable())
-                .activeSemanticZoom(nodeDescription.isActiveSemanticZoom())
                 .children(nodeChildren)
                 .customizableProperties(customizableProperties)
                 .modifiers(modifiers)
@@ -243,6 +245,10 @@ public class NodeComponent implements IComponent {
 
         if (layoutStrategy != null) {
             nodeElementPropsBuilder.childrenLayoutStrategy(layoutStrategy);
+        }
+
+        if (semanticZoom != null) {
+            nodeElementPropsBuilder.semanticZoom(semanticZoom);
         }
 
         // @formatter:on

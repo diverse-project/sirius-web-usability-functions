@@ -53,5 +53,8 @@ fragment nodeFragment on Node {
     height
   }
   userResizable
+  semanticZoom {
+    activeSemanticZoom
+  }
 }
 `;

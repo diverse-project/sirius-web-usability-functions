@@ -114,7 +114,7 @@ public class DiagramElementFactory implements IElementFactory {
                 .position(props.getPosition())
                 .size(props.getSize())
                 .userResizable(props.isUserResizable())
-                .activeSemanticZoom(props.isActiveSemanticZoom())
+                .semanticZoom(props.getSemanticZoom())
                 .borderNodes(borderNodes)
                 .childNodes(childNodes)
                 .customizedProperties(props.getCustomizableProperties())

@@ -155,6 +155,10 @@ export interface GQLNode {
   style: GQLINodeStyle;
   borderNodes: GQLNode[] | undefined;
   childNodes: GQLNode[] | undefined;
+  semanticZoom: GQLSemanticZoom;
+}
+
+export interface GQLSemanticZoom {
   activeSemanticZoom: boolean;
 }
 

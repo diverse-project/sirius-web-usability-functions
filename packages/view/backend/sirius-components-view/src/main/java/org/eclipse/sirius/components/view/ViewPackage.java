@@ -10712,7 +10712,7 @@ public interface ViewPackage extends EPackage {
          * '{@link org.eclipse.sirius.components.view.impl.FreeFormLayoutStrategyDescriptionImpl <em>Free Form Layout
          * Strategy Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
-         * @see org.eclipse.sirius.components.view.impl.FreeFormLayoutStrategyDescriptionImpl
+         * @see org.eclipse.sirius.components.view.impl.+
          * @see org.eclipse.sirius.components.view.impl.ViewPackageImpl#getFreeFormLayoutStrategyDescription()
          * @generated
          */
